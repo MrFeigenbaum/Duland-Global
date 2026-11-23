@@ -61,10 +61,10 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
   return (
     <div className="w-full">
       
-      {/* 1. TOP BANNER: 4K Golden Sunset Financial Skyline */}
+      {/* 1. TOP BANNER: 3-Image Mix with Shadow Transforms */}
       <section className="relative w-full h-[320px] sm:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_investments_skyline_4k.webp" 
+          src="/assets/banner_investments_3mix.webp" 
           alt="Our Investments"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />

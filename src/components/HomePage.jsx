@@ -125,10 +125,10 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
       
       {/* 1. HERO SECTION */}
       <section className="relative w-full h-[580px] sm:h-[640px] lg:h-[720px] overflow-hidden flex items-center">
-        {/* Background Image: Razor-Sharp 4K Real Assets Architecture */}
+        {/* Background Image: 3-Image Mix with Shadow Transforms (4K Panorama) */}
         <div className="absolute inset-0 w-full h-full">
           <img 
-            src="/assets/hero_banner_real_assets_4k.webp" 
+            src="/assets/hero_banner_3mix.webp" 
             alt="Duland Global Real Assets Portfolio" 
             className="w-full h-full object-cover object-center"
           />

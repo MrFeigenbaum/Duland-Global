@@ -44,10 +44,10 @@ export const ContactPage = () => {
   return (
     <div className="w-full">
       
-      {/* 1. TOP BANNER: 4K Executive Building Terrace at Twilight */}
+      {/* 1. TOP BANNER: 3-Image Mix with Shadow Transforms */}
       <section className="relative w-full h-[320px] sm:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_contact_terrace_4k.webp" 
+          src="/assets/banner_contact_3mix.webp" 
           alt="Contact Duland Global"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />

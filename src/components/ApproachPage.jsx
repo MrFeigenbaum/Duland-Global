@@ -57,10 +57,10 @@ export const ApproachPage = ({ setCurrentView }) => {
   return (
     <div className="w-full">
       
-      {/* 1. TOP BANNER: High-Res Binoculars Overlooking Sunset Mountains */}
+      {/* 1. TOP BANNER: 3-Image Mix with Shadow Transforms */}
       <section className="relative w-full h-[320px] sm:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/binoculars_mountains.webp" 
+          src="/assets/banner_approach_3mix.webp" 
           alt="Investment Approach"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
