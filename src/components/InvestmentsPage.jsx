@@ -20,7 +20,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       id: 'residential',
       title: 'Residential Properties',
       icon: Building,
-      image: '/assets/prop_residential.webp',
+      image: '/assets/prop_residential_unique.webp',
       desc: 'Acquisition and development of high-yield residential communities and urban living apartments.',
       longDesc: 'Our residential real estate strategy centers on urban multifamily developments, premium suburban complexes, and high-occupancy properties in thriving economic hubs across Europe and regional gateways.'
     },
@@ -28,7 +28,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       id: 'office',
       title: 'Office Properties',
       icon: Building2,
-      image: '/assets/prop_office.webp',
+      image: '/assets/prop_office_unique.webp',
       desc: 'Prime business parks and headquarters-grade office assets with high ESG standards and tier-1 tenants.',
       longDesc: 'Duland Global invests in contemporary office buildings equipped with smart building infrastructure, renewable energy systems, and institutional-quality lease covenants.'
     },
@@ -36,7 +36,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       id: 'industrial',
       title: 'Industrial Assets',
       icon: Factory,
-      image: '/assets/prop_industrial.webp',
+      image: '/assets/prop_industrial_unique.webp',
       desc: 'Modern manufacturing plants, intermodal cross-docks, and logistics fulfillment infrastructure.',
       longDesc: 'Capitalizing on the expansion of European and Central Asian supply corridors, our industrial portfolio targets strategic warehouses, distribution hubs, and production facilities.'
     },
@@ -44,7 +44,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       id: 'land',
       title: 'Land & Development',
       icon: Trees,
-      image: '/assets/prop_land.webp',
+      image: '/assets/prop_land_unique.webp',
       desc: 'Zoned land banks, master-planned residential plots, and strategic commercial development acreage.',
       longDesc: 'We identify undervalued, strategically located parcels undergoing infrastructure upgrades, adding value through zoning optimization, utilities installation, and phased development.'
     }
@@ -64,7 +64,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       {/* 1. TOP BANNER */}
       <section className="relative w-full h-[320px] sm:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_corporate.webp" 
+          src="/assets/banner_glass_office.webp" 
           alt="Our Investments"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -114,7 +114,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
             <div className="rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-lg flex flex-col group hover:border-[#006400] transition-all">
               <div className="h-64 overflow-hidden relative">
                 <img 
-                  src="/assets/prop_residential.webp" 
+                  src="/assets/prop_residential_unique.webp" 
                   alt="Real Estate Investments" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -137,7 +137,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
                 <div className="mt-6 pt-6 border-t border-slate-200">
                   <button 
                     onClick={() => setSelectedAsset(assetPortfolio[0])}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#006400] text-white text-xs font-bold hover:bg-[#004d00] transition-colors"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#006400] text-white text-xs font-bold hover:bg-[#004d00] transition-colors cursor-pointer"
                   >
                     <span>Explore Real Estate</span>
                     <ChevronRight className="w-3.5 h-3.5" />
@@ -146,11 +146,11 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
               </div>
             </div>
 
-            {/* Pillar 2: Financial */}
+            {/* Pillar 2: Financial Investments (Chart + Stacked Gold Coins) */}
             <div className="rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-lg flex flex-col group hover:border-[#006400] transition-all">
               <div className="h-64 overflow-hidden relative">
                 <img 
-                  src="/assets/financial_invest.webp" 
+                  src="/assets/financial_chart_coins.webp" 
                   alt="Financial Investments" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -166,14 +166,14 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
                     Financial Investments
                   </h3>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    A diversified investment portfolio focused on capital growth, structured liquidity, defensive yielding instruments and financial stability.
+                    A diversified investment portfolio focused on capital growth, income generation, structured yields and financial stability across institutional assets.
                   </p>
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-slate-200">
                   <button 
                     onClick={() => setCurrentView('approach')}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#006400] text-white text-xs font-bold hover:bg-[#004d00] transition-colors"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#006400] text-white text-xs font-bold hover:bg-[#004d00] transition-colors cursor-pointer"
                   >
                     <span>Explore Financial</span>
                     <ChevronRight className="w-3.5 h-3.5" />
@@ -274,4 +274,5 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
     </div>
   );
 };
+
 export default InvestmentsPage;

@@ -57,10 +57,10 @@ export const ApproachPage = ({ setCurrentView }) => {
   return (
     <div className="w-full">
       
-      {/* 1. TOP BANNER */}
+      {/* 1. TOP BANNER: Binoculars Overlooking Sunset Mountains */}
       <section className="relative w-full h-[320px] sm:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/binoculars_view.webp" 
+          src="/assets/binoculars_mountains.webp" 
           alt="Investment Approach"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -190,10 +190,10 @@ export const ApproachPage = ({ setCurrentView }) => {
               </p>
             </div>
 
-            {/* Center Image: Zen Stones */}
-            <div className="lg:col-span-4 rounded-3xl overflow-hidden shadow-lg h-72 lg:h-auto min-h-[250px]">
+            {/* Center Image: Balanced Zen Stones in Nature */}
+            <div className="lg:col-span-4 rounded-3xl overflow-hidden shadow-lg h-72 lg:h-auto min-h-[260px]">
               <img 
-                src="/assets/zen_stones.webp" 
+                src="/assets/zen_stones_balance.webp" 
                 alt="Balance and Resilience"
                 className="w-full h-full object-cover"
               />
@@ -218,4 +218,5 @@ export const ApproachPage = ({ setCurrentView }) => {
     </div>
   );
 };
+
 export default ApproachPage;

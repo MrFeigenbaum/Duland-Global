@@ -32,11 +32,11 @@ export const AboutPage = ({ setCurrentView }) => {
       {/* 1. TOP BANNER */}
       <section className="relative w-full h-[320px] sm:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_corporate.webp" 
+          src="/assets/banner_glass_office.webp" 
           alt="About Duland Global"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl text-white">
@@ -79,11 +79,11 @@ export const AboutPage = ({ setCurrentView }) => {
               </div>
             </div>
 
-            {/* Right Landscape Image */}
+            {/* Right Landscape Image: Rolling Golden Hills */}
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden shadow-xl border border-slate-200">
                 <img 
-                  src="/assets/prop_land.webp" 
+                  src="/assets/who_we_are_hills.webp" 
                   alt="Duland Global Landscape"
                   className="w-full h-80 object-cover"
                 />
@@ -135,11 +135,11 @@ export const AboutPage = ({ setCurrentView }) => {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden shadow-xl border border-slate-200">
             
-            {/* Left Image */}
-            <div className="lg:col-span-6 h-80 lg:h-auto min-h-[300px]">
+            {/* Left Image: Modern Residential Pedestrian Walkway */}
+            <div className="lg:col-span-6 h-80 lg:h-auto min-h-[320px]">
               <img 
-                src="/assets/commitment_walkway.webp" 
-                alt="Our Commitment"
+                src="/assets/commitment_walkway_unique.webp" 
+                alt="Our Commitment to Sustainable Communities"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -151,17 +151,13 @@ export const AboutPage = ({ setCurrentView }) => {
               </h3>
               <div className="w-12 h-1 bg-[#22c55e] mt-3 mb-6 rounded-full"></div>
               
-              <p className="text-sm sm:text-base text-emerald-100/90 leading-relaxed">
-                We aim to generate stable returns, support sustainable growth and contribute to the development of the regions in which we invest. We believe in building long-term partnerships based on trust, transparency and shared value.
-              </p>
-
-              <div className="mt-8">
-                <button
-                  onClick={() => setCurrentView('contact')}
-                  className="px-6 py-3 rounded-lg bg-white text-[#004d00] font-bold text-xs uppercase tracking-wider hover:bg-emerald-50 transition-colors cursor-pointer shadow-md"
-                >
-                  Connect with Leadership
-                </button>
+              <div className="space-y-4 text-emerald-100 text-sm sm:text-base leading-relaxed">
+                <p>
+                  We aim to generate stable returns, support sustainable growth and contribute to the development of the regions in which we invest.
+                </p>
+                <p>
+                  We believe in building long-term partnerships based on trust, transparency and shared value.
+                </p>
               </div>
             </div>
 
@@ -183,15 +179,15 @@ export const AboutPage = ({ setCurrentView }) => {
               <div className="w-12 h-1 bg-[#006400] mt-2 rounded-full"></div>
             </div>
 
-            <div className="lg:col-span-9 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
+            <div className="lg:col-span-9 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
               {values.map((val, idx) => {
                 const IconComp = val.icon;
                 return (
-                  <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center text-center">
-                    <div className="w-10 h-10 rounded-xl bg-slate-100 text-[#006400] flex items-center justify-center mb-2.5">
-                      <IconComp className="w-5 h-5" />
+                  <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center text-center group hover:border-[#006400] transition-colors">
+                    <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#006400] flex items-center justify-center mb-3 group-hover:bg-[#006400] group-hover:text-white transition-colors">
+                      <IconComp className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-bold text-slate-900">
+                    <span className="text-xs sm:text-sm font-bold text-slate-900">
                       {val.title}
                     </span>
                   </div>
@@ -207,4 +203,5 @@ export const AboutPage = ({ setCurrentView }) => {
     </div>
   );
 };
+
 export default AboutPage;

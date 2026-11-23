@@ -47,7 +47,7 @@ export const ContactPage = () => {
       {/* 1. TOP BANNER */}
       <section className="relative w-full h-[320px] sm:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_corporate.webp" 
+          src="/assets/banner_glass_office.webp" 
           alt="Contact Duland Global"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -199,54 +199,65 @@ export const ContactPage = () => {
             </div>
 
             {/* Right: Info (5 cols) */}
-            <div className="lg:col-span-5 bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
+            <div className="lg:col-span-5 bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden flex flex-col justify-between">
               
-              <h3 className="font-serif text-2xl font-bold text-slate-900 mb-6">
-                Our Contact Information
-              </h3>
+              <div>
+                <h3 className="font-serif text-2xl font-bold text-slate-900 mb-6">
+                  Our Contact Information
+                </h3>
 
-              <div className="space-y-6 text-sm text-slate-700 relative z-10">
-                
-                <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-100/70 text-[#006400] flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5" />
+                <div className="space-y-6 text-sm text-slate-700 relative z-10">
+                  
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-100/70 text-[#006400] flex items-center justify-center shrink-0">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-slate-900 text-base">Duland Global Kft.</div>
+                      <div className="text-slate-600">Budapest, Hungary</div>
+                      <div className="text-xs text-slate-500 italic mt-0.5">(Registered Office)</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-bold text-slate-900 text-base">Duland Global Kft.</div>
-                    <div className="text-slate-600">Budapest, Hungary</div>
-                    <div className="text-xs text-slate-500 italic mt-0.5">(Registered Office)</div>
+
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-100/70 text-[#006400] flex items-center justify-center shrink-0">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-slate-900">+36 1 700 0000</div>
+                    </div>
                   </div>
+
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-100/70 text-[#006400] flex items-center justify-center shrink-0">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <a href="mailto:info@dulandglobal.com" className="font-bold text-[#006400] hover:underline">
+                        info@dulandglobal.com
+                      </a>
+                    </div>
+                  </div>
+
                 </div>
 
-                <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-100/70 text-[#006400] flex items-center justify-center shrink-0">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-slate-900">+36 1 700 0000</div>
-                  </div>
+                <div className="mt-8 pt-8 border-t border-slate-200">
+                  <h4 className="font-bold text-sm text-slate-900 mb-2">
+                    Business Inquiries
+                  </h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    For investment proposals, partnership opportunities or other business inquiries, please contact us directly or use the contact form.
+                  </p>
                 </div>
-
-                <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-100/70 text-[#006400] flex items-center justify-center shrink-0">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <a href="mailto:info@dulandglobal.com" className="font-bold text-[#006400] hover:underline">
-                      info@dulandglobal.com
-                    </a>
-                  </div>
-                </div>
-
               </div>
 
-              <div className="mt-8 pt-8 border-t border-slate-200">
-                <h4 className="font-bold text-sm text-slate-900 mb-2">
-                  Business Inquiries
-                </h4>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  For investment proposals, partnership opportunities or other business inquiries, please contact us directly or use the contact form.
-                </p>
+              {/* Executive Desk Image underneath contact info */}
+              <div className="mt-6 rounded-2xl overflow-hidden border border-slate-200 h-44 shadow-xs">
+                <img 
+                  src="/assets/contact_desk_pen.webp" 
+                  alt="Executive Desk & Pen"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
             </div>
@@ -256,12 +267,12 @@ export const ContactPage = () => {
         </div>
       </section>
 
-      {/* 3. HOW WE CAN COLLABORATE (Dark Green Bottom Bar) */}
-      <section className="bg-[#004d00] text-white py-14 border-t border-emerald-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 3. HOW WE CAN COLLABORATE (Deep Green Band) */}
+      <section className="bg-[#004d00] text-white py-16 border-t border-emerald-900 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="text-center mb-10">
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h3 className="font-serif text-3xl font-extrabold text-white">
               How We Can Collaborate
             </h3>
             <div className="w-16 h-1 bg-[#22c55e] mx-auto mt-3 rounded-full"></div>
@@ -271,13 +282,13 @@ export const ContactPage = () => {
             {collaborateCards.map((card, idx) => {
               const IconComp = card.icon;
               return (
-                <div key={idx} className="flex flex-col items-center text-center p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors border border-white/10">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-3">
-                    <IconComp className="w-6 h-6 text-emerald-300" />
+                <div key={idx} className="bg-white/10 backdrop-blur-xs p-6 rounded-2xl border border-white/15 flex flex-col items-center text-center hover:bg-white/15 transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-white/15 text-emerald-300 flex items-center justify-center mb-4">
+                    <IconComp className="w-6 h-6" />
                   </div>
-                  <span className="text-xs sm:text-sm font-bold text-emerald-50">
+                  <h4 className="font-serif font-bold text-sm sm:text-base text-white">
                     {card.title}
-                  </span>
+                  </h4>
                 </div>
               );
             })}
@@ -289,4 +300,5 @@ export const ContactPage = () => {
     </div>
   );
 };
+
 export default ContactPage;
