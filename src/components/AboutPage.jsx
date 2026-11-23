@@ -29,10 +29,10 @@ export const AboutPage = ({ setCurrentView }) => {
   return (
     <div className="w-full">
       
-      {/* 1. TOP BANNER */}
+      {/* 1. TOP BANNER: 4K Modern Headquarters Building */}
       <section className="relative w-full h-[320px] sm:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_about_mockup_exact.webp" 
+          src="/assets/banner_about_headquarters_4k.webp" 
           alt="About Duland Global"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -79,11 +79,11 @@ export const AboutPage = ({ setCurrentView }) => {
               </div>
             </div>
 
-            {/* Right Landscape Image: Rolling Golden Hills */}
+            {/* Right Landscape Image: Rolling Golden Hills 4K */}
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden shadow-xl border border-slate-200">
                 <img 
-                  src="/assets/who_we_are_hills.webp" 
+                  src="/assets/who_we_are_hills_4k.webp" 
                   alt="Duland Global Landscape"
                   className="w-full h-80 object-cover"
                 />
@@ -135,10 +135,10 @@ export const AboutPage = ({ setCurrentView }) => {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden shadow-xl border border-slate-200">
             
-            {/* Left Image: Modern Residential Pedestrian Walkway */}
+            {/* Left Image: Modern Residential Pedestrian Walkway 4K */}
             <div className="lg:col-span-6 h-80 lg:h-auto min-h-[320px]">
               <img 
-                src="/assets/commitment_walkway_unique.webp" 
+                src="/assets/commitment_walkway_4k.webp" 
                 alt="Our Commitment to Sustainable Communities"
                 className="w-full h-full object-cover"
               />

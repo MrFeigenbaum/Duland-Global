@@ -44,10 +44,10 @@ export const ContactPage = () => {
   return (
     <div className="w-full">
       
-      {/* 1. TOP BANNER */}
+      {/* 1. TOP BANNER: 4K Executive Building Terrace at Twilight */}
       <section className="relative w-full h-[320px] sm:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_contact_mockup_exact.webp" 
+          src="/assets/banner_contact_terrace_4k.webp" 
           alt="Contact Duland Global"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -251,7 +251,7 @@ export const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Executive Desk Image underneath contact info */}
+              {/* Executive Desk Image */}
               <div className="mt-6 rounded-2xl overflow-hidden border border-slate-200 h-44 shadow-xs">
                 <img 
                   src="/assets/contact_desk_pen.webp" 

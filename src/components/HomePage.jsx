@@ -28,7 +28,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
       id: 'residential',
       title: 'Residential Properties',
       icon: Building,
-      image: '/assets/prop_residential_unique.webp',
+      image: '/assets/prop_residential_4k.webp',
       desc: 'High-quality urban and suburban residential living assets developed for sustainable yields.',
       longDesc: 'Our residential real estate strategy centers on urban multifamily developments, premium suburban complexes, and high-occupancy properties in thriving economic hubs across Europe and regional gateways.'
     },
@@ -36,7 +36,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
       id: 'office',
       title: 'Office Properties',
       icon: Building2,
-      image: '/assets/prop_office_unique.webp',
+      image: '/assets/prop_office_4k.webp',
       desc: 'Prime modern commercial office complexes offering energy-efficient workplaces and steady occupancy.',
       longDesc: 'Duland Global invests in contemporary office buildings equipped with smart building infrastructure, renewable energy systems, and institutional-quality lease covenants.'
     },
@@ -44,7 +44,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
       id: 'industrial',
       title: 'Industrial & Production Assets',
       icon: Factory,
-      image: '/assets/prop_industrial_unique.webp',
+      image: '/assets/prop_industrial_4k.webp',
       desc: 'Strategic manufacturing, logistics, and high-bay distribution facilities connected to trade corridors.',
       longDesc: 'Capitalizing on the expansion of European and Central Asian supply corridors, our industrial portfolio targets strategic warehouses, distribution hubs, and production facilities.'
     },
@@ -52,7 +52,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
       id: 'land',
       title: 'Land Investments & Development',
       icon: Trees,
-      image: '/assets/prop_land_unique.webp',
+      image: '/assets/prop_land_4k.webp',
       desc: 'High-potential agricultural, commercial, and mixed-use land parcels positioned for future value enhancement.',
       longDesc: 'We identify undervalued, strategically located parcels undergoing infrastructure upgrades, adding value through zoning optimization, utilities installation, and phased development.'
     }
@@ -82,7 +82,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
     {
       title: 'Sustainable Investments',
       desc: 'Long-term assets with environmental and economic value.',
-      image: '/assets/dev_solar.webp',
+      image: '/assets/dev_solar_4k.webp',
       icon: Leaf
     }
   ];
@@ -106,17 +106,17 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
     {
       title: 'Real Estate Market Outlook 2026',
       date: 'Nov 15, 2026',
-      image: '/assets/insight_residential.webp'
+      image: '/assets/insight_residential_4k.webp'
     },
     {
       title: 'Industrial Assets: A Growing Opportunity',
       date: 'Nov 08, 2026',
-      image: '/assets/insight_industrial.webp'
+      image: '/assets/insight_industrial_4k.webp'
     },
     {
       title: 'Sustainable Investments for the Future',
       date: 'Oct 30, 2026',
-      image: '/assets/insight_sustainable.webp'
+      image: '/assets/insight_sustainable_4k.webp'
     }
   ];
 
@@ -125,10 +125,10 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
       
       {/* 1. HERO SECTION */}
       <section className="relative w-full h-[580px] sm:h-[640px] lg:h-[720px] overflow-hidden flex items-center">
-        {/* Background Image: Composite Panoramic Real Assets */}
+        {/* Background Image: Razor-Sharp 4K Real Assets Architecture */}
         <div className="absolute inset-0 w-full h-full">
           <img 
-            src="/assets/hero_montage_real_assets.webp" 
+            src="/assets/hero_banner_real_assets_4k.webp" 
             alt="Duland Global Real Assets Portfolio" 
             className="w-full h-full object-cover object-center"
           />
@@ -306,17 +306,17 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
         </div>
       </section>
 
-      {/* 5. A DISCIPLINED INVESTMENT PROCESS (Boardroom Globe + 5 Steps) */}
+      {/* 5. A DISCIPLINED INVESTMENT PROCESS */}
       <section className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            {/* Left Image: Boardroom Globe (Col 5) */}
+            {/* Left Image: Boardroom (Col 5) */}
             <div className="lg:col-span-5">
               <div className="rounded-3xl overflow-hidden shadow-xl border border-slate-200 h-[380px] sm:h-[420px]">
                 <img 
-                  src="/assets/boardroom_globe.webp" 
+                  src="/assets/boardroom_globe_4k.webp" 
                   alt="Boardroom Decision Making and Strategy" 
                   className="w-full h-full object-cover"
                 />

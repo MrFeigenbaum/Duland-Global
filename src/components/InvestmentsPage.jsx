@@ -20,7 +20,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       id: 'residential',
       title: 'Residential Properties',
       icon: Building,
-      image: '/assets/prop_residential_unique.webp',
+      image: '/assets/prop_residential_4k.webp',
       desc: 'Acquisition and development of high-yield residential communities and urban living apartments.',
       longDesc: 'Our residential real estate strategy centers on urban multifamily developments, premium suburban complexes, and high-occupancy properties in thriving economic hubs across Europe and regional gateways.'
     },
@@ -28,7 +28,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       id: 'office',
       title: 'Office Properties',
       icon: Building2,
-      image: '/assets/prop_office_unique.webp',
+      image: '/assets/prop_office_4k.webp',
       desc: 'Prime business parks and headquarters-grade office assets with high ESG standards and tier-1 tenants.',
       longDesc: 'Duland Global invests in contemporary office buildings equipped with smart building infrastructure, renewable energy systems, and institutional-quality lease covenants.'
     },
@@ -36,7 +36,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       id: 'industrial',
       title: 'Industrial Assets',
       icon: Factory,
-      image: '/assets/prop_industrial_unique.webp',
+      image: '/assets/prop_industrial_4k.webp',
       desc: 'Modern manufacturing plants, intermodal cross-docks, and logistics fulfillment infrastructure.',
       longDesc: 'Capitalizing on the expansion of European and Central Asian supply corridors, our industrial portfolio targets strategic warehouses, distribution hubs, and production facilities.'
     },
@@ -44,7 +44,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       id: 'land',
       title: 'Land & Development',
       icon: Trees,
-      image: '/assets/prop_land_unique.webp',
+      image: '/assets/prop_land_4k.webp',
       desc: 'Zoned land banks, master-planned residential plots, and strategic commercial development acreage.',
       longDesc: 'We identify undervalued, strategically located parcels undergoing infrastructure upgrades, adding value through zoning optimization, utilities installation, and phased development.'
     }
@@ -61,10 +61,10 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
   return (
     <div className="w-full">
       
-      {/* 1. TOP BANNER */}
+      {/* 1. TOP BANNER: 4K Golden Sunset Financial Skyline */}
       <section className="relative w-full h-[320px] sm:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_inv_mockup_exact.webp" 
+          src="/assets/banner_investments_skyline_4k.webp" 
           alt="Our Investments"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -110,11 +110,11 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
           {/* TWO PRIMARY PILLARS (Real Estate vs Financial) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
-            {/* Pillar 1: Real Estate */}
+            {/* Pillar 1: Real Estate 4K */}
             <div className="rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-lg flex flex-col group hover:border-[#006400] transition-all">
               <div className="h-64 overflow-hidden relative">
                 <img 
-                  src="/assets/prop_residential_unique.webp" 
+                  src="/assets/prop_residential_4k.webp" 
                   alt="Real Estate Investments" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -146,11 +146,11 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
               </div>
             </div>
 
-            {/* Pillar 2: Financial Investments (Chart + Stacked Gold Coins) */}
+            {/* Pillar 2: Financial Investments (Chart + Stacked Gold Coins 4K) */}
             <div className="rounded-3xl overflow-hidden border border-slate-200 bg-slate-50 shadow-lg flex flex-col group hover:border-[#006400] transition-all">
               <div className="h-64 overflow-hidden relative">
                 <img 
-                  src="/assets/financial_chart_coins.webp" 
+                  src="/assets/financial_invest_4k.webp" 
                   alt="Financial Investments" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />

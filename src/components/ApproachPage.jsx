@@ -57,7 +57,7 @@ export const ApproachPage = ({ setCurrentView }) => {
   return (
     <div className="w-full">
       
-      {/* 1. TOP BANNER: Binoculars Overlooking Sunset Mountains */}
+      {/* 1. TOP BANNER: High-Res Binoculars Overlooking Sunset Mountains */}
       <section className="relative w-full h-[320px] sm:h-[380px] overflow-hidden flex items-center">
         <img 
           src="/assets/binoculars_mountains.webp" 
