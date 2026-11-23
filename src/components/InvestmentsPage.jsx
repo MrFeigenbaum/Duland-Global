@@ -64,7 +64,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       {/* 1. TOP BANNER */}
       <section className="relative w-full h-[320px] sm:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_glass_office.webp" 
+          src="/assets/banner_inv_mockup_exact.webp" 
           alt="Our Investments"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />

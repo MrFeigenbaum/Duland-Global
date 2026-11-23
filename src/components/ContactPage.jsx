@@ -47,7 +47,7 @@ export const ContactPage = () => {
       {/* 1. TOP BANNER */}
       <section className="relative w-full h-[320px] sm:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_glass_office.webp" 
+          src="/assets/banner_contact_mockup_exact.webp" 
           alt="Contact Duland Global"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
