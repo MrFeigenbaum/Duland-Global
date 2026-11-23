@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Playfair Display', Georgia, Cambria, serif;
+  }
+}
+
+/* Custom Glass and Accent Classes */
+.brand-green {
+  background-color: #006400;
+}
+
+.text-brand-green {
+  color: #006400;
+}
+
+.border-brand-green {
+  border-color: #006400;
+}
+
+.green-gradient {
+  background: linear-gradient(135deg, #004d00 0%, #006400 50%, #0a4d1b 100%);
+}
+
+.green-card-gradient {
+  background: linear-gradient(145deg, #093b16 0%, #05290f 100%);
+}
