@@ -119,59 +119,56 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
               <span>{t.hero.eyebrow}</span>
             </div>
 
-            {/* Title with Vertical Lime Green Accent Bar */}
-            <div className="flex items-start gap-3 sm:gap-4 mb-3">
-              <span className="w-1.5 h-20 sm:h-24 bg-[#22c55e] shrink-0 mt-1 rounded-xs"></span>
-              <div>
-                <h1 className="font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold leading-[1.15] text-white tracking-tight drop-shadow-md">
-                  {t.hero.titleLine1} <br />
-                  {t.hero.titleLine2} <br />
-                  {t.hero.titleLine3}
-                </h1>
-                
-                <p className="text-sm sm:text-base text-slate-100 mt-3 font-normal tracking-wide max-w-lg leading-relaxed drop-shadow-xs">
-                  {t.hero.subtitle}
-                </p>
+            {/* Title with Vertical Lime Green Accent Bar - Stretches 100% to Cover All Title Lines */}
+            <div className="flex items-stretch gap-3 sm:gap-4 mb-3">
+              <span className="w-1.5 bg-[#22c55e] shrink-0 rounded-xs self-stretch my-1 shadow-[0_0_12px_rgba(34,197,94,0.4)]"></span>
+              <h1 className="font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold leading-[1.15] text-white tracking-tight drop-shadow-md">
+                {t.hero.titleLine1} <br />
+                {t.hero.titleLine2} <br />
+                {t.hero.titleLine3}
+              </h1>
+            </div>
 
-                {/* Primary CTA and Quick Asset Badges */}
-                <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <button 
-                    onClick={() => setCurrentView('investments')}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#0b3b24] hover:bg-[#072617] text-white text-sm font-semibold tracking-wide transition-all cursor-pointer shadow-lg border border-emerald-500/30 group"
-                  >
-                    <span>{t.common.exploreInvestments}</span>
-                    <span className="text-xs font-bold group-hover:translate-x-0.5 transition-transform">&gt;</span>
-                  </button>
+            <p className="text-sm sm:text-base text-slate-100 mt-3 font-normal tracking-wide max-w-lg leading-relaxed drop-shadow-xs">
+              {t.hero.subtitle}
+            </p>
 
-                  <button 
-                    onClick={() => setCurrentView('approach')}
-                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-md bg-white/10 hover:bg-white/20 text-white text-sm font-medium tracking-wide transition-colors cursor-pointer backdrop-blur-sm border border-white/20"
-                  >
-                    <span>{t.common.ourApproach}</span>
-                  </button>
-                </div>
+            {/* Primary CTA and Quick Asset Badges */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <button 
+                onClick={() => setCurrentView('investments')}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[#0b3b24] hover:bg-[#072617] text-white text-sm font-semibold tracking-wide transition-all cursor-pointer shadow-lg border border-emerald-500/30 group"
+              >
+                <span>{t.common.exploreInvestments}</span>
+                <span className="text-xs font-bold group-hover:translate-x-0.5 transition-transform">&gt;</span>
+              </button>
 
-                {/* Quick Asset Categories Row */}
-                <div className="mt-8 pt-5 border-t border-white/15 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-emerald-100/90 font-medium">
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
-                    {t.hero.tags.residential}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
-                    {t.hero.tags.office}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
-                    {t.hero.tags.industrial}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
-                    {t.hero.tags.land}
-                  </span>
-                </div>
+              <button 
+                onClick={() => setCurrentView('approach')}
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-md bg-white/10 hover:bg-white/20 text-white text-sm font-medium tracking-wide transition-colors cursor-pointer backdrop-blur-sm border border-white/20"
+              >
+                <span>{t.common.ourApproach}</span>
+              </button>
+            </div>
 
-              </div>
+            {/* Quick Asset Categories Row */}
+            <div className="mt-8 pt-5 border-t border-white/15 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-emerald-100/90 font-medium">
+              <span className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
+                {t.hero.tags.residential}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
+                {t.hero.tags.office}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
+                {t.hero.tags.industrial}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
+                {t.hero.tags.land}
+              </span>
             </div>
 
           </div>
