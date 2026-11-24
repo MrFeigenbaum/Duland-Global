@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import Reveal from './Reveal';
+import MEDIA from '../config/media';
 
 export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
   const { t } = useLanguage();
@@ -33,32 +34,32 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
       id: 'residential',
       title: t.assets.residential.title,
       icon: Building,
-      image: '/assets/hq_exact_prop_residential.webp',
-      fallbackImage: '/assets/prop_residential.webp',
+      image: MEDIA.portfolio.residential.primary,
+      fallbackImage: MEDIA.portfolio.residential.fallback,
       desc: t.assets.residential.desc,
     },
     {
       id: 'office',
       title: t.assets.office.title,
       icon: Building2,
-      image: '/assets/hq_exact_prop_office.webp',
-      fallbackImage: '/assets/prop_office.webp',
+      image: MEDIA.portfolio.office.primary,
+      fallbackImage: MEDIA.portfolio.office.fallback,
       desc: t.assets.office.desc,
     },
     {
       id: 'industrial',
       title: t.assets.industrial.title,
       icon: Factory,
-      image: '/assets/hq_exact_prop_industrial.webp',
-      fallbackImage: '/assets/prop_industrial.webp',
+      image: MEDIA.portfolio.industrial.primary,
+      fallbackImage: MEDIA.portfolio.industrial.fallback,
       desc: t.assets.industrial.desc,
     },
     {
       id: 'land',
       title: t.assets.land.title,
       icon: Tractor,
-      image: '/assets/hq_exact_prop_land.webp',
-      fallbackImage: '/assets/prop_land.webp',
+      image: MEDIA.portfolio.land.primary,
+      fallbackImage: MEDIA.portfolio.land.fallback,
       desc: t.assets.land.desc,
     }
   ];
@@ -71,28 +72,24 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
     {
       title: t.whereWeInvest.cards.dev.title,
       desc: t.whereWeInvest.cards.dev.desc,
-      image: '/assets/focus_dev_crane_hq.webp',
+      image: MEDIA.focus.development,
       icon: HardHat
     },
     {
       title: t.whereWeInvest.cards.income.title,
       desc: t.whereWeInvest.cards.income.desc,
-      image: '/assets/focus_warehouse_hq.webp',
+      image: MEDIA.focus.logistics,
       icon: Package
     },
     {
       title: t.whereWeInvest.cards.sustainable.title,
       desc: t.whereWeInvest.cards.sustainable.desc,
-      image: '/assets/focus_solar_blue_hq.webp',
+      image: MEDIA.focus.sustainable,
       icon: Leaf
     }
   ];
 
-  const insightsImages = [
-    '/assets/insight_residential_clean.webp',
-    '/assets/insight_industrial_clean.webp',
-    '/assets/insight_sustainable_clean.webp',
-  ];
+  const insightsImages = MEDIA.insights;
 
   return (
     <div className="w-full bg-white text-slate-800">
@@ -102,13 +99,13 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
         {/* Cinematic 4K Panorama Background */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <img 
-            src="/assets/hero_banner_cinematic_4k.webp" 
+            src={MEDIA.hero.primary} 
             alt="Duland Global Real Assets Portfolio" 
             loading="eager"
             decoding="async"
             fetchPriority="high"
             className="w-full h-full object-cover object-center animate-kenBurns"
-            onError={(e) => { e.target.src = '/assets/hero_banner_3mix.webp'; }}
+            onError={(e) => { e.target.src = MEDIA.hero.fallback; }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 sm:via-40% to-black/15"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20"></div>
@@ -272,7 +269,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
       </section>
 
       {/* 4. WHERE WE INVEST */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white cv-auto">
         <div className="max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
@@ -340,7 +337,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
       </section>
 
       {/* 5. A DISCIPLINED INVESTMENT PROCESS */}
-      <section className="py-14 sm:py-20 bg-[#fafcfb] border-t border-slate-200">
+      <section className="py-14 sm:py-20 bg-[#fafcfb] border-t border-slate-200 cv-auto">
         <div className="max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <Reveal className="max-w-3xl mb-10">
@@ -397,7 +394,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
       </section>
 
       {/* 6. WHY DULAND GLOBAL */}
-      <section className="py-12 bg-[#f0f6f2] border-t border-b border-emerald-900/10">
+      <section className="py-12 bg-[#f0f6f2] border-t border-b border-emerald-900/10 cv-auto">
         <div className="max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -438,7 +435,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
       </section>
 
       {/* 7. LATEST INSIGHTS & REDESIGNED OUR PRESENCE MODULE */}
-      <section className="py-14 bg-white">
+      <section className="py-14 bg-white cv-auto">
         <div className="max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">

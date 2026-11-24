@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import Reveal from './Reveal';
+import MEDIA from '../config/media';
 
 export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
   const { t } = useLanguage();
@@ -93,32 +94,32 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       id: 'residential',
       title: t.assets.residential.title,
       icon: Building,
-      image: '/assets/hq_exact_prop_residential.webp',
-      fallbackImage: '/assets/prop_residential.webp',
+      image: MEDIA.portfolio.residential.primary,
+      fallbackImage: MEDIA.portfolio.residential.fallback,
       desc: t.assets.residential.desc,
     },
     {
       id: 'office',
       title: t.assets.office.title,
       icon: Building2,
-      image: '/assets/hq_exact_prop_office.webp',
-      fallbackImage: '/assets/prop_office.webp',
+      image: MEDIA.portfolio.office.primary,
+      fallbackImage: MEDIA.portfolio.office.fallback,
       desc: t.assets.office.desc,
     },
     {
       id: 'industrial',
       title: t.assets.industrial.title,
       icon: Factory,
-      image: '/assets/hq_exact_prop_industrial.webp',
-      fallbackImage: '/assets/prop_industrial.webp',
+      image: MEDIA.portfolio.industrial.primary,
+      fallbackImage: MEDIA.portfolio.industrial.fallback,
       desc: t.assets.industrial.desc,
     },
     {
       id: 'land',
       title: t.assets.land.title,
       icon: Tractor,
-      image: '/assets/hq_exact_prop_land.webp',
-      fallbackImage: '/assets/prop_land.webp',
+      image: MEDIA.portfolio.land.primary,
+      fallbackImage: MEDIA.portfolio.land.fallback,
       desc: t.assets.land.desc,
     }
   ];
@@ -131,13 +132,13 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       {/* 1. TOP BANNER */}
       <section className="relative w-full h-[260px] sm:h-[340px] lg:h-[380px] 2xl:h-[420px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_investments_skyline_4k.webp" 
+          src={MEDIA.investments.banner} 
           alt="Our Investments"
           loading="eager"
           decoding="async"
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover object-center animate-kenBurns"
-          onError={(e) => { e.target.src = '/assets/banner_investments_3mix.webp'; }}
+          onError={(e) => { e.target.src = MEDIA.investments.bannerFallback; }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 sm:via-40% to-transparent"></div>
         
@@ -361,12 +362,12 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
               <div className="h-full rounded-2xl overflow-hidden border border-slate-200 shadow-md flex flex-col sm:flex-row bg-[#0b3b24] group hover:shadow-lg transition-all duration-300">
                 <div className="sm:w-1/2 h-56 sm:h-auto overflow-hidden relative bg-slate-900 shrink-0">
                   <img 
-                    src="/assets/prop_residential_4k.webp" 
+                    src={MEDIA.investments.realEstatePillar} 
                     alt={t.investments.reCardTitle} 
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => { e.target.src = '/assets/hq_exact_prop_residential.webp'; }}
+                    onError={(e) => { e.target.src = MEDIA.investments.realEstateFallback; }}
                   />
                 </div>
 
@@ -404,12 +405,12 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
               <div className="h-full rounded-2xl overflow-hidden border border-slate-200 shadow-md flex flex-col sm:flex-row bg-[#0b3b24] group hover:shadow-lg transition-all duration-300">
                 <div className="sm:w-1/2 h-56 sm:h-auto overflow-hidden relative bg-slate-900 shrink-0">
                   <img 
-                    src="/assets/financial_markets_institutional_4k.webp" 
+                    src={MEDIA.investments.financialPillar} 
                     alt={t.investments.fiCardTitle} 
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => { e.target.src = '/assets/financial_markets_institutional_4k.jpg'; }}
+                    onError={(e) => { e.target.src = MEDIA.investments.financialFallback; }}
                   />
                 </div>
 

@@ -5,6 +5,7 @@ import HomePage from './components/HomePage';
 import LoadingScreen from './components/LoadingScreen';
 import WelcomeIntro from './components/WelcomeIntro';
 import { LanguageProvider, useLanguage } from './LanguageContext';
+import SITE_CONFIG from './config/siteConfig';
 
 const AboutPage = lazy(() => import('./components/AboutPage'));
 const InvestmentsPage = lazy(() => import('./components/InvestmentsPage'));
@@ -14,12 +15,12 @@ const NotFoundPage = lazy(() => import('./components/NotFoundPage'));
 const AssetDetailModal = lazy(() => import('./components/AssetDetailModal'));
 
 function AppContent() {
-  const [currentView, setCurrentView] = useState('home');
+  const [currentView, setCurrentView] = useState(SITE_CONFIG.routes.home);
   const [selectedAsset, setSelectedAsset] = useState(null);
   const [showIntro, setShowIntro] = useState(() => {
     try {
       // Shows on first open in the session; resets when browser/tab is closed
-      return !sessionStorage.getItem('duland_intro_shown');
+      return !sessionStorage.getItem(SITE_CONFIG.introSessionKey);
     } catch {
       return false;
     }
@@ -53,15 +54,16 @@ function AppContent() {
 
   // Sync window title with current view and language
   useEffect(() => {
+    const { brandName, routes } = SITE_CONFIG;
     const titles = {
-      home: `Duland Global | ${t.hero.titleLine1} ${t.hero.titleLine2} ${t.hero.titleLine3}`,
-      about: `${t.nav.about} | Duland Global`,
-      investments: `${t.nav.investments} | Duland Global`,
-      approach: `${t.nav.approach} | Duland Global`,
-      contact: `${t.nav.contact} | Duland Global`,
-      '404': t.common.notFoundTitle
+      [routes.home]: `${brandName} | ${t.hero.titleLine1} ${t.hero.titleLine2} ${t.hero.titleLine3}`,
+      [routes.about]: `${t.nav.about} | ${brandName}`,
+      [routes.investments]: `${t.nav.investments} | ${brandName}`,
+      [routes.approach]: `${t.nav.approach} | ${brandName}`,
+      [routes.contact]: `${t.nav.contact} | ${brandName}`,
+      [routes.notFound]: t.common.notFoundTitle
     };
-    document.title = titles[currentView] || 'Duland Global';
+    document.title = titles[currentView] || brandName;
   }, [currentView, lang, t]);
 
   return (

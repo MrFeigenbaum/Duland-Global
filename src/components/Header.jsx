@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Menu, X, ChevronDown, Check, Globe } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
+import SITE_CONFIG from '../config/siteConfig';
 
 export const Header = ({ currentView, setCurrentView }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -9,19 +10,14 @@ export const Header = ({ currentView, setCurrentView }) => {
   const dropdownRef = useRef(null);
 
   const navLinks = [
-    { id: 'home', label: t.nav.home },
-    { id: 'about', label: t.nav.about },
-    { id: 'investments', label: t.nav.investments },
-    { id: 'approach', label: t.nav.approach },
-    { id: 'contact', label: t.nav.contact },
+    { id: SITE_CONFIG.routes.home, label: t.nav.home },
+    { id: SITE_CONFIG.routes.about, label: t.nav.about },
+    { id: SITE_CONFIG.routes.investments, label: t.nav.investments },
+    { id: SITE_CONFIG.routes.approach, label: t.nav.approach },
+    { id: SITE_CONFIG.routes.contact, label: t.nav.contact },
   ];
 
-  const languages = [
-    { code: 'EN', name: 'English', region: 'International' },
-    { code: 'HU', name: 'Magyar', region: 'Magyarország' },
-    { code: 'DE', name: 'Deutsch', region: 'DACH / Europa' },
-    { code: 'UZ', name: "O‘zbekcha", region: "O‘zbekiston" },
-  ];
+  const languages = SITE_CONFIG.languages;
 
   // Close dropdown on click outside or Escape key
   useEffect(() => {
@@ -116,7 +112,7 @@ export const Header = ({ currentView, setCurrentView }) => {
           className="cursor-pointer flex items-center shrink-0 text-left focus:outline-none group"
         >
           <span className="font-serif text-xl sm:text-2xl lg:text-[26px] font-bold tracking-tight text-white select-none whitespace-nowrap group-hover:text-emerald-100 transition-colors">
-            Duland Global
+            {SITE_CONFIG.brandName}
           </span>
         </button>
 
@@ -245,7 +241,7 @@ export const Header = ({ currentView, setCurrentView }) => {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#062214]/98 backdrop-blur-xl border-t border-emerald-800/70 px-4 pt-3 pb-6 space-y-2 animate-fadeIn">
+        <div className="lg:hidden bg-[#062214]/95 backdrop-blur-xl border-t border-emerald-800/70 px-4 pt-3 pb-6 space-y-2 animate-fadeIn">
           <nav className="space-y-1">
             {navLinks.map((link) => {
               const isActive = currentView === link.id;

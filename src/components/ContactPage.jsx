@@ -13,11 +13,12 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
-import { CONTACT_CONFIG } from '../config/contact';
 import Reveal from './Reveal';
+import SITE_CONFIG from '../config/siteConfig';
+import MEDIA from '../config/media';
 
-const COOLDOWN_MS = 30000;
-const COOLDOWN_KEY = 'duland_contact_last_submit';
+const COOLDOWN_MS = SITE_CONFIG.contactCooldownMs;
+const COOLDOWN_KEY = SITE_CONFIG.contactCooldownKey;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 const sanitizeText = (value, maxLength) => {
@@ -66,14 +67,14 @@ export const ContactPage = () => {
       // Ignore storage errors in private browsing
     }
 
-    const cleanName = sanitizeText(formData.name, 100);
-    const cleanCompany = sanitizeText(formData.company, 120) || 'Not provided';
-    const cleanEmail = sanitizeText(formData.email, 120);
-    const cleanPhone = sanitizeText(formData.phone, 40) || 'Not provided';
-    const cleanSubject = CONTACT_CONFIG.allowedSubjects.includes(formData.subject)
+    const cleanName = sanitizeText(formData.name, SITE_CONFIG.limits.name);
+    const cleanCompany = sanitizeText(formData.company, SITE_CONFIG.limits.company) || 'Not provided';
+    const cleanEmail = sanitizeText(formData.email, SITE_CONFIG.limits.email);
+    const cleanPhone = sanitizeText(formData.phone, SITE_CONFIG.limits.phone) || 'Not provided';
+    const cleanSubject = SITE_CONFIG.allowedSubjects.includes(formData.subject)
       ? formData.subject
-      : 'General Inquiries';
-    const cleanMessage = sanitizeText(formData.message, 3000);
+      : SITE_CONFIG.allowedSubjects[SITE_CONFIG.allowedSubjects.length - 1];
+    const cleanMessage = sanitizeText(formData.message, SITE_CONFIG.limits.message);
 
     if (!cleanName || cleanName.length < 2) {
       setErrorMessage(t.contact.errors.invalidName);
@@ -100,18 +101,18 @@ export const ContactPage = () => {
         phone: cleanPhone,
         subject: cleanSubject,
         message: cleanMessage,
-        _subject: `Duland Global Inquiry: ${cleanSubject} — ${cleanName}`,
+        _subject: `${SITE_CONFIG.brandName} Inquiry: ${cleanSubject} — ${cleanName}`,
         _replyto: cleanEmail,
         _template: 'table',
         _captcha: 'false',
         _honey: '',
       };
 
-      if (Array.isArray(CONTACT_CONFIG.ccEmails) && CONTACT_CONFIG.ccEmails.length > 0) {
-        payload._cc = CONTACT_CONFIG.ccEmails.join(',');
+      if (Array.isArray(SITE_CONFIG.ccEmails) && SITE_CONFIG.ccEmails.length > 0) {
+        payload._cc = SITE_CONFIG.ccEmails.join(',');
       }
 
-      const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_CONFIG.recipientEmail}`, {
+      const res = await fetch(`${SITE_CONFIG.formSubmitBaseUrl}/${SITE_CONFIG.recipientEmail}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -132,12 +133,12 @@ export const ContactPage = () => {
       } else {
         setErrorMessage(
           data.message ||
-            t.contact.errors.sendFailed.replace('{email}', CONTACT_CONFIG.recipientEmail)
+            t.contact.errors.sendFailed.replace('{email}', SITE_CONFIG.recipientEmail)
         );
       }
     } catch {
       setErrorMessage(
-        t.contact.errors.networkError.replace('{email}', CONTACT_CONFIG.recipientEmail)
+        t.contact.errors.networkError.replace('{email}', SITE_CONFIG.recipientEmail)
       );
     } finally {
       setLoading(false);
@@ -152,13 +153,13 @@ export const ContactPage = () => {
       {/* 1. TOP BANNER */}
       <section className="relative w-full h-[260px] sm:h-[340px] lg:h-[380px] 2xl:h-[420px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_contact_terrace_4k.webp" 
+          src={MEDIA.contact.banner} 
           alt="Contact Duland Global"
           loading="eager"
           decoding="async"
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover object-center animate-kenBurns"
-          onError={(e) => { e.target.src = '/assets/banner_contact_3mix.webp'; }}
+          onError={(e) => { e.target.src = MEDIA.contact.bannerFallback; }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 sm:via-40% to-transparent"></div>
         
@@ -455,12 +456,12 @@ export const ContactPage = () => {
                 </div>
                 <div className="sm:col-span-5 h-28 rounded-xl overflow-hidden border border-emerald-700/60 shadow-xs">
                   <img 
-                    src="/assets/ref_contact_desk.webp" 
+                    src={MEDIA.contact.desk} 
                     alt="Business Inquiries" 
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover"
-                    onError={(e) => { e.target.src = '/assets/contact_desk_4k.webp'; }}
+                    onError={(e) => { e.target.src = MEDIA.contact.deskFallback; }}
                   />
                 </div>
               </div>

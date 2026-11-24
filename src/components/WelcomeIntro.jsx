@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../LanguageContext';
+import SITE_CONFIG from '../config/siteConfig';
 
 export const WelcomeIntro = ({ onComplete }) => {
   const { t } = useLanguage();
@@ -28,7 +29,7 @@ export const WelcomeIntro = ({ onComplete }) => {
   const handleExit = () => {
     setStage('fadeout');
     try {
-      sessionStorage.setItem('duland_intro_shown', 'true');
+      sessionStorage.setItem(SITE_CONFIG.introSessionKey, 'true');
     } catch {
       // Ignore storage errors in restricted environments
     }
@@ -60,7 +61,7 @@ export const WelcomeIntro = ({ onComplete }) => {
 
           <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0f4d30] via-[#0b3b24] to-[#041a0f] border-2 border-emerald-400/60 flex items-center justify-center shadow-2xl">
             <span className="font-serif text-2xl font-bold tracking-widest text-emerald-200">
-              DG
+              {SITE_CONFIG.brandMonogram}
             </span>
           </div>
         </div>
@@ -71,7 +72,7 @@ export const WelcomeIntro = ({ onComplete }) => {
             stage === 'appear' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          Duland Global
+          {SITE_CONFIG.brandName}
         </h1>
 
         {/* Corporate Subtitle */}

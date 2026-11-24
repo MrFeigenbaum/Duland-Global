@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import Reveal from './Reveal';
+import MEDIA from '../config/media';
 
 export const ApproachPage = ({ setCurrentView }) => {
   const { t } = useLanguage();
@@ -31,13 +32,13 @@ export const ApproachPage = ({ setCurrentView }) => {
       {/* 1. TOP BANNER */}
       <section className="relative w-full h-[260px] sm:h-[340px] lg:h-[380px] 2xl:h-[420px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_approach_architecture_4k.webp" 
+          src={MEDIA.approach.banner} 
           alt="Investment Approach"
           loading="eager"
           decoding="async"
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover object-center animate-kenBurns"
-          onError={(e) => { e.target.src = '/assets/banner_approach_architecture_4k.jpg'; }}
+          onError={(e) => { e.target.src = MEDIA.approach.bannerFallback; }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 sm:via-40% to-transparent"></div>
         
@@ -313,12 +314,12 @@ export const ApproachPage = ({ setCurrentView }) => {
 
               <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex-1 min-h-[220px] relative">
                 <img 
-                  src="/assets/zen_stones_4k.webp" 
+                  src={MEDIA.approach.coreTenet} 
                   alt="Balance & Principles"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover"
-                  onError={(e) => { e.target.src = '/assets/ref_zen_stones.webp'; }}
+                  onError={(e) => { e.target.src = MEDIA.approach.coreTenetFallback; }}
                 />
               </div>
             </Reveal>

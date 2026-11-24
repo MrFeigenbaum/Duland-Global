@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import Reveal from './Reveal';
+import MEDIA from '../config/media';
 
 export const AboutPage = ({ setCurrentView }) => {
   const { t } = useLanguage();
@@ -33,13 +34,13 @@ export const AboutPage = ({ setCurrentView }) => {
       {/* 1. TOP BANNER */}
       <section className="relative w-full h-[260px] sm:h-[340px] lg:h-[380px] 2xl:h-[420px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_about_headquarters_4k.webp" 
+          src={MEDIA.about.banner} 
           alt="About Duland Global"
           loading="eager"
           decoding="async"
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover object-center animate-kenBurns"
-          onError={(e) => { e.target.src = '/assets/banner_about_3mix.webp'; }}
+          onError={(e) => { e.target.src = MEDIA.about.bannerFallback; }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 sm:via-40% to-transparent"></div>
         
@@ -352,12 +353,12 @@ export const AboutPage = ({ setCurrentView }) => {
               {/* Left Image: Walkway */}
               <div className="lg:col-span-6 h-64 sm:h-80 lg:h-full lg:min-h-[340px] relative overflow-hidden">
                 <img 
-                  src="/assets/ref_about_walkway.webp" 
+                  src={MEDIA.about.commitment} 
                   alt="Our Commitment"
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover"
-                  onError={(e) => { e.target.src = '/assets/commitment_walkway_4k.webp'; }}
+                  onError={(e) => { e.target.src = MEDIA.about.commitmentFallback; }}
                 />
               </div>
 
