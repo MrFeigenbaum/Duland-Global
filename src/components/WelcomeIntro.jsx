@@ -4,15 +4,20 @@ export const WelcomeIntro = ({ onComplete }) => {
   const [stage, setStage] = useState('initial'); // 'initial', 'appear', 'fadeout'
 
   useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Stage 1: Trigger entrance animation immediately
     const enterTimer = setTimeout(() => {
       setStage('appear');
-    }, 50);
+    }, prefersReducedMotion ? 10 : 50);
 
-    // Stage 2: Begin smooth fadeout after 2.4s
+    // Stage 2: Begin smooth fadeout
     const exitTimer = setTimeout(() => {
       handleExit();
-    }, 2400);
+    }, prefersReducedMotion ? 600 : 2400);
 
     return () => {
       clearTimeout(enterTimer);
@@ -24,7 +29,11 @@ export const WelcomeIntro = ({ onComplete }) => {
     setStage('fadeout');
     // Save to sessionStorage so it doesn't show on page navigations,
     // but WILL show again if the user closes and re-opens the website
-    sessionStorage.setItem('duland_intro_shown', 'true');
+    try {
+      sessionStorage.setItem('duland_intro_shown', 'true');
+    } catch {
+      // Ignore storage errors in restricted environments
+    }
     setTimeout(() => {
       if (onComplete) onComplete();
     }, 550);

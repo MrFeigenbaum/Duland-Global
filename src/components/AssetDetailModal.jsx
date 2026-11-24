@@ -1,20 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { X, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 export const AssetDetailModal = ({ asset, onClose, onContactClick }) => {
   const { t } = useLanguage();
+
+  useEffect(() => {
+    if (!asset) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [asset, onClose]);
+
   if (!asset) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-xs animate-fadeIn">
-      <div className="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl border border-slate-200 relative animate-scaleUp">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="asset-modal-title"
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/75 backdrop-blur-xs animate-fadeIn"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="bg-white rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 relative animate-scaleUp"
+      >
         
         {/* Header Image */}
-        <div className="relative h-56 w-full overflow-hidden bg-slate-900">
+        <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-900 shrink-0">
           <img 
             src={asset.image} 
             alt={asset.title}
+            loading="eager"
+            decoding="async"
             className="w-full h-full object-cover"
             onError={(e) => { if (asset.fallbackImage) e.target.src = asset.fallbackImage; }}
           />
@@ -29,25 +50,25 @@ export const AssetDetailModal = ({ asset, onClose, onContactClick }) => {
             <X className="w-5 h-5" />
           </button>
 
-          <div className="absolute bottom-4 left-6 right-6 text-white">
+          <div className="absolute bottom-4 left-5 right-5 sm:left-6 sm:right-6 text-white">
             <span className="text-xs font-sans uppercase tracking-widest text-emerald-400 font-semibold">
               Asset Class Profile
             </span>
-            <h3 className="font-serif text-2xl font-bold mt-1 text-white">
+            <h3 id="asset-modal-title" className="font-serif text-xl sm:text-2xl font-bold mt-1 text-white">
               {asset.title}
             </h3>
           </div>
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-7 space-y-5">
+        <div className="p-5 sm:p-7 space-y-5">
           <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
             {asset.longDesc || asset.desc}
           </p>
 
-          <div className="bg-[#f0f6f2] rounded-2xl p-5 border border-emerald-900/10 space-y-3">
+          <div className="bg-[#f0f6f2] rounded-2xl p-4 sm:p-5 border border-emerald-900/10 space-y-3">
             <h4 className="text-xs uppercase tracking-wider text-[#0b3b24] font-bold flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-[#0b3b24]" />
+              <ShieldCheck className="w-4 h-4 text-[#0b3b24] shrink-0" />
               <span>Investment Criteria & Focus</span>
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-700">

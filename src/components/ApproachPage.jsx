@@ -15,6 +15,7 @@ import {
   ChevronUp
 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
+import Reveal from './Reveal';
 
 export const ApproachPage = ({ setCurrentView }) => {
   const { t } = useLanguage();
@@ -27,18 +28,21 @@ export const ApproachPage = ({ setCurrentView }) => {
     <div className="w-full bg-white text-slate-800">
       
       {/* 1. TOP BANNER */}
-      <section className="relative w-full h-[280px] sm:h-[340px] lg:h-[380px] overflow-hidden flex items-center">
+      <section className="relative w-full h-[260px] sm:h-[340px] lg:h-[380px] 2xl:h-[420px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_approach_architecture_4k.jpg" 
+          src="/assets/banner_approach_architecture_4k.webp" 
           alt="Investment Approach"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-          onError={(e) => { e.target.src = '/assets/banner_corporate.webp'; }}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover object-center animate-kenBurns"
+          onError={(e) => { e.target.src = '/assets/banner_approach_architecture_4k.jpg'; }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 sm:via-40% to-transparent"></div>
         
-        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="relative z-10 max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl text-white">
-            <div className="border-l-4 sm:border-l-[5px] border-[#22c55e] pl-4 sm:pl-5 mb-2">
+            <div className="border-l-4 sm:border-l-[5px] border-[#22c55e] pl-4 sm:pl-5 mb-2 animate-pageEnter">
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
                 {t.approach.title}
               </h1>
@@ -52,55 +56,60 @@ export const ApproachPage = ({ setCurrentView }) => {
 
       {/* 2. OUR INVESTMENT PHILOSOPHY - STRUCTURED EDITORIAL DESIGN */}
       <section className="py-14 sm:py-20 bg-white">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Top Section Header - Full Width, No collisions */}
-          <div className="max-w-3xl mb-8">
+          <Reveal className="max-w-3xl mb-8">
             <span className="text-xs font-bold tracking-widest text-[#0b3b24] uppercase block mb-1">
               Strategic Foundation
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
-              {t.approach.philosophyTitle}
-            </h2>
-            <div className="w-12 h-[3px] bg-[#22c55e] mt-2 mb-4"></div>
-          </div>
+            <div className="inline-block max-w-full">
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
+                {t.approach.philosophyTitle}
+              </h2>
+              <div className="w-full h-[3px] bg-[#22c55e] mt-2 rounded-full"></div>
+            </div>
+          </Reveal>
 
           {/* Full-Width Lead Philosophical Block */}
-          <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-emerald-50/30 to-white border-l-4 border-[#22c55e] border-y border-r border-slate-200 shadow-xs mb-8">
-            <p className="text-base sm:text-lg text-slate-900 font-medium leading-relaxed">
-              {t.approach.p1}
-            </p>
-          </div>
+          <Reveal delay={60}>
+            <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-emerald-50/30 to-white border-l-4 border-[#22c55e] border-y border-r border-slate-200 shadow-xs mb-8">
+              <p className="text-base sm:text-lg text-slate-900 font-medium leading-relaxed">
+                {t.approach.p1}
+              </p>
+            </div>
+          </Reveal>
 
           {/* Balanced Symmetrical Middle Grid: 4-Quadrant Matrix (8 cols) + Risk Governance Protocol (4 cols) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8 items-stretch">
             
             {/* 4-Quadrant Philosophy Matrix in 8 cols */}
             {t.approach.matrix && (
-              <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
                 {t.approach.matrix.items.map((item, idx) => (
-                  <div 
-                    key={idx}
-                    className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 transition-colors flex flex-col justify-between"
-                  >
-                    <div>
-                      <span className="font-serif text-base font-bold text-[#22c55e] block mb-1">
-                        {item.num}
-                      </span>
-                      <h4 className="font-serif text-sm sm:text-base font-bold text-slate-900 mb-1.5 leading-snug">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        {item.desc}
-                      </p>
+                  <Reveal key={idx} delay={idx * 70} className="h-full">
+                    <div 
+                      className="h-full p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between"
+                    >
+                      <div>
+                        <span className="font-serif text-base font-bold text-[#22c55e] block mb-1">
+                          {item.num}
+                        </span>
+                        <h4 className="font-serif text-sm sm:text-base font-bold text-slate-900 mb-1.5 leading-snug">
+                          {item.title}
+                        </h4>
+                        <p className="text-xs text-slate-600 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
             )}
 
             {/* Risk Governance & Core Tenet Column in 4 cols - Centered Cards with Left-Aligned Natural Content */}
-            <div className="lg:col-span-4 flex flex-col gap-4 justify-between">
+            <Reveal delay={120} className="lg:col-span-4 flex flex-col gap-4 justify-between h-full">
               
               <div className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200 text-slate-800 shadow-2xs flex-1 flex flex-col justify-center">
                 <div className="flex items-center gap-2 mb-3.5">
@@ -111,19 +120,19 @@ export const ApproachPage = ({ setCurrentView }) => {
                 </div>
                 
                 <div className="space-y-2.5 text-xs text-slate-600">
-                  <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-2xs text-left">
+                  <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-2xs text-left hover:border-emerald-200 transition-colors">
                     <strong className="text-slate-800 block text-xs mb-0.5">Underwriting Rigor</strong>
                     <span className="text-slate-600 text-[11px] leading-relaxed block">
-                      In-depth cash-flow sensitivity & multi-scenario stress testing.
+                      In-depth cash-flow sensitivity &amp; multi-scenario stress testing.
                     </span>
                   </div>
-                  <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-2xs text-left">
+                  <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-2xs text-left hover:border-emerald-200 transition-colors">
                     <strong className="text-slate-800 block text-xs mb-0.5">Moderate Leverage</strong>
                     <span className="text-slate-600 text-[11px] leading-relaxed block">
-                      Strict debt caps & strong interest coverage buffers.
+                      Strict debt caps &amp; strong interest coverage buffers.
                     </span>
                   </div>
-                  <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-2xs text-left">
+                  <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-2xs text-left hover:border-emerald-200 transition-colors">
                     <strong className="text-slate-800 block text-xs mb-0.5">Liquidity Reserves</strong>
                     <span className="text-slate-600 text-[11px] leading-relaxed block">
                       Preserving capital agility to withstand downturns.
@@ -141,46 +150,50 @@ export const ApproachPage = ({ setCurrentView }) => {
                 </p>
               </div>
 
-            </div>
+            </Reveal>
 
           </div>
 
           {/* Full-Width Collapsible Complete Philosophy Manifesto */}
           <div className="rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs mb-4">
             <button
+              type="button"
               onClick={() => setShowFullStatement(!showFullStatement)}
+              aria-expanded={showFullStatement}
               className="w-full px-5 py-4 flex items-center justify-between bg-slate-50 hover:bg-slate-100 text-slate-800 transition-colors cursor-pointer text-left"
             >
               <div className="flex items-center gap-2.5">
-                <FileText className="w-4 h-4 text-[#0b3b24]" />
+                <FileText className="w-4 h-4 text-[#0b3b24] shrink-0" />
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
                   {showFullStatement ? t.approach.hideFullStatement : t.approach.readFullStatement}
                 </span>
               </div>
-              <div className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600">
+              <div className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 shrink-0">
                 {showFullStatement ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
               </div>
             </button>
 
-            {showFullStatement && (
-              <div className="p-6 bg-white border-t border-slate-200 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                <p className="p-3 rounded-lg bg-emerald-50/50 text-slate-800 font-medium">{t.approach.p1}</p>
-                <p>{t.approach.p2}</p>
-                <p>{t.approach.p3}</p>
-                <p>{t.approach.p4}</p>
-                <p>{t.approach.p5}</p>
-                <p>{t.approach.p6}</p>
-                <p>{t.approach.p7}</p>
-                <div className="p-4 rounded-xl bg-[#0b3b24] text-white">
-                  <span className="text-xs font-semibold text-emerald-300 uppercase tracking-wider block mb-1">
-                    Resilient Holding Ambition
-                  </span>
-                  <p className="text-xs sm:text-sm text-emerald-50 font-light leading-relaxed">
-                    {t.approach.p8}
-                  </p>
+            <div className={`grid transition-all duration-300 ease-out ${showFullStatement ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+              <div className="overflow-hidden">
+                <div className="p-6 bg-white border-t border-slate-200 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <p className="p-3 rounded-lg bg-emerald-50/50 text-slate-800 font-medium">{t.approach.p1}</p>
+                  <p>{t.approach.p2}</p>
+                  <p>{t.approach.p3}</p>
+                  <p>{t.approach.p4}</p>
+                  <p>{t.approach.p5}</p>
+                  <p>{t.approach.p6}</p>
+                  <p>{t.approach.p7}</p>
+                  <div className="p-4 rounded-xl bg-[#0b3b24] text-white">
+                    <span className="text-xs font-semibold text-emerald-300 uppercase tracking-wider block mb-1">
+                      Resilient Holding Ambition
+                    </span>
+                    <p className="text-xs sm:text-sm text-emerald-50 font-light leading-relaxed">
+                      {t.approach.p8}
+                    </p>
+                  </div>
                 </div>
               </div>
-            )}
+            </div>
           </div>
 
         </div>
@@ -188,44 +201,47 @@ export const ApproachPage = ({ setCurrentView }) => {
 
       {/* 3. OUR INVESTMENT PROCESS */}
       <section className="py-14 sm:py-20 bg-[#fafcfb] border-t border-slate-200">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="mb-10">
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
-              {t.approach.processTitle}
-            </h2>
-            <div className="w-12 h-[3px] bg-[#22c55e] mt-2"></div>
-          </div>
+          <Reveal className="mb-10">
+            <div className="inline-block max-w-full">
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
+                {t.approach.processTitle}
+              </h2>
+              <div className="w-full h-[3px] bg-[#22c55e] mt-2 rounded-full"></div>
+            </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 items-stretch">
             {t.process.steps.map((step, idx) => {
               const IconComp = processIcons[idx % processIcons.length];
               return (
-                <div 
-                  key={idx}
-                  className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-md transition-shadow relative group flex flex-col items-center text-center justify-between"
-                >
-                  <div className="w-full flex justify-between items-center mb-3">
-                    <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100 shadow-2xs">
-                      Step {idx + 1}
-                    </span>
-                    <span className="font-serif font-bold text-xl sm:text-2xl text-slate-300/75 select-none leading-none">
-                      0{idx + 1}
-                    </span>
-                  </div>
-                  
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#0b3b24] flex items-center justify-center mb-3 mx-auto">
-                    <IconComp className="w-6 h-6 stroke-[1.75]" />
-                  </div>
+                <Reveal key={idx} delay={idx * 70} className="h-full">
+                  <div 
+                    className="h-full bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-md hover:-translate-y-1 hover:border-emerald-300 transition-all duration-300 relative group flex flex-col items-center text-center justify-between"
+                  >
+                    <div className="w-full flex justify-between items-center mb-3">
+                      <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100 shadow-2xs">
+                        Step {idx + 1}
+                      </span>
+                      <span className="font-serif font-bold text-xl sm:text-2xl text-slate-300/75 select-none leading-none">
+                        0{idx + 1}
+                      </span>
+                    </div>
+                    
+                    <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#0b3b24] flex items-center justify-center mb-3 mx-auto group-hover:scale-105 transition-transform duration-300">
+                      <IconComp className="w-6 h-6 stroke-[1.75]" />
+                    </div>
 
-                  <h3 className="font-serif text-xs sm:text-[13px] lg:text-sm font-bold text-slate-900 mb-2 whitespace-nowrap text-center">
-                    {step.title}
-                  </h3>
+                    <h3 className="font-serif text-xs sm:text-[13px] lg:text-sm font-bold text-slate-900 mb-2 sm:whitespace-nowrap text-center">
+                      {step.title}
+                    </h3>
 
-                  <p className="text-xs text-slate-600 leading-relaxed text-center">
-                    {step.desc}
-                  </p>
-                </div>
+                    <p className="text-xs text-slate-600 leading-relaxed text-center">
+                      {step.desc}
+                    </p>
+                  </div>
+                </Reveal>
               );
             })}
           </div>
@@ -235,53 +251,60 @@ export const ApproachPage = ({ setCurrentView }) => {
 
       {/* 4. GUIDING PRINCIPLES */}
       <section className="py-14 sm:py-20 bg-white border-t border-slate-200">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
             
-            <div className="lg:col-span-4">
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-snug">
-                {t.approach.principlesTitle}
-              </h2>
-              <div className="w-12 h-[3px] bg-[#22c55e] mt-2 mb-4"></div>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                {t.approach.principlesDesc || 'Our core operating principles guide our long-term capital allocation.'}
-              </p>
+            <Reveal className="lg:col-span-4 flex flex-col justify-between h-full">
+              <div>
+                <div className="inline-block max-w-full mb-4">
+                  <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-snug">
+                    {t.approach.principlesTitle}
+                  </h2>
+                  <div className="w-full h-[3px] bg-[#22c55e] mt-2 rounded-full"></div>
+                </div>
+                <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                  {t.approach.principlesDesc || 'Our core operating principles guide our long-term capital allocation.'}
+                </p>
+              </div>
 
-              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm h-52 sm:h-64">
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex-1 min-h-[220px] relative">
                 <img 
                   src="/assets/zen_stones_4k.webp" 
                   alt="Balance & Principles"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                   onError={(e) => { e.target.src = '/assets/ref_zen_stones.webp'; }}
                 />
               </div>
-            </div>
+            </Reveal>
 
-            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
               {t.approach.principles.map((pr, idx) => {
                 const IconComp = principleIcons[idx % principleIcons.length];
                 const title = typeof pr === 'object' && pr?.title ? pr.title : pr;
                 const desc = typeof pr === 'object' && pr?.desc ? pr.desc : '';
                 return (
-                  <div 
-                    key={idx}
-                    className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 transition-colors"
-                  >
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#0b3b24] flex items-center justify-center shrink-0">
-                        <IconComp className="w-4 h-4 stroke-[2]" />
+                  <Reveal key={idx} delay={idx * 60} className="h-full">
+                    <div 
+                      className="h-full p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-center group"
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#0b3b24] flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                          <IconComp className="w-4 h-4 stroke-[2]" />
+                        </div>
+                        <h4 className="font-serif text-sm sm:text-base font-bold text-slate-900">
+                          {title}
+                        </h4>
                       </div>
-                      <h4 className="font-serif text-sm sm:text-base font-bold text-slate-900">
-                        {title}
-                      </h4>
+                      {desc ? (
+                        <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed pl-11">
+                          {desc}
+                        </p>
+                      ) : null}
                     </div>
-                    {desc ? (
-                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed pl-11">
-                        {desc}
-                      </p>
-                    ) : null}
-                  </div>
+                  </Reveal>
                 );
               })}
             </div>

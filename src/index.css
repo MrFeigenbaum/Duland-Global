@@ -39,6 +39,92 @@
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes dropdownIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kenBurnsSubtle {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
 .animate-shimmer {
   animation: shimmer 2.2s infinite ease-in-out;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out both;
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-dropdownIn {
+  animation: dropdownIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-pageEnter {
+  animation: pageEnter 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-kenBurns {
+  animation: kenBurnsSubtle 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-shimmer,
+  .animate-fadeIn,
+  .animate-scaleUp,
+  .animate-dropdownIn,
+  .animate-pageEnter,
+  .animate-kenBurns {
+    animation: none !important;
+  }
 }
