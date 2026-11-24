@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Building, 
   Building2, 
@@ -10,12 +10,17 @@ import {
   ShieldCheck, 
   Leaf,
   Binoculars,
-  ArrowRight
+  ArrowRight,
+  FileText,
+  ChevronDown,
+  ChevronUp,
+  CheckCircle2
 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
   const { t } = useLanguage();
+  const [showFullStatement, setShowFullStatement] = useState(false);
 
   const assetPortfolio = [
     {
@@ -107,23 +112,63 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
               </div>
             </div>
 
-            {/* Right Content Column with Comfortable Typography */}
-            <div className="lg:col-span-8 space-y-5 text-slate-600 text-sm sm:text-base leading-relaxed">
-              <div className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200 text-slate-900 font-medium leading-relaxed border-l-4 border-l-[#22c55e]">
-                {t.investments.p1}
+            {/* Right Content Column: Executive Lead & Strategic Drivers */}
+            <div className="lg:col-span-8 space-y-6">
+              <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-emerald-50/30 to-white border border-slate-200 text-slate-900 font-medium leading-relaxed border-l-4 border-l-[#22c55e] shadow-2xs">
+                <p className="text-base sm:text-lg leading-relaxed">{t.investments.p1}</p>
               </div>
-              <p>
-                {t.investments.p2}
-              </p>
-              <p>
-                {t.investments.p3}
-              </p>
-              <p>
-                {t.investments.p4}
-              </p>
-              <p className="font-medium text-slate-800">
-                {t.investments.p5}
-              </p>
+
+              {/* 3 Strategic Value Drivers Grid */}
+              {t.investments.drivers && (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {t.investments.drivers.items.map((item, idx) => (
+                    <div 
+                      key={idx}
+                      className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 transition-colors flex flex-col justify-between"
+                    >
+                      <div>
+                        <span className="font-serif text-lg font-bold text-[#22c55e] block mb-1">
+                          {item.num}
+                        </span>
+                        <h4 className="font-serif text-sm font-bold text-slate-900 mb-2 leading-snug">
+                          {item.title}
+                        </h4>
+                        <p className="text-xs text-slate-600 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Collapsible Complete Strategy Accordion */}
+              <div className="rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs">
+                <button
+                  onClick={() => setShowFullStatement(!showFullStatement)}
+                  className="w-full px-5 py-3.5 flex items-center justify-between bg-slate-50 hover:bg-slate-100 text-slate-800 transition-colors cursor-pointer text-left"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <FileText className="w-4 h-4 text-[#0b3b24]" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
+                      {showFullStatement ? t.investments.hideFullStatement : t.investments.readFullStatement}
+                    </span>
+                  </div>
+                  <div className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600">
+                    {showFullStatement ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                  </div>
+                </button>
+
+                {showFullStatement && (
+                  <div className="p-6 bg-white border-t border-slate-200 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    <p className="p-3 rounded-lg bg-emerald-50/50 text-slate-800 font-medium">{t.investments.p1}</p>
+                    <p>{t.investments.p2}</p>
+                    <p>{t.investments.p3}</p>
+                    <p>{t.investments.p4}</p>
+                    <p className="font-medium text-slate-800">{t.investments.p5}</p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 

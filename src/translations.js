@@ -173,6 +173,60 @@ export const translations = {
       p5: 'Our philosophy is based on the belief that sustainable wealth creation requires patience, financial discipline and a clear long-term perspective. Rather than focusing on short-term market movements, we emphasize the fundamental value of assets, responsible ownership and the careful evaluation of investment opportunities.',
       p6: 'As an internationally oriented investment holding company, Duland Global aims to gradually expand its geographical presence, strengthen its asset portfolio and develop lasting professional relationships across selected markets.',
       p7: 'Our long-term ambition is to build a financially strong, diversified and enduring investment holding company that preserves capital, develops valuable assets and creates sustainable value for the future.',
+            stats: [
+        { value: "2", unit: "Pillars", label: "Real Estate & Financial Capital" },
+        { value: "4+", unit: "Sectors", label: "Residential, Office, Industrial, Land" },
+        { value: "Cross-Border", unit: "Reach", label: "Hungary HQ & Regional Growth" },
+        { value: "Generational", unit: "Horizon", label: "Capital Preservation & Growth" },
+      ],
+      dualPillars: {
+        badge: "Dual Investment Foundation",
+        title: "Two Synergistic Pillars of Value Creation",
+        p1: {
+          num: "01",
+          tag: "Tangible Physical Assets",
+          title: "Real Estate Ownership & Development",
+          desc: "Acquisition, development, and active long-term management of high-utility properties. We evaluate every asset by prime location fundamentals, cash-flow stability, and appreciation potential.",
+          items: ["Residential Properties", "Commercial & Office Parks", "Industrial & Production Plants", "Strategic Land Banks"],
+          takeaway: "Sustainable rental yields paired with strategic development value enhancement."
+        },
+        p2: {
+          num: "02",
+          tag: "Proprietary Capital Allocation",
+          title: "Financial Portfolio Management",
+          desc: "Active management and deployment of internal investment capital across international markets. This provides liquidity, macroeconomic flexibility, and non-correlated returns.",
+          items: ["Proprietary Capital Allocation", "Multi-Asset Diversification", "Liquid Treasury Flexibility", "Macro Cycle Resilience"],
+          takeaway: "Balanced risk structure capable of consistent recurring income across market cycles."
+        }
+      },
+      corePrinciples: {
+        title: "Strategic Operating Principles",
+        items: [
+          {
+            title: "Patience & Financial Discipline",
+            desc: "Rather than chasing short-term market volatility, we emphasize fundamental asset value, responsible ownership, and rigorous due diligence."
+          },
+          {
+            title: "Geographical Expansion",
+            desc: "Gradually expanding our international presence, strengthening portfolio resilience, and cultivating lasting professional relationships."
+          },
+          {
+            title: "Generational Value Creation",
+            desc: "Building a financially strong, enduring holding company that preserves capital, develops valuable assets, and creates lasting value."
+          }
+        ]
+      },
+      readFullStatement: "Read Complete Corporate Statement (7 Articles)",
+      hideFullStatement: "Collapse Corporate Statement",
+      statementArticles: [
+        { label: "Article I", title: "Corporate Mandate", text: "Duland Global Kft. is a Hungary-based international asset and investment holding company focused on the acquisition, ownership, development and long-term management of a diversified portfolio of real estate assets and financial investments across international markets." },
+        { label: "Article II", title: "Dual Investment Foundation", text: "Our investment activities are built around two fundamental pillars: real estate ownership and development, and financial investment portfolio management. By combining tangible assets with carefully selected financial investments, we seek to establish a balanced and resilient investment structure capable of generating sustainable income and supporting long-term capital growth." },
+        { label: "Article III", title: "Real Estate Scope", text: "Within the real estate sector, our interests extend across residential properties, commercial and office buildings, industrial facilities, income-generating assets and strategically located land with future development potential. We approach each investment with careful consideration of its location, market fundamentals, income potential and prospects for long-term appreciation." },
+        { label: "Article IV", title: "Financial Capital Allocation", text: "Alongside our real estate activities, we pursue opportunities in financial markets through the management and allocation of our own investment capital. This complementary approach allows us to diversify our portfolio, maintain financial flexibility and explore investment opportunities across different asset classes and economic environments." },
+        { label: "Article V", title: "Long-Term Discipline", text: "Our philosophy is based on the belief that sustainable wealth creation requires patience, financial discipline and a clear long-term perspective. Rather than focusing on short-term market movements, we emphasize the fundamental value of assets, responsible ownership and the careful evaluation of investment opportunities." },
+        { label: "Article VI", title: "International Expansion", text: "As an internationally oriented investment holding company, Duland Global aims to gradually expand its geographical presence, strengthen its asset portfolio and develop lasting professional relationships across selected markets." },
+        { label: "Article VII", title: "Generational Ambition", text: "Our long-term ambition is to build a financially strong, diversified and enduring investment holding company that preserves capital, develops valuable assets and creates sustainable value for the future." }
+      ],
       holdingBadge: 'Institutional Asset Holding',
       holdingDesc: 'Headquartered at 1065 Budapest, Révay köz 4., Hungary, managing institutional real estate assets and proprietary financial capital with disciplined governance.',
       ourFocusTitle: 'Our Focus',
@@ -199,6 +253,28 @@ export const translations = {
       fiCardDesc: 'A diversified investment portfolio focused on capital growth, income generation, structured yields and financial stability across institutional assets.',
       portfolioTitle: 'Our Investment Portfolio',
       portfolioDesc: 'We invest across a broad range of real estate asset classes, creating a balanced and resilient portfolio with both income-generating and development opportunities.',
+            drivers: {
+        title: "Strategic Value Drivers",
+        items: [
+          {
+            num: "01",
+            title: "Capital Preservation & Income",
+            desc: "Preserving and growing capital while generating recurring income and lasting value through disciplined investment decisions and responsible asset management."
+          },
+          {
+            num: "02",
+            title: "Disciplined Multi-Asset Diversification",
+            desc: "Combining income-generating properties, development opportunities, and financial instruments to eliminate single-market concentration."
+          },
+          {
+            num: "03",
+            title: "Active Lifecycle Oversight",
+            desc: "Continuous performance evaluation, prudent risk management, and hands-on portfolio enhancement extending far beyond initial acquisition."
+          }
+        ]
+      },
+      readFullStatement: "Read Complete Investment Strategy Document",
+      hideFullStatement: "Collapse Strategy Document",
       principlesTitle: 'Investment Principles',
       principles: ['Opportunity Focus', 'Diversification', 'Sustainable Returns', 'Risk Management', 'Long-Term Perspective'],
     },
@@ -216,6 +292,33 @@ export const translations = {
       p6: 'Risk management is integrated into every stage of our investment approach. We consider market conditions, liquidity requirements, financial exposure, regulatory environments and the long-term sustainability of each investment. Our objective is to maintain a balanced relationship between potential returns and acceptable levels of risk while protecting the financial stability of our overall portfolio.',
       p7: 'Beyond capital allocation, we believe that active portfolio oversight and continuous performance evaluation are fundamental to successful investment management. We regularly consider opportunities to improve asset quality, enhance income-generating capacity and adapt our investment structure to evolving market conditions.',
       p8: 'Through this disciplined and forward-looking philosophy, Duland Global aims to build a financially resilient, internationally diversified investment holding company that combines responsible capital management with sustainable income generation and long-term value creation.',
+            matrix: {
+        title: "Investment Philosophy Matrix",
+        items: [
+          {
+            num: "01",
+            title: "Fundamental Research & Valuation",
+            desc: "Comprehensive due diligence, fundamental market analysis, and independent financial evaluation through diverse economic cycles."
+          },
+          {
+            num: "02",
+            title: "Dual-Engine Synergy",
+            desc: "Harmonizing the physical stability of tangible real estate with the agile liquidity of financial market investments."
+          },
+          {
+            num: "03",
+            title: "Integrated Risk Governance",
+            desc: "Balancing return targets with prudent liquidity controls, manageable leverage, and multi-layered downside protection."
+          },
+          {
+            num: "04",
+            title: "Patience & Generational Stewardship",
+            desc: "Prioritizing long-term compounding and intrinsic asset appreciation over volatile short-term market speculation."
+          }
+        ]
+      },
+      readFullStatement: "Read Complete Philosophy Manifesto (8 Articles)",
+      hideFullStatement: "Collapse Philosophy Manifesto",
       processTitle: 'Our Investment Process',
       principlesTitle: 'Our Guiding Principles',
       principles: ['Long-Term Perspective', 'Value Creation', 'Diversification', 'Prudent Risk Management', 'Responsible Investment', 'Sustainability'],
@@ -424,6 +527,60 @@ export const translations = {
       p5: 'Filozófiánk azon a meggyőződésen alapul, hogy a fenntartható vagyonépítés türelmet, pénzügyi fegyelmet és világos, hosszú távú perspektívát igényel. A rövid távú piaci ingadozások követése helyett az eszközök fundamentális értékére, a felelős tulajdonlásra és a befektetési lehetőségek alapos értékelésére helyezzük a hangsúlyt.',
       p6: 'Nemzetközi orientációjú befektetési holdingként a Duland Global célja, hogy fokozatosan bővítse földrajzi jelenlétét, erősítse eszközportfólióját és tartós szakmai kapcsolatokat építsen ki a kiválasztott piacokon.',
       p7: 'Hosszú távú törekvésünk egy pénzügyileg stabil, diverzifikált és időtálló befektetési holding felépítése, amely megőrzi a tőkét, értékes eszközöket fejleszt és fenntartható értéket teremt a jövő számára.',
+            stats: [
+        { value: "2", unit: "Alappillér", label: "Ingatlanok és Pénzügyi Tőke" },
+        { value: "4+", unit: "Eszközosztály", label: "Lakó, Iroda, Ipari, Földterület" },
+        { value: "Nemzetközi", unit: "Jelenlét", label: "Budapesti Központ és Régiós Növekedés" },
+        { value: "Generációs", unit: "Időtáv", label: "Tőkemegőrzés és Értéknövelés" },
+      ],
+      dualPillars: {
+        badge: "Kettős Befektetési Alap",
+        title: "Az Értékteremtés Két Szinergikus Pillére",
+        p1: {
+          num: "01",
+          tag: "Kézzelfogható Eszközök",
+          title: "Ingatlantulajdon és Ingatlanfejlesztés",
+          desc: "Lakóingatlanok, irodaházak, ipari létesítmények és stratégiai elhelyezkedésű fejlesztési területek megvásárlása és hosszú távú kezelése szilárd fundamentumok alapján.",
+          items: ["Lakóingatlanok", "Iroda- és Üzleti Parkok", "Ipari és Logisztikai Létesítmények", "Stratégiai Földterületek"],
+          takeaway: "Fenntartható bérleti hozamok és aktív fejlesztési értéknövekedés ötvözése."
+        },
+        p2: {
+          num: "02",
+          tag: "Saját Tőkeallokáció",
+          title: "Pénzügyi Portfóliókezelés",
+          desc: "Saját befektetési tőkénk aktív allokációja és kezelése a nemzetközi pénzügyi piacokon, biztosítva a likviditást, rugalmasságot és ciklusfüggetlen stabilitást.",
+          items: ["Saját Tőke Kezelése", "Többeszközös Diverzifikáció", "Likviditási Rugalmasság", "Makrogazdasági Reziliencia"],
+          takeaway: "Kiegyensúlyozott kockázati struktúra és kiszámítható ismétlődő bevételek."
+        }
+      },
+      corePrinciples: {
+        title: "Stratégiai Működési Alapelvek",
+        items: [
+          {
+            title: "Türelem és Pénzügyi Fegyelem",
+            desc: "A rövid távú piaci spekuláció helyett az eszközök belső fundamentális értékére és a felelős tulajdonlásra összpontosítunk."
+          },
+          {
+            title: "Nemzetközi Terjeszkedés",
+            desc: "Fokozatosan bővítjük földrajzi jelenlétünket, erősítjük portfóliónkat és tartós szakmai kapcsolatokat építünk ki."
+          },
+          {
+            title: "Generációs Értékteremtés",
+            desc: "Pénzügyileg erős, tartós holdingvállalat építése, amely megőrzi a tőkét és értékes eszközöket fejleszt a jövő számára."
+          }
+        ]
+      },
+      readFullStatement: "Teljes Vállalati Nyilatkozat Olvasása (7 Cikkely)",
+      hideFullStatement: "Vállalati Nyilatkozat Összecsukása",
+      statementArticles: [
+        { label: "I. Cikkely", title: "Vállalati Küldetés", text: "A Duland Global Kft. egy magyarországi székhelyű nemzetközi eszköz- és befektetéskezelő holding társaság, amely ingatlaneszközök és pénzügyi befektetések diverzifikált portfóliójának megszerzésére, tulajdonlására, fejlesztésére és hosszú távú kezelésére összpontosít a nemzetközi piacokon." },
+        { label: "II. Cikkely", title: "Kettős Befektetési Alap", text: "Befektetési tevékenységünk két alapvető pillérre épül: az ingatlantulajdonlásra és -fejlesztésre, valamint a pénzügyi befektetési portfólió kezelésére. A kézzelfogható eszközök és a gondosan kiválasztott pénzügyi befektetések kombinálásával kiegyensúlyozott és ellenálló befektetési struktúra létrehozására törekszünk." },
+        { label: "III. Cikkely", title: "Ingatlan Piaci Terület", text: "Az ingatlanszektoron belül érdekeltségeink kiterjednek lakóingatlanokra, kereskedelmi és irodaházakra, ipari létesítményekre, jövedelemtermelő eszközökre és stratégiailag elhelyezkedő fejlesztési földterületekre." },
+        { label: "IV. Cikkely", title: "Pénzügyi Tőkeallokáció", text: "Ingatlantevékenységünk mellett lehetőségeket kutatunk a pénzügyi piacokon saját befektetési tőkénk kezelése és allokációja révén. Ez a kiegészítő megközelítés lehetővé teszi portfóliónk diverzifikálását és a pénzügyi rugalmasság megőrzését." },
+        { label: "V. Cikkely", title: "Hosszú Távú Fegyelem", text: "Filozófiánk azon a meggyőződésen alapul, hogy a fenntartható vagyonteremtés türelmet, pénzügyi fegyelmet és világos hosszú távú perspektívát igényel. A rövid távú piaci mozgások helyett az eszközök fundamentális értékét helyezzük előtérbe." },
+        { label: "VI. Cikkely", title: "Nemzetközi Terjeszkedés", text: "Nemzetközileg orientált befektetési holdingként a Duland Global célja földrajzi jelenlétének fokozatos bővítése, eszközportfóliójának erősítése és tartós szakmai kapcsolatok kialakítása a kiválasztott piacokon." },
+        { label: "VII. Cikkely", title: "Generációs Ambíció", text: "Hosszú távú törekvésünk egy pénzügyileg erős, diverzifikált és tartós befektetési holdingvállalat felépítése, amely megőrzi a tőkét, értékes eszközöket fejleszt és fenntartható értéket teremt a jövő számára." }
+      ],
       holdingBadge: 'Intézményi Eszközholding',
       holdingDesc: 'Székhely: 1065 Budapest, Révay köz 4., Magyarország. Intézményi ingatlaneszközök és saját tőke felelős kezelése.',
       ourFocusTitle: 'Fókuszterületeink',
@@ -448,6 +605,28 @@ export const translations = {
       fiCardDesc: 'Tőkenövekedésre, jövedelemtermelésre, strukturált hozamokra és pénzügyi stabilitásra fókuszáló intézményi portfólió.',
       portfolioTitle: 'Befektetési Portfóliónk',
       portfolioDesc: 'Széles ingatlaneszköz-osztályokba fektetünk, kiegyensúlyozott és stabil portfóliót alkotva jövedelemtermelő és fejlesztési lehetőségekkel.',
+            drivers: {
+        title: "Stratégiai Értékteremtő Tényezők",
+        items: [
+          {
+            num: "01",
+            title: "Tőkemegőrzés és Jövedelemtermelés",
+            desc: "A tőke megőrzése és növelése, fenntartható jövedelem termelése fegyelmezett döntések és felelős vagyonkezelés révén."
+          },
+          {
+            num: "02",
+            title: "Fegyelmezett Diverzifikáció",
+            desc: "Jövedelemtermelő ingatlanok, fejlesztési projektek és pénzügyi eszközök ötvözése az egyedi piaci kockázatok kiküszöbölésére."
+          },
+          {
+            num: "03",
+            title: "Aktív Portfólió Felügyelet",
+            desc: "Folyamatos teljesítményértékelés, megfontolt kockázatkezelés és aktív eszközoptimalizálás a megvásárlást követően is."
+          }
+        ]
+      },
+      readFullStatement: "Teljes Befektetési Stratégiai Dokumentum Olvasása",
+      hideFullStatement: "Stratégiai Dokumentum Összecsukása",
       principlesTitle: 'Befektetési Alapelvek',
       principles: ['Lehetőségközpontúság', 'Diverzifikáció', 'Fenntartható Hozamok', 'Kockázatkezelés', 'Hosszú Távú Szemlélet'],
     },
@@ -463,6 +642,33 @@ export const translations = {
       p6: 'A kockázatkezelés befektetési megközelítésünk minden szakaszába integrálva van, biztosítva a hozam és az elfogadható kockázati szint egyensúlyát.',
       p7: 'A tőkeallokáción túl az aktív portfólió-felügyelet és a rendszeres teljesítményértékelés alapvető fontosságú a folyamatos minőségjavításban.',
       p8: 'E jövőbe tekintő filozófia révén a Duland Global célja egy ellenálló, nemzetközileg diverzifikált holding felépítése.',
+            matrix: {
+        title: "Befektetési Filozófiai Mátrix",
+        items: [
+          {
+            num: "01",
+            title: "Fundamentális Elemzés és Értékelés",
+            desc: "Alapos átvilágítás, független pénzügyi modellezés és a fundamentumok vizsgálata a különböző gazdasági ciklusokon átívelően."
+          },
+          {
+            num: "02",
+            title: "Kétpilléres Szinergia",
+            desc: "A reálingatlanok fizikai stabilitásának és a pénzügyi befektetések dinamikus likviditásának összehangolása."
+          },
+          {
+            num: "03",
+            title: "Integrált Kockázatirányítás",
+            desc: "A hozamcélok és a szigorú likviditási kontroll, a megfontolt tőkeáttétel és a kockázatvédelem egyensúlya."
+          },
+          {
+            num: "04",
+            title: "Türelem és Felelős Tulajdonlás",
+            desc: "A hosszú távú tőkegyarapítás és a valós belső eszközérték előtérbe helyezése a rövid távú spekulációval szemben."
+          }
+        ]
+      },
+      readFullStatement: "Teljes Befektetési Filozófia Kiáltvány (8 Cikkely)",
+      hideFullStatement: "Filozófia Kiáltvány Összecsukása",
       processTitle: 'Befektetési Folyamatunk',
       principlesTitle: 'Irányadó Alapelveink',
       principles: ['Hosszú Távú Perspektíva', 'Értékteremtés', 'Diverzifikáció', 'Körültekintő Kockázatkezelés', 'Felelős Befektetés', 'Fenntarthatóság'],
@@ -669,6 +875,60 @@ export const translations = {
       p5: 'Unsere Philosophie basiert auf der Überzeugung, dass nachhaltiger Vermögensaufbau Geduld, finanzielle Disziplin und eine klare langfristige Perspektive erfordert. Anstatt kurzfristigen Marktbewegungen zu folgen, betonen wir den fundamentalen Wert der Vermögenswerte, verantwortungsvolles Eigentum und die sorgfältige Evaluierung jeder Investition.',
       p6: 'Als international ausgerichtete Beteiligungsholding strebt Duland Global danach, seine geografische Präsenz schrittweise auszubauen, das Vermögensportfolio zu stärken und dauerhafte professionelle Beziehungen in ausgewählten Märkten zu entwickeln.',
       p7: 'Unser langfristiges Ziel ist es, eine finanziell starke, diversifizierte und beständige Investment-Holding aufzubauen, die Kapital schützt, wertvolle Vermögenswerte entwickelt und nachhaltige Werte für die Zukunft schafft.',
+            stats: [
+        { value: "2", unit: "Säulen", label: "Immobilien & Finanzkapital" },
+        { value: "4+", unit: "Sektoren", label: "Wohnen, Büro, Industrie, Grundstücke" },
+        { value: "Grenzüberschreitend", unit: "Präsenz", label: "Zentrale Budapest & Regionale Expansion" },
+        { value: "Generationen", unit: "Horizont", label: "Kapitalerhalt & Wertsteigerung" },
+      ],
+      dualPillars: {
+        badge: "Duales Investitionsfundament",
+        title: "Zwei Synergistische Säulen der Wertschöpfung",
+        p1: {
+          num: "01",
+          tag: "Materielle Sachwerte",
+          title: "Immobilieneigentum & Entwicklung",
+          desc: "Erwerb, Entwicklung und langfristige Bewirtschaftung ertragsstarker Liegenschaften mit soliden Standort- und Cashflow-Fundamentaldaten.",
+          items: ["Wohnimmobilien", "Gewerbe- & Büroparks", "Industrie- & Produktionsanlagen", "Strategische Landreserven"],
+          takeaway: "Nachhaltige Mietrenditen kombiniert mit aktiver Entwicklungswertsteigerung."
+        },
+        p2: {
+          num: "02",
+          tag: "Eigenkapitalallokation",
+          title: "Finanzportfoliomanagement",
+          desc: "Aktive Verwaltung und Anlage des eigenen Investitionskapitals an internationalen Finanzmärkten zur Wahrung von Liquidität und makroökonomischer Flexibilität.",
+          items: ["Eigenkapitalverwaltung", "Multi-Asset-Diversifikation", "Liquiditätsflexibilität", "Makro-Resilienz"],
+          takeaway: "Ausgewogene Risikostruktur für verlässliche Erträge über alle Marktzyklen hinweg."
+        }
+      },
+      corePrinciples: {
+        title: "Strategische Grundsätze",
+        items: [
+          {
+            title: "Geduld & Finanzdisziplin",
+            desc: "Statt kurzfristiger Spekulation konzentrieren wir uns auf den fundamentalen Sachwert und verantwortungsbewusstes Eigentum."
+          },
+          {
+            title: "Geografische Expansion",
+            desc: "Schrittweiser Ausbau der internationalen Präsenz und Pflege verlässlicher institutioneller Partnerschaften."
+          },
+          {
+            title: "Generationenübergreifende Werte",
+            desc: "Aufbau einer finanzstarken, krisenfesten Holdinggesellschaft, die Kapital bewahrt und nachhaltige Zukunftswerte schafft."
+          }
+        ]
+      },
+      readFullStatement: "Vollständige Unternehmenssatzerklärung Lesen (7 Artikel)",
+      hideFullStatement: "Erklärung Einklappen",
+      statementArticles: [
+        { label: "Artikel I", title: "Unternehmensmandat", text: "Duland Global Kft. ist eine internationale Vermögens- und Beteiligungsholding mit Sitz in Ungarn, die sich auf den Erwerb, das Eigentum, die Entwicklung und die langfristige Verwaltung eines diversifizierten Portfolios von Immobilienwerten und Finanzanlagen auf internationalen Märkten konzentriert." },
+        { label: "Artikel II", title: "Duales Investitionsfundament", text: "Unsere Investitionsaktivitäten basieren auf zwei grundlegenden Säulen: Immobilieneigentum und -entwicklung sowie Finanzportfolioverwaltung. Durch die Kombination von Sachwerten mit sorgfältig ausgewählten Finanzanlagen schaffen wir eine ausgewogene und widerstandsfähige Investitionsstruktur." },
+        { label: "Artikel III", title: "Immobiliensektor", text: "Im Immobiliensektor erstrecken sich unsere Interessen auf Wohnimmobilien, Gewerbe- und Bürogebäude, Industrieanlagen, ertragsgenerierende Vermögenswerte und strategisch gelegene Grundstücke mit Entwicklungspotenzial." },
+        { label: "Artikel IV", title: "Finanzkapitalallokation", text: "Neben unseren Immobilienaktivitäten nutzen wir Chancen an den Finanzmärkten durch die Verwaltung unseres eigenen Investitionskapitals, um Flexibilität zu wahren und Risiken zu streuen." },
+        { label: "Artikel V", title: "Langfristige Disziplin", text: "Unsere Philosophie basiert auf der Überzeugung, dass nachhaltiger Vermögensaufbau Geduld, Finanzdisziplin und eine klare langfristige Perspektive erfordert. Wir legen Wert auf fundamentale Werte statt kurzfristiger Spekulation." },
+        { label: "Artikel VI", title: "Internationale Expansion", text: "Als international ausgerichtete Holding zielt Duland Global darauf ab, die geografische Präsenz schrittweise auszubauen und tragfähige Partnerschaften zu vertiefen." },
+        { label: "Artikel VII", title: "Generationenambition", text: "Unser langfristiges Ziel ist der Aufbau einer finanzstarken, diversifizierten Holdinggesellschaft, die Kapital sichert und dauerhafte Werte schafft." }
+      ],
       holdingBadge: 'Institutionelle Beteiligungsholding',
       holdingDesc: 'Sitz: 1065 Budapest, Révay köz 4., Ungarn. Professionelles Management institutioneller Sachwerte und Eigenkapitalanlagen.',
       ourFocusTitle: 'Unser Fokus',
@@ -693,6 +953,28 @@ export const translations = {
       fiCardDesc: 'Ein diversifiziertes Portfolio mit Fokus auf Kapitalwachstum, laufende Erträge und finanzielle Stabilität.',
       portfolioTitle: 'Unser Anlageportfolio',
       portfolioDesc: 'Wir investieren in ein breites Spektrum von Immobilienklassen mit ausgewogener Balance zwischen Bestandserträgen und Entwicklungspotenzialen.',
+            drivers: {
+        title: "Strategische Werttreiber",
+        items: [
+          {
+            num: "01",
+            title: "Kapitalerhalt & Ertragsstärke",
+            desc: "Erhalt und Ausbau von Investitionskapital bei stetiger Generierung nachhaltiger Erträge durch disziplinierte Anlageentscheidungen."
+          },
+          {
+            num: "02",
+            title: "Disziplinierte Diversifikation",
+            desc: "Verbindung von Ertragsimmobilien, Entwicklungsprojekten und Finanzinstrumenten zur Vermeidung von Klumpenrisiken."
+          },
+          {
+            num: "03",
+            title: "Aktive Portfolioüberwachung",
+            desc: "Fortlaufende Leistungsprüfung, umsichtiges Risikomanagement und kontinuierliche Wertsteigerung über den Erwerb hinaus."
+          }
+        ]
+      },
+      readFullStatement: "Vollständiges Anlagestrategie-Dokument Lesen",
+      hideFullStatement: "Strategie-Dokument Einklappen",
       principlesTitle: 'Investitionsgrundsätze',
       principles: ['Chancenfokus', 'Diversifikation', 'Nachhaltige Erträge', 'Risikomanagement', 'Langfristige Perspektive'],
     },
@@ -708,6 +990,33 @@ export const translations = {
       p6: 'Risikomanagement ist in jede Phase unseres Ansatzes integriert, um das Vermögen unserer Gruppe wirksam zu schützen.',
       p7: 'Kontinuierliche Begleitung und aktive Leistungsbewertung sind unverzichtbare Bestandteile unserer operativen Exzellenz.',
       p8: 'Auf dieser Basis schaffen wir eine krisenfeste und zukunftsorientierte internationale Holding.',
+            matrix: {
+        title: "Philosophie-Matrix",
+        items: [
+          {
+            num: "01",
+            title: "Fundamentale Analyse & Bewertung",
+            desc: "Sorgfältige Due Diligence, fundierte Standortanalysen und unabhängige Bewertungen über wechselnde Marktzyklen hinweg."
+          },
+          {
+            num: "02",
+            title: "Duale Portfoliosynergie",
+            desc: "Kombination der physischen Sicherheit von Sachwerten mit der taktischen Liquidität moderner Finanzinstrumente."
+          },
+          {
+            num: "03",
+            title: "Integrierte Risikosteuerung",
+            desc: "Balance zwischen Renditezielen und disziplinierter Liquiditätsvorsorge bei kontrollierter Verschuldung."
+          },
+          {
+            num: "04",
+            title: "Verantwortungsvolle Weitsicht",
+            desc: "Fokus auf langfristigen Substanzwert und Generationenvermögen anstelle volatiler Marktbewegungen."
+          }
+        ]
+      },
+      readFullStatement: "Vollständiges Philosophie-Manifest Lesen (8 Artikel)",
+      hideFullStatement: "Manifest Einklappen",
       processTitle: 'Unser Investitionsprozess',
       principlesTitle: 'Leitprinzipien',
       principles: ['Langfristige Perspektive', 'Wertschöpfung', 'Diversifikation', 'Umsichtiges Risikomanagement', 'Verantwortung', 'Nachhaltigkeit'],
@@ -914,6 +1223,60 @@ export const translations = {
       p5: 'Bizning falsafamiz barqaror boylik yaratish sabr-toqat, moliyaviy intizom va aniq uzoq muddatli istiqbolni talab qiladi degan ishonchga asoslanadi. Qisqa muddatli bozor tebranishlariga ergashish o‘rniga, biz aktivlarning fundamental qiymatiga, mas’uliyatli egalikka va investitsiya imkoniyatlarini chuqur baholashga urg‘u beramiz.',
       p6: 'Xalqaro miqyosga yo‘naltirilgan investitsiya xoldingi sifatida Duland Global o‘zining geografik qamrovini bosqichma-bosqich kengaytirishni, aktivlar portfelini mustahkamlashni va tanlangan bozorlarda mustahkam professional aloqalarni rivojlantirishni maqsad qilgan.',
       p7: 'Bizning uzoq muddatli niyatimiz kapitalni asrab-avaylaydigan, qimmatli aktivlarni rivojlantiradigan va kelajak uchun barqaror qiymat yaratadigan moliyaviy baquvvat, diversifikatsiyalangan va mustahkam investitsiya xoldingini barpo etishdir.',
+            stats: [
+        { value: "2", unit: "Asosiy Ustun", label: "Ko'chmas Mulk va Moliyaviy Kapital" },
+        { value: "4+", unit: "Aktivlar Sohasida", label: "Turar-Joy, Ofis, Sanoat, Yer" },
+        { value: "Xalqaro", unit: "Ko'lam", label: "Budapesht Bosh Qarorgohi va Mintaqaviy O'sish" },
+        { value: "Uzoq Muddatli", unit: "Ufq", label: "Kapitalni Saqlash va Qiymatni Oshirish" },
+      ],
+      dualPillars: {
+        badge: "Ikki Bosqichli Investitsiya Asosi",
+        title: "Qiymat Yaratishning Ikki O'zaro Bog'liq Ustuni",
+        p1: {
+          num: "01",
+          tag: "Moddiy Ko'chmas Mulk Aktivlari",
+          title: "Ko'chmas Mulkka Egalik Qilish va Rivojlantirish",
+          desc: "Turar-joy, zamonaviy ofis binolari, sanoat korxonalari va strategik yer uchastkalarini ishonchli fundamental ko'rsatkichlar asosida sotib olish va uzoq muddatli boshqarish.",
+          items: ["Turar-Joy Majmualari", "Tijorat va Ofis Parklari", "Sanoat va Ishlab Chiqarish Korxonalari", "Strategik Yer Fondlari"],
+          takeaway: "Barqaror ijara daromadlari va loyihalarni rivojlantirish orqali qiymatni oshirish."
+        },
+        p2: {
+          num: "02",
+          tag: "Shaxsiy Kapital Taqsimoti",
+          title: "Moliyaviy Portfel Boshqaruvi",
+          desc: "O'z sarmoyamizni xalqaro moliya bozorlarida faol boshqarish orqali yuqori likvidlik, makroiqtisodiy barqarorlik va mustahkam daromad tuzilmasini ta'minlash.",
+          items: ["Shaxsiy Kapital Boshqaruvi", "Ko'p Aktivli Diversifikatsiya", "Likvid Moliyaviy Moslashuvchanlik", "Makroiqtisodiy Chidamlilik"],
+          takeaway: "Bozor tebranishlariga chidamli va uzluksiz daromad keltiruvchi muvozanatli risk tizimi."
+        }
+      },
+      corePrinciples: {
+        title: "Strategik Boshqaruv Tamoyillari",
+        items: [
+          {
+            title: "Sabr va Moliyaviy Intizom",
+            desc: "Qisqa muddatli spekulyatsiya o'rniga biz aktivlarning fundamental qiymati va mas'uliyatli egalikka e'tibor qaratamiz."
+          },
+          {
+            title: "Xalqaro Kengayish",
+            desc: "Geografik ishtirokimizni bosqichma-bosqich kengaytirish va uzoq muddatli ishonchli hamkorliklarni o'rnatish."
+          },
+          {
+            title: "Avlodlar Uchun Barqaror Qiymat",
+            desc: "Kapitalni asraydigan, qimmatli aktivlarni rivojlantiradigan va uzoq muddatli qiymat yaratadigan kuchli holding qurish."
+          }
+        ]
+      },
+      readFullStatement: "To'liq Korporativ Bayonotni O'qish (7 Modda)",
+      hideFullStatement: "Bayonotni Yopish",
+      statementArticles: [
+        { label: "I Modda", title: "Korporativ Vakolat", text: "Duland Global Kft. Vengriyada joylashgan xalqaro aktivlar va investitsiya xolding kompaniyasi bo'lib, xalqaro bozorlarda ko'chmas mulk aktivlari va moliyaviy investitsiyalarning diversifikatsiyalangan portfelini sotib olish, unga egalik qilish, rivojlantirish va uzoq muddatli boshqarishga qaratilgan." },
+        { label: "II Modda", title: "Ikki Bosqichli Investitsiya Asosi", text: "Bizning investitsiya faoliyatimiz ikkita asosiy ustunga tayanadi: ko'chmas mulkka egalik qilish va rivojlantirish hamda moliyaviy investitsiyalar portfelini boshqarish." },
+        { label: "III Modda", title: "Ko'chmas Mulk Qamrovi", text: "Ko'chmas mulk sohasida bizning manfaatlarimiz turar-joy mulklari, tijorat va ofis binolari, sanoat obyektlari, daromad keltiruvchi aktivlar va kelajakda rivojlanish salohiyatiga ega bo'lgan strategik yerlarni qamrab oladi." },
+        { label: "IV Modda", title: "Moliyaviy Kapital Taqsimoti", text: "Ko'chmas mulk sohasidagi faoliyatimiz bilan bir qatorda, biz o'z investitsiya kapitalimizni boshqarish va taqsimlash orqali moliya bozorlarida imkoniyatlarni izlaymiz." },
+        { label: "V Modda", title: "Uzoq Muddatli Intizom", text: "Bizning falsafamiz barqaror boylik yaratish sabr-toqat, moliyaviy intizom va aniq uzoq muddatli istiqbolni talab qiladi degan ishonchga asoslanadi." },
+        { label: "VI Modda", title: "Xalqaro Kengayish", text: "Xalqaro yo'naltirilgan investitsiya xolding kompaniyasi sifatida Duland Global geografik ishtirokini bosqichma-bosqich kengaytirish va uzoq muddatli professional munosabatlarni rivojlantirishni maqsad qilgan." },
+        { label: "VII Modda", title: "Kelajak Maqsadi", text: "Bizning uzoq muddatli intilishimiz kapitalni saqlaydigan, qimmatli aktivlarni rivojlantiradigan va kelajak uchun barqaror qiymat yaratadigan moliyaviy jihatdan kuchli xolding kompaniyasini qurishdir." }
+      ],
       holdingBadge: 'Institutsional aktivlar xoldingi',
       holdingDesc: 'Bosh ofis: 1065 Budapest, Révay köz 4., Vengriya. Institutsional ko‘chmas mulk va shaxsiy investitsiya kapitalini qat’iy intizom bilan boshqarish.',
       ourFocusTitle: 'Bizning yo‘nalishlar',
@@ -938,6 +1301,28 @@ export const translations = {
       fiCardDesc: 'Kapital o‘sishi, barqaror daromad va moliyaviy ishonchlilikka yo‘naltirilgan institutsional investitsiya portfeli.',
       portfolioTitle: 'Investitsiya portfelimiz',
       portfolioDesc: 'Biz ko‘chmas mulkning turli toifalariga investitsiya kiritib, daromad keltiruvchi va rivojlantirish imkoniyatlariga ega muvozanatli portfel yaratamiz.',
+            drivers: {
+        title: "Strategik Qiymat Dvigatellari",
+        items: [
+          {
+            num: "01",
+            title: "Kapitalni Saqlash va Daromad",
+            desc: "Intizomli qarorlar va mas'uliyatli boshqaruv orqali kapitalni asrash, ko'paytirish va barqaror daromad keltirish."
+          },
+          {
+            num: "02",
+            title: "Ko'p Aktivli Diversifikatsiya",
+            desc: "Yagona sektorga bog'liqlikni bartaraf etish uchun daromad keltiruvchi mulklar, rivojlanish loyihalari va moliyaviy vositalarni birlashtirish."
+          },
+          {
+            num: "03",
+            title: "Faol Hayotiy Tsikl Nazorati",
+            desc: "Aktivlarni sotib olishdan keyin ham doimiy samaradorlik tahlili, ehtiyotkorlik bilan xatarlarni boshqarish va sifatni oshirish."
+          }
+        ]
+      },
+      readFullStatement: "To'liq Investitsiya Strategiyasi Hujjatini O'qish",
+      hideFullStatement: "Hujjatni Yopish",
       principlesTitle: 'Investitsiya tamoyillari',
       principles: ['Imkoniyatlarga e’tibor', 'Diversifikatsiya', 'Barqaror daromad', 'Xatarlarni boshqarish', 'Uzoq muddatli yondashuv'],
     },
@@ -953,6 +1338,33 @@ export const translations = {
       p6: 'Xatarlarni boshqarish investitsiya yondashuvimizning barcha bosqichlariga kiritilgan bo‘lib, kapital barqarorligini himoya qiladi.',
       p7: 'Kapital taqsimlashdan tashqari, doimiy nazorat va samaradorlikni baholash muvaffaqiyatli boshqaruvning asosiy shartidir.',
       p8: 'Ushbu intizomli falsafa orqali Duland Global uzoq muddatli barqaror xalqaro xoldingni yaratishga intiladi.',
+            matrix: {
+        title: "Falsafiy Matritsa",
+        items: [
+          {
+            num: "01",
+            title: "Fundamental Tahlil va Baholash",
+            desc: "Turli iqtisodiy davrlar orqali bozor dinamikasi, huquqiy muhit va har bir aktivning mustaqil moliyaviy bahosi."
+          },
+          {
+            num: "02",
+            title: "Ikki Ustunli Sinergiya",
+            desc: "Moddiy ko'chmas mulkning jismoniy barqarorligini moliya bozorlarining tezkor likvidligi bilan uyg'unlashtirish."
+          },
+          {
+            num: "03",
+            title: "Keng Qamrovli Xatarlar Nazorati",
+            desc: "Daromadlilik maqsadlari bilan qat'iy likvidlik nazorati, mo''tadil qarz darajasi va himoya tizimining mutanosibligi."
+          },
+          {
+            num: "04",
+            title: "Sabr va Mas'uliyatli Egalik",
+            desc: "Qisqa muddatli tebranishlardan ko'ra uzoq muddatli kapital o'sishi va aktivlarning ichki qiymatiga ustuvorlik berish."
+          }
+        ]
+      },
+      readFullStatement: "To'liq Investitsiya Falsafasi Manifestini O'qish (8 Modda)",
+      hideFullStatement: "Manifestni Yopish",
       processTitle: 'Bizning investitsiya jarayoni',
       principlesTitle: 'Asosiy tamoyillarimiz',
       principles: ['Uzoq muddatli istiqbol', 'Qiymat yaratish', 'Diversifikatsiya', 'Ehtiyotkor xatarlar boshqaruvi', 'Mas’uliyatli investitsiya', 'Barqarorlik'],

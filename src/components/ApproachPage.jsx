@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Search, 
   BarChart2, 
@@ -9,12 +9,16 @@ import {
   Layers, 
   ShieldCheck, 
   Users,
-  CircleDot
+  CircleDot,
+  FileText,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 export const ApproachPage = ({ setCurrentView }) => {
   const { t } = useLanguage();
+  const [showFullStatement, setShowFullStatement] = useState(false);
 
   const processIcons = [Search, BarChart2, Handshake, Settings, Target];
   const principleIcons = [Leaf, Layers, CircleDot, ShieldCheck, Users, Leaf];
@@ -25,10 +29,10 @@ export const ApproachPage = ({ setCurrentView }) => {
       {/* 1. TOP BANNER */}
       <section className="relative w-full h-[280px] sm:h-[340px] lg:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_approach_binoculars_4k.webp" 
+          src="/assets/banner_approach_strategic_vision.webp" 
           alt="Investment Approach"
           className="absolute inset-0 w-full h-full object-cover object-center"
-          onError={(e) => { e.target.src = '/assets/banner_approach_sunset.webp'; }}
+          onError={(e) => { e.target.src = '/assets/banner_corporate.webp'; }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 sm:via-40% to-transparent"></div>
         
@@ -53,10 +57,13 @@ export const ApproachPage = ({ setCurrentView }) => {
       <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12">
             
-            {/* Left Title Column (No awkward line breaks) */}
+            {/* Left Title Column */}
             <div className="lg:col-span-4">
+              <span className="text-xs font-bold tracking-widest text-[#0b3b24] uppercase block mb-1">
+                Strategic Foundation
+              </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-snug">
                 {t.approach.philosophyTitle}
               </h2>
@@ -72,57 +79,72 @@ export const ApproachPage = ({ setCurrentView }) => {
               </div>
             </div>
 
-            {/* Right 8 Paragraphs with Comfortable Typography & Structural Rhythm */}
-            <div className="lg:col-span-8 space-y-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+            {/* Right: Lead Statement, 4-Quadrant Matrix & Collapsible Accordion */}
+            <div className="lg:col-span-8 space-y-6">
               
               {/* Lead Philosophical Block */}
-              <div className="p-5 rounded-2xl bg-[#f0f6f2] border border-emerald-900/10 text-slate-900 font-medium leading-relaxed border-l-4 border-l-[#22c55e]">
-                {t.approach.p1}
+              <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-emerald-50/30 to-white border border-slate-200 text-slate-900 font-medium leading-relaxed border-l-4 border-l-[#22c55e] shadow-2xs">
+                <p className="text-base sm:text-lg leading-relaxed">{t.approach.p1}</p>
               </div>
 
-              <p>
-                {t.approach.p2}
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-2">
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider block mb-1">
-                    Independent Research
-                  </span>
-                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                    {t.approach.p3}
-                  </p>
+              {/* 4-Quadrant Philosophy Matrix */}
+              {t.approach.matrix && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {t.approach.matrix.items.map((item, idx) => (
+                    <div 
+                      key={idx}
+                      className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 transition-colors"
+                    >
+                      <span className="font-serif text-base font-bold text-[#22c55e] block mb-1">
+                        {item.num}
+                      </span>
+                      <h4 className="font-serif text-sm sm:text-base font-bold text-slate-900 mb-1.5 leading-snug">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  ))}
                 </div>
+              )}
 
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider block mb-1">
-                    Multi-Market Diversification
-                  </span>
-                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                    {t.approach.p4}
-                  </p>
-                </div>
-              </div>
+              {/* Collapsible Complete Philosophy Manifesto */}
+              <div className="rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs">
+                <button
+                  onClick={() => setShowFullStatement(!showFullStatement)}
+                  className="w-full px-5 py-3.5 flex items-center justify-between bg-slate-50 hover:bg-slate-100 text-slate-800 transition-colors cursor-pointer text-left"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <FileText className="w-4 h-4 text-[#0b3b24]" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
+                      {showFullStatement ? t.approach.hideFullStatement : t.approach.readFullStatement}
+                    </span>
+                  </div>
+                  <div className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600">
+                    {showFullStatement ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                  </div>
+                </button>
 
-              <p>
-                {t.approach.p5}
-              </p>
-              
-              <p>
-                {t.approach.p6}
-              </p>
-
-              <p>
-                {t.approach.p7}
-              </p>
-
-              <div className="p-5 rounded-2xl bg-[#0b3b24] text-white mt-4 shadow-sm">
-                <span className="text-xs font-semibold text-emerald-300 uppercase tracking-wider block mb-1">
-                  Resilient Holding Ambition
-                </span>
-                <p className="text-xs sm:text-sm text-emerald-50 font-light leading-relaxed">
-                  {t.approach.p8}
-                </p>
+                {showFullStatement && (
+                  <div className="p-6 bg-white border-t border-slate-200 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    <p className="p-3 rounded-lg bg-emerald-50/50 text-slate-800 font-medium">{t.approach.p1}</p>
+                    <p>{t.approach.p2}</p>
+                    <p>{t.approach.p3}</p>
+                    <p>{t.approach.p4}</p>
+                    <p>{t.approach.p5}</p>
+                    <p>{t.approach.p6}</p>
+                    <p>{t.approach.p7}</p>
+                    <div className="p-4 rounded-xl bg-[#0b3b24] text-white">
+                      <span className="text-xs font-semibold text-emerald-300 uppercase tracking-wider block mb-1">
+                        Resilient Holding Ambition
+                      </span>
+                      <p className="text-xs sm:text-sm text-emerald-50 font-light leading-relaxed">
+                        {t.approach.p8}
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
 
             </div>
@@ -143,29 +165,32 @@ export const ApproachPage = ({ setCurrentView }) => {
             <div className="w-12 h-[3px] bg-[#22c55e] mt-2"></div>
           </div>
 
-          {/* 5 Process Steps with Connected Arrows */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
             {t.process.steps.map((step, idx) => {
               const IconComp = processIcons[idx % processIcons.length];
               return (
-                <React.Fragment key={idx}>
-                  <div className="flex flex-col items-center text-center p-3 flex-1 w-full max-w-[220px] bg-white rounded-2xl border border-slate-200/90 shadow-2xs">
-                    <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200 text-[#0b3b24] flex items-center justify-center mb-3 shadow-xs">
+                <div 
+                  key={idx}
+                  className="bg-white border border-slate-200 rounded-2xl p-6 shadow-2xs hover:shadow-md transition-shadow relative group flex flex-col justify-between"
+                >
+                  <div className="absolute top-4 right-4 text-slate-200 font-serif font-bold text-3xl group-hover:text-emerald-100 transition-colors">
+                    0{idx + 1}
+                  </div>
+                  
+                  <div>
+                    <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#0b3b24] flex items-center justify-center mb-5">
                       <IconComp className="w-6 h-6 stroke-[1.75]" />
                     </div>
-                    <h4 className="font-bold text-xs sm:text-sm text-slate-900 mb-1.5 leading-snug">
+
+                    <h3 className="font-serif text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug">
                       {step.title}
-                    </h4>
-                    <p className="text-xs text-slate-500 leading-relaxed">
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
-                  {idx < t.process.steps.length - 1 && (
-                    <div className="hidden md:flex text-slate-400 text-sm font-semibold px-1">
-                      →
-                    </div>
-                  )}
-                </React.Fragment>
+                </div>
               );
             })}
           </div>
@@ -173,78 +198,53 @@ export const ApproachPage = ({ setCurrentView }) => {
         </div>
       </section>
 
-      {/* 4. OUR GUIDING PRINCIPLES */}
-      <section className="py-14 bg-white border-t border-slate-200">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <div className="lg:col-span-3">
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
-                {t.approach.principlesTitle}
-              </h3>
-              <div className="w-12 h-[3px] bg-[#22c55e] mt-2"></div>
-            </div>
-
-            <div className="lg:col-span-9 grid grid-cols-2 sm:grid-cols-6 gap-3">
-              {t.approach.principles.map((gp, idx) => {
-                const IconComp = principleIcons[idx % principleIcons.length];
-                return (
-                  <div key={idx} className="flex flex-col items-center text-center p-3 rounded-xl bg-slate-50 border border-slate-200/80">
-                    <div className="w-10 h-10 flex items-center justify-center text-[#0b3b24] bg-emerald-50 rounded-full mb-2">
-                      <IconComp className="w-5 h-5 stroke-[1.75]" />
-                    </div>
-                    <span className="text-xs sm:text-[13px] font-semibold text-slate-900 leading-tight">
-                      {gp}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* 5. RISK MANAGEMENT & LONG-TERM VALUE (3-Column Layout with Center Zen Stones) */}
+      {/* 4. GUIDING PRINCIPLES */}
       <section className="py-14 sm:py-20 bg-white border-t border-slate-200">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            {/* Left Column: Risk Management */}
-            <div className="lg:col-span-4 bg-[#0b3b24] text-white p-7 sm:p-9 rounded-2xl flex flex-col justify-center shadow-md">
-              <h3 className="font-serif text-2xl font-bold text-white">
-                {t.approach.riskTitle}
-              </h3>
-              <div className="w-12 h-[3px] bg-[#22c55e] mt-3 mb-5"></div>
-              
-              <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-light">
-                {t.approach.riskDesc}
+            <div className="lg:col-span-4">
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-snug">
+                {t.approach.principlesTitle}
+              </h2>
+              <div className="w-12 h-[3px] bg-[#22c55e] mt-2 mb-4"></div>
+              <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                {t.approach.principlesDesc || 'Our core operating principles guide our long-term capital allocation.'}
               </p>
+
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm h-52 sm:h-64">
+                <img 
+                  src="/assets/zen_stones_4k.webp" 
+                  alt="Balance & Principles"
+                  className="w-full h-full object-cover"
+                  onError={(e) => { e.target.src = '/assets/ref_zen_stones.webp'; }}
+                />
+              </div>
             </div>
 
-            {/* Center Column: Zen Stones Photo */}
-            <div className="lg:col-span-4 h-64 sm:h-80 lg:h-auto min-h-[260px] rounded-2xl overflow-hidden shadow-sm border border-slate-200">
-              <img 
-                src="/assets/ref_zen_stones.webp" 
-                alt="Balance and Stability"
-                className="w-full h-full object-cover"
-                onError={(e) => { e.target.src = '/assets/zen_stones_4k.webp'; }}
-              />
-            </div>
-
-            {/* Right Column: Long-Term Value */}
-            <div className="lg:col-span-4 bg-[#0b3b24] text-white p-7 sm:p-9 rounded-2xl flex flex-col justify-center shadow-md">
-              <h3 className="font-serif text-2xl font-bold text-white">
-                {t.approach.valueTitle}
-              </h3>
-              <div className="w-12 h-[3px] bg-[#22c55e] mt-3 mb-5"></div>
-              
-              <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-light">
-                {t.approach.valueDesc}
-              </p>
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {t.approach.principles.map((pr, idx) => {
+                const IconComp = principleIcons[idx % principleIcons.length];
+                return (
+                  <div 
+                    key={idx}
+                    className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 transition-colors"
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-emerald-50 text-[#0b3b24] flex items-center justify-center shrink-0">
+                        <IconComp className="w-4 h-4 stroke-[2]" />
+                      </div>
+                      <h4 className="font-serif text-sm sm:text-base font-bold text-slate-900">
+                        {pr.title}
+                      </h4>
+                    </div>
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed pl-11">
+                      {pr.desc}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
 
           </div>
