@@ -7,7 +7,7 @@ export const Footer = ({ setCurrentView }) => {
         <div>
           <span className="font-serif font-bold text-white tracking-wide">Duland Global Kft.</span>
           <span className="mx-2 text-emerald-700">•</span>
-          <span>Budapest, Hungary</span>
+          <span>1065 Budapest, Révay köz 4., Hungary</span>
           <span className="mx-2 text-emerald-700">•</span>
           <span>All rights reserved</span>
         </div>

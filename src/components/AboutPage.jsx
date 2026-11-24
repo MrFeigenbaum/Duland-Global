@@ -60,34 +60,57 @@ export const AboutPage = ({ setCurrentView }) => {
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Left Content */}
-            <div className="lg:col-span-6">
+            {/* Left Content - 7 Detailed Paragraphs */}
+            <div className="lg:col-span-7">
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
                 Who We Are
               </h2>
-              <div className="w-10 h-[3px] bg-[#22c55e] mt-2 mb-4"></div>
+              <div className="w-10 h-[3px] bg-[#22c55e] mt-2 mb-5"></div>
               
-              <div className="space-y-3.5 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
+              <div className="space-y-4 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
                 <p>
-                  Duland Global is an international investment holding company focused on building and managing a diversified portfolio of real assets and financial investments.
+                  Duland Global Kft. is a Hungary-based international asset and investment holding company focused on the acquisition, ownership, development and long-term management of a diversified portfolio of real estate assets and financial investments across international markets.
                 </p>
                 <p>
-                  We invest in high-potential opportunities across different markets and asset classes, with a long-term perspective, a disciplined approach and a commitment to creating lasting value.
+                  Our investment activities are built around two fundamental pillars: real estate ownership and development, and financial investment portfolio management. By combining tangible assets with carefully selected financial investments, we seek to establish a balanced and resilient investment structure capable of generating sustainable income and supporting long-term capital growth.
+                </p>
+                <p>
+                  Within the real estate sector, our interests extend across residential properties, commercial and office buildings, industrial facilities, income-generating assets and strategically located land with future development potential. We approach each investment with careful consideration of its location, market fundamentals, income potential and prospects for long-term appreciation.
+                </p>
+                <p>
+                  Alongside our real estate activities, we pursue opportunities in financial markets through the management and allocation of our own investment capital. This complementary approach allows us to diversify our portfolio, maintain financial flexibility and explore investment opportunities across different asset classes and economic environments.
+                </p>
+                <p>
+                  Our philosophy is based on the belief that sustainable wealth creation requires patience, financial discipline and a clear long-term perspective. Rather than focusing on short-term market movements, we emphasize the fundamental value of assets, responsible ownership and the careful evaluation of investment opportunities.
+                </p>
+                <p>
+                  As an internationally oriented investment holding company, Duland Global aims to gradually expand its geographical presence, strengthen its asset portfolio and develop lasting professional relationships across selected markets.
+                </p>
+                <p>
+                  Our long-term ambition is to build a financially strong, diversified and enduring investment holding company that preserves capital, develops valuable assets and creates sustainable value for the future.
                 </p>
               </div>
             </div>
 
-            {/* Right Landscape Image: Rolling Green Hills Sunset */}
-            <div className="lg:col-span-6">
-              <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-200 h-56 sm:h-64">
+            {/* Right Landscape Image & Fact Card */}
+            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-4">
+              <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-200 h-64 sm:h-72 lg:h-[360px]">
                 <img 
                   src="/assets/ref_about_hills.webp" 
                   alt="Duland Global Who We Are"
                   className="w-full h-full object-cover"
                   onError={(e) => { e.target.src = '/assets/who_we_are_hills_4k.webp'; }}
                 />
+              </div>
+              <div className="p-4 rounded-xl bg-[#f0f6f2] border border-emerald-900/10 text-slate-700">
+                <span className="text-[11px] font-bold text-[#0b3b24] uppercase tracking-wider block mb-1">
+                  Institutional Asset Holding
+                </span>
+                <p className="text-[11px] text-slate-600 leading-relaxed">
+                  Headquartered in Budapest, Hungary, managing institutional real estate assets and proprietary financial capital with long-term governance.
+                </p>
               </div>
             </div>
 

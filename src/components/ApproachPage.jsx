@@ -97,12 +97,30 @@ export const ApproachPage = ({ setCurrentView }) => {
               <div className="w-10 h-[3px] bg-[#22c55e] mt-2"></div>
             </div>
 
-            <div className="lg:col-span-8 space-y-3 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
+            <div className="lg:col-span-8 space-y-4 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
               <p>
-                At Duland Global, we take a long-term, disciplined and opportunity-driven approach to investing. We focus on creating sustainable value by combining the stability of real assets with the growth potential of carefully selected financial investments.
+                At Duland Global, our investment philosophy is founded on a long-term perspective, disciplined capital allocation and a commitment to creating sustainable value across international markets. We believe that successful investment management requires more than identifying attractive opportunities; it demands a comprehensive understanding of asset fundamentals, market dynamics, financial risks and long-term economic potential.
               </p>
               <p>
-                Our decisions are based on in-depth analysis, sound risk management and a clear focus on long-term returns rather than short-term market movements.
+                Our strategy is centered on building and managing a diversified portfolio that combines the stability and income-generating potential of real estate assets with the flexibility and growth opportunities offered by financial investments. Through this balanced approach, we seek to preserve capital, generate recurring income and achieve sustainable appreciation in the value of our investments over time.
+              </p>
+              <p>
+                We recognize that each investment opportunity presents its own combination of potential returns, risks and market characteristics. For this reason, our decision-making process emphasizes careful research, independent evaluation, financial analysis and a clear understanding of the factors that may influence an asset's performance throughout different economic cycles.
+              </p>
+              <p>
+                Diversification is an essential element of our philosophy. By allocating capital across different asset classes, geographical markets and investment opportunities, we aim to reduce excessive concentration, strengthen portfolio resilience and maintain the financial flexibility required to respond to changing market conditions.
+              </p>
+              <p>
+                We approach investment decisions with patience and a commitment to responsible ownership. Rather than pursuing short-term speculative gains, we focus on investments supported by sound fundamentals, sustainable income potential and opportunities for long-term value creation. We believe that the quality of an investment should be measured not only by its immediate financial performance, but also by its ability to maintain and develop value over time.
+              </p>
+              <p>
+                Risk management is integrated into every stage of our investment approach. We consider market conditions, liquidity requirements, financial exposure, regulatory environments and the long-term sustainability of each investment. Our objective is to maintain a balanced relationship between potential returns and acceptable levels of risk while protecting the financial stability of our overall portfolio.
+              </p>
+              <p>
+                Beyond capital allocation, we believe that active portfolio oversight and continuous performance evaluation are fundamental to successful investment management. We regularly consider opportunities to improve asset quality, enhance income-generating capacity and adapt our investment structure to evolving market conditions.
+              </p>
+              <p>
+                Through this disciplined and forward-looking philosophy, Duland Global aims to build a financially resilient, internationally diversified investment holding company that combines responsible capital management with sustainable income generation and long-term value creation.
               </p>
             </div>
           </div>

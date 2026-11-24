@@ -216,7 +216,8 @@ export const ContactPage = () => {
                     </div>
                     <div>
                       <div className="text-xs font-bold text-slate-900">Duland Global Kft.</div>
-                      <div className="text-xs text-slate-600">Budapest, Hungary</div>
+                      <div className="text-xs text-slate-600">1065 Budapest, Révay köz 4.</div>
+                      <div className="text-xs text-slate-600">Hungary</div>
                       <div className="text-[11px] text-slate-400 italic">(Registered Office)</div>
                     </div>
                   </div>

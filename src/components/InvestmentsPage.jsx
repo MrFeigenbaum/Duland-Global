@@ -98,12 +98,21 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
               <div className="w-10 h-[3px] bg-[#22c55e] mt-2"></div>
             </div>
 
-            <div className="lg:col-span-8 space-y-3 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
+            <div className="lg:col-span-8 space-y-4 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
               <p>
-                At Duland Global, we invest in a diversified portfolio of real assets and financial instruments, aiming to generate stable returns, preserve capital and create lasting value across different markets.
+                At Duland Global, we are committed to building and managing a diversified international investment portfolio that combines real estate assets with carefully selected financial investments. Our primary objective is to preserve and grow capital, generate sustainable income and create lasting value through disciplined investment decisions and responsible asset management.
               </p>
               <p>
-                Our investments are built on a long-term perspective, a disciplined approach and a focus on high-potential opportunities.
+                We approach investments with a long-term perspective, recognizing that sustainable growth requires careful planning, comprehensive analysis and a balanced allocation of financial resources. Rather than focusing on short-term market fluctuations, we seek opportunities supported by strong fundamentals, attractive long-term potential and clearly defined investment objectives.
+              </p>
+              <p>
+                Our strategy emphasizes diversification across different asset classes and geographical markets. By combining income-generating properties, development opportunities and financial instruments, we aim to strengthen portfolio resilience, maintain financial flexibility and reduce excessive dependence on any single investment sector or market.
+              </p>
+              <p>
+                We believe that successful investment management extends beyond the initial acquisition of an asset. Continuous performance evaluation, prudent risk management and the active development of our portfolio are essential elements of our approach.
+              </p>
+              <p>
+                Through this disciplined strategy, Duland Global seeks to establish a financially strong and adaptable international investment holding company, capable of responding to changing market conditions while consistently pursuing sustainable income, capital appreciation and long-term value creation.
               </p>
             </div>
           </div>

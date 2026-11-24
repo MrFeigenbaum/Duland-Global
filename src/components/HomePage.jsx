@@ -548,7 +548,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
                         </span>
                       </div>
                       <p className="text-[11px] text-slate-600 leading-relaxed">
-                        Registered office, central treasury, governance, and institutional asset management hub overseeing investments across Europe.
+                        Registered office: 1065 Budapest, Révay köz 4., Hungary. Central treasury, governance, and institutional asset management hub overseeing investments across international markets.
                       </p>
                       <div className="pt-1.5 flex items-center gap-2 text-[10px] text-slate-500 font-medium">
                         <span className="bg-slate-50 px-2 py-0.5 rounded border border-slate-200">Holding HQ</span>
