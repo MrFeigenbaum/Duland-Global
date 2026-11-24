@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Building, 
   Building2, 
@@ -22,6 +22,14 @@ import { useLanguage } from '../LanguageContext';
 export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
   const { t } = useLanguage();
   const [showFullStatement, setShowFullStatement] = useState(false);
+  const [barsAnimated, setBarsAnimated] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setBarsAnimated(true);
+    }, 200);
+    return () => clearTimeout(timer);
+  }, []);
 
   const assetPortfolio = [
     {
@@ -75,16 +83,13 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
         
         <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl text-white">
-            <div className="flex items-stretch gap-3 sm:gap-4 mb-2">
-              <span className="w-1.5 bg-[#22c55e] shrink-0 rounded-xs self-stretch my-1"></span>
-              <div>
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-                  {t.investments.title}
-                </h1>
-                <p className="text-sm sm:text-base text-slate-100 mt-2 font-normal tracking-wide">
-                  {t.investments.subtitle}
-                </p>
-              </div>
+            <div className="border-l-4 sm:border-l-[5px] border-[#22c55e] pl-4 sm:pl-5 mb-2">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+                {t.investments.title}
+              </h1>
+              <p className="text-sm sm:text-base text-slate-100 mt-2 font-normal tracking-wide">
+                {t.investments.subtitle}
+              </p>
             </div>
           </div>
         </div>
@@ -139,43 +144,53 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
               </div>
             )}
 
-            {/* Target Allocation Visual Balance Card */}
-            <div className="lg:col-span-4 p-5 rounded-2xl bg-gradient-to-br from-[#0b3b24] to-[#0f4d30] text-white space-y-4 shadow-xs border border-emerald-800 flex flex-col justify-between">
+            {/* Target Allocation Visual Balance Card - Dynamically Animated */}
+            <div className="lg:col-span-4 p-5 rounded-2xl bg-gradient-to-br from-[#0b3b24] to-[#0f4d30] text-white space-y-4 shadow-xs border border-emerald-800 flex flex-col justify-between hover:border-emerald-500 transition-colors">
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xs font-bold text-emerald-300 uppercase tracking-wider">
                     Target Portfolio Structure
                   </span>
-                  <PieChart className="w-4 h-4 text-[#22c55e]" />
+                  <PieChart className="w-4 h-4 text-[#22c55e] animate-pulse" />
                 </div>
                 
                 <div className="space-y-3">
                   <div>
                     <div className="flex justify-between text-xs font-semibold mb-1">
                       <span className="text-emerald-100">Physical Real Assets</span>
-                      <span className="text-white">65% Target</span>
+                      <span className="text-white font-mono">65% Target</span>
                     </div>
-                    <div className="w-full bg-black/30 rounded-full h-2 overflow-hidden">
-                      <div className="bg-[#22c55e] h-full rounded-full w-[65%]"></div>
+                    <div className="w-full bg-black/40 rounded-full h-2.5 overflow-hidden p-0.5 border border-white/10">
+                      <div 
+                        style={{ width: barsAnimated ? '65%' : '0%' }}
+                        className="bg-[#22c55e] h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_12px_rgba(34,197,94,0.6)] relative overflow-hidden"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
+                      </div>
                     </div>
                   </div>
 
                   <div>
                     <div className="flex justify-between text-xs font-semibold mb-1">
                       <span className="text-emerald-100">Financial Investments</span>
-                      <span className="text-white">35% Target</span>
+                      <span className="text-white font-mono">35% Target</span>
                     </div>
-                    <div className="w-full bg-black/30 rounded-full h-2 overflow-hidden">
-                      <div className="bg-emerald-300 h-full rounded-full w-[35%]"></div>
+                    <div className="w-full bg-black/40 rounded-full h-2.5 overflow-hidden p-0.5 border border-white/10">
+                      <div 
+                        style={{ width: barsAnimated ? '35%' : '0%' }}
+                        className="bg-emerald-300 h-full rounded-full transition-all duration-1000 ease-out delay-200 relative overflow-hidden shadow-[0_0_8px_rgba(110,231,183,0.5)]"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="pt-2 border-t border-white/10 flex flex-wrap gap-1.5 text-[11px] text-emerald-200">
-                <span className="px-2 py-0.5 rounded bg-white/10">Cash Flow Visibility</span>
-                <span className="px-2 py-0.5 rounded bg-white/10">Inflation Hedge</span>
-                <span className="px-2 py-0.5 rounded bg-white/10">Macro Resilience</span>
+                <span className="px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition-colors">Cash Flow Visibility</span>
+                <span className="px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition-colors">Inflation Hedge</span>
+                <span className="px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition-colors">Macro Resilience</span>
               </div>
             </div>
 
@@ -297,14 +312,20 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       <section className="py-14 sm:py-20 bg-[#fafcfb] border-t border-slate-200">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-            <div>
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
-                {t.investments.portfolioTitle}
-              </h2>
-              <div className="w-12 h-[3px] bg-[#22c55e] mt-2"></div>
-            </div>
-            <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed">
+          {/* Top Section Header - Full Width, Matching Building Long-Term Value Style */}
+          <div className="max-w-3xl mb-8">
+            <span className="text-xs font-bold tracking-widest text-[#0b3b24] uppercase block mb-1">
+              Asset Portfolio
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
+              {t.investments.portfolioTitle}
+            </h2>
+            <div className="w-12 h-[3px] bg-[#22c55e] mt-2 mb-4"></div>
+          </div>
+
+          {/* Full-Width Lead Corporate Statement Banner */}
+          <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-emerald-50/30 to-white border-l-4 border-[#22c55e] border-y border-r border-slate-200 shadow-xs mb-8">
+            <p className="text-base sm:text-lg text-slate-900 font-medium leading-relaxed">
               {t.investments.portfolioDesc}
             </p>
           </div>

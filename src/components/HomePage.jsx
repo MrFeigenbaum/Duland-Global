@@ -119,15 +119,12 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
               <span>{t.hero.eyebrow}</span>
             </div>
 
-            {/* Title with Vertical Lime Green Accent Bar - Stretches 100% to Cover All Title Lines */}
-            <div className="flex items-stretch gap-3 sm:gap-4 mb-3">
-              <span className="w-1.5 bg-[#22c55e] shrink-0 rounded-xs self-stretch my-1 shadow-[0_0_12px_rgba(34,197,94,0.4)]"></span>
-              <h1 className="font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold leading-[1.15] text-white tracking-tight drop-shadow-md">
-                {t.hero.titleLine1} <br />
-                {t.hero.titleLine2} <br />
-                {t.hero.titleLine3}
-              </h1>
-            </div>
+            {/* Title with Vertical Lime Green Accent Bar - Mathematically 100% of Entire Multi-Line Heading Height */}
+            <h1 className="border-l-4 sm:border-l-[6px] border-[#22c55e] pl-4 sm:pl-5 font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold leading-[1.15] text-white tracking-tight drop-shadow-md mb-3">
+              {t.hero.titleLine1} <br />
+              {t.hero.titleLine2} <br />
+              {t.hero.titleLine3}
+            </h1>
 
             <p className="text-sm sm:text-base text-slate-100 mt-3 font-normal tracking-wide max-w-lg leading-relaxed drop-shadow-xs">
               {t.hero.subtitle}
@@ -343,11 +340,11 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
                   className="bg-white border border-slate-200 rounded-2xl p-5 shadow-2xs hover:shadow-sm transition-all flex flex-col items-center text-center justify-between group hover:border-emerald-300"
                 >
                   <div className="w-full flex justify-between items-center mb-3">
-                    <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
-                      0{idx + 1}
+                    <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100 shadow-2xs">
+                      Step 0{idx + 1}
                     </span>
-                    <span className="text-[11px] font-semibold text-slate-400">
-                      Step {idx + 1}
+                    <span className="font-serif font-bold text-xl sm:text-2xl text-slate-300/75 select-none leading-none">
+                      0{idx + 1}
                     </span>
                   </div>
                   

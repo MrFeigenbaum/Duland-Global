@@ -38,16 +38,13 @@ export const ApproachPage = ({ setCurrentView }) => {
         
         <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl text-white">
-            <div className="flex items-stretch gap-3 sm:gap-4 mb-2">
-              <span className="w-1.5 bg-[#22c55e] shrink-0 rounded-xs self-stretch my-1"></span>
-              <div>
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-                  {t.approach.title}
-                </h1>
-                <p className="text-sm sm:text-base text-slate-100 mt-2 font-normal tracking-wide">
-                  {t.approach.subtitle}
-                </p>
-              </div>
+            <div className="border-l-4 sm:border-l-[5px] border-[#22c55e] pl-4 sm:pl-5 mb-2">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+                {t.approach.title}
+              </h1>
+              <p className="text-sm sm:text-base text-slate-100 mt-2 font-normal tracking-wide">
+                {t.approach.subtitle}
+              </p>
             </div>
           </div>
         </div>
@@ -102,31 +99,31 @@ export const ApproachPage = ({ setCurrentView }) => {
               </div>
             )}
 
-            {/* Risk Governance & Core Tenet Column in 4 cols */}
+            {/* Risk Governance & Core Tenet Column in 4 cols - Centered Cards with Left-Aligned Natural Content */}
             <div className="lg:col-span-4 flex flex-col gap-4 justify-between">
               
-              <div className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200 text-slate-800 shadow-2xs flex-1 flex flex-col justify-center text-center">
-                <div className="flex items-center justify-center gap-2 mb-3.5">
-                  <ShieldCheck className="w-4 h-4 text-[#22c55e]" />
-                  <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider text-center">
+              <div className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200 text-slate-800 shadow-2xs flex-1 flex flex-col justify-center">
+                <div className="flex items-center gap-2 mb-3.5">
+                  <ShieldCheck className="w-4 h-4 text-[#22c55e] shrink-0" />
+                  <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider">
                     Risk Governance Protocol
                   </span>
                 </div>
                 
                 <div className="space-y-2.5 text-xs text-slate-600">
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-100 shadow-2xs text-center">
+                  <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-2xs text-left">
                     <strong className="text-slate-800 block text-xs mb-0.5">Underwriting Rigor</strong>
                     <span className="text-slate-600 text-[11px] leading-relaxed block">
                       In-depth cash-flow sensitivity & multi-scenario stress testing.
                     </span>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-100 shadow-2xs text-center">
+                  <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-2xs text-left">
                     <strong className="text-slate-800 block text-xs mb-0.5">Moderate Leverage</strong>
                     <span className="text-slate-600 text-[11px] leading-relaxed block">
                       Strict debt caps & strong interest coverage buffers.
                     </span>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-100 shadow-2xs text-center">
+                  <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-2xs text-left">
                     <strong className="text-slate-800 block text-xs mb-0.5">Liquidity Reserves</strong>
                     <span className="text-slate-600 text-[11px] leading-relaxed block">
                       Preserving capital agility to withstand downturns.
@@ -135,11 +132,11 @@ export const ApproachPage = ({ setCurrentView }) => {
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#f0f6f2] border border-emerald-900/10 text-slate-700 text-center">
-                <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider block mb-1 text-center">
+              <div className="p-4 rounded-xl bg-[#f0f6f2] border border-emerald-900/10 text-slate-700 text-left">
+                <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider block mb-1">
                   Core Tenet
                 </span>
-                <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed text-center">
+                <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
                   Patience, independent research, and prudent risk governance across full economic cycles.
                 </p>
               </div>
@@ -208,9 +205,12 @@ export const ApproachPage = ({ setCurrentView }) => {
                   key={idx}
                   className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-md transition-shadow relative group flex flex-col items-center text-center justify-between"
                 >
-                  <div className="w-full flex justify-center items-center mb-3">
-                    <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100 shadow-2xs">
+                  <div className="w-full flex justify-between items-center mb-3">
+                    <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100 shadow-2xs">
                       Step 0{idx + 1}
+                    </span>
+                    <span className="font-serif font-bold text-xl sm:text-2xl text-slate-300/75 select-none leading-none">
+                      0{idx + 1}
                     </span>
                   </div>
                   

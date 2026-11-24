@@ -43,16 +43,13 @@ export const AboutPage = ({ setCurrentView }) => {
         
         <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl text-white">
-            <div className="flex items-stretch gap-3 sm:gap-4 mb-2">
-              <span className="w-1.5 bg-[#22c55e] shrink-0 rounded-xs self-stretch my-1"></span>
-              <div>
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-                  {t.about.title}
-                </h1>
-                <p className="text-sm sm:text-base text-slate-100 mt-2 font-normal tracking-wide">
-                  {t.about.subtitle}
-                </p>
-              </div>
+            <div className="border-l-4 sm:border-l-[5px] border-[#22c55e] pl-4 sm:pl-5 mb-2">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+                {t.about.title}
+              </h1>
+              <p className="text-sm sm:text-base text-slate-100 mt-2 font-normal tracking-wide">
+                {t.about.subtitle}
+              </p>
             </div>
           </div>
         </div>
