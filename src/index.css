@@ -13,23 +13,19 @@
   }
 }
 
-/* Custom Glass and Accent Classes */
+/* Custom Corporate Colors matching reference */
 .brand-green {
-  background-color: #006400;
+  background-color: #0b3b24;
 }
 
 .text-brand-green {
-  color: #006400;
+  color: #0b3b24;
 }
 
 .border-brand-green {
-  border-color: #006400;
+  border-color: #0b3b24;
 }
 
-.green-gradient {
-  background: linear-gradient(135deg, #004d00 0%, #006400 50%, #0a4d1b 100%);
-}
-
-.green-card-gradient {
-  background: linear-gradient(145deg, #093b16 0%, #05290f 100%);
+.accent-green {
+  background-color: #22c55e;
 }
