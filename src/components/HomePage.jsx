@@ -320,64 +320,54 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
       </section>
 
       {/* 5. A DISCIPLINED INVESTMENT PROCESS */}
-      <section className="py-12 sm:py-16 bg-[#fafcfb] border-t border-slate-200">
+      <section className="py-14 sm:py-20 bg-[#fafcfb] border-t border-slate-200">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            
-            {/* Left Image: Boardroom Globe */}
-            <div className="lg:col-span-5">
-              <div className="rounded-xl overflow-hidden shadow-md border border-slate-200 h-64 sm:h-80">
-                <img 
-                  src="/assets/ref_boardroom_globe.webp" 
-                  alt="A Disciplined Investment Process" 
-                  className="w-full h-full object-cover"
-                  onError={(e) => { e.target.src = '/assets/boardroom_globe_4k.webp'; }}
-                />
-              </div>
-            </div>
+          <div className="max-w-3xl mb-10">
+            <span className="text-xs font-sans font-bold tracking-widest text-[#0b3b24] uppercase block">
+              {t.process.eyebrow}
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mt-1">
+              {t.process.title}
+            </h2>
+            <div className="w-10 h-[3px] bg-[#22c55e] mt-2 mb-3"></div>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              {t.process.desc}
+            </p>
+          </div>
 
-            {/* Right: Flow Process */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
-              <div>
-                <span className="text-xs font-sans font-bold tracking-widest text-[#0b3b24] uppercase block">
-                  {t.process.eyebrow}
-                </span>
-                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mt-1">
-                  {t.process.title}
-                </h2>
-                <div className="w-10 h-[3px] bg-[#22c55e] mt-2 mb-3"></div>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                  {t.process.desc}
-                </p>
-              </div>
+          {/* 5 Process Steps as Modern Centered Cards in 5-Column Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {t.process.steps.map((step, idx) => {
+              const IconComp = processIcons[idx % processIcons.length];
+              return (
+                <div 
+                  key={idx}
+                  className="bg-white border border-slate-200 rounded-2xl p-5 shadow-2xs hover:shadow-sm transition-all flex flex-col items-center text-center justify-between group hover:border-emerald-300"
+                >
+                  <div className="w-full flex justify-between items-center mb-3">
+                    <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+                      0{idx + 1}
+                    </span>
+                    <span className="text-[11px] font-semibold text-slate-400">
+                      Step {idx + 1}
+                    </span>
+                  </div>
+                  
+                  <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-100 text-[#0b3b24] flex items-center justify-center mb-3.5 mx-auto group-hover:scale-105 transition-transform">
+                    <IconComp className="w-5 h-5 stroke-[1.75]" />
+                  </div>
 
-              {/* 5 Steps in Row with Connected Arrows */}
-              <div className="mt-8 flex items-center justify-between gap-1 overflow-x-auto pb-2">
-                {t.process.steps.map((step, idx) => {
-                  const IconComp = processIcons[idx % processIcons.length];
-                  return (
-                    <React.Fragment key={idx}>
-                      <div className="flex flex-col items-center text-center px-1 flex-1 min-w-[80px]">
-                        <div className="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-200 text-[#0b3b24] flex items-center justify-center shadow-xs">
-                          <IconComp className="w-5 h-5 stroke-[1.75]" />
-                        </div>
-                        <span className="text-[11px] sm:text-xs font-semibold text-slate-800 mt-2.5 leading-snug">
-                          {step.title}
-                        </span>
-                      </div>
-                      {idx < t.process.steps.length - 1 && (
-                        <div className="text-slate-400 text-xs font-semibold px-0.5 shrink-0">
-                          →
-                        </div>
-                      )}
-                    </React.Fragment>
-                  );
-                })}
-              </div>
+                  <span className="text-xs sm:text-[13px] font-bold text-slate-900 leading-snug whitespace-nowrap text-center block mb-1">
+                    {step.title}
+                  </span>
 
-            </div>
-
+                  <span className="text-[11px] text-slate-500 leading-relaxed text-center line-clamp-2">
+                    {step.desc}
+                  </span>
+                </div>
+              );
+            })}
           </div>
 
         </div>
@@ -461,6 +451,30 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Institutional Market Intelligence Banner (Harmonizes height with Our Presence) */}
+              <div className="mt-4 p-4 rounded-2xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200/80 text-[#0b3b24] flex items-center justify-center shrink-0">
+                    <TrendingUp className="w-5 h-5 stroke-[1.75]" />
+                  </div>
+                  <div>
+                    <span className="text-xs sm:text-[13px] font-bold text-slate-900 block leading-snug">
+                      Institutional Research & Market Intelligence
+                    </span>
+                    <span className="text-[11px] text-slate-500 block">
+                      Macro real estate dynamics and capital allocation reports
+                    </span>
+                  </div>
+                </div>
+                <button 
+                  onClick={() => setCurrentView('approach')}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 hover:border-[#0b3b24] text-[#0b3b24] text-xs font-semibold transition-colors cursor-pointer shrink-0 shadow-2xs"
+                >
+                  <span className="whitespace-nowrap">View Methodology</span>
+                  <span className="font-bold">&gt;</span>
+                </button>
               </div>
             </div>
 

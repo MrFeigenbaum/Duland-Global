@@ -94,29 +94,55 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-14">
-            
-            {/* Left Title Column: No awkward breaks + Rich Balanced Card */}
-            <div className="lg:col-span-4 space-y-5">
-              <div>
-                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-snug sm:whitespace-nowrap">
-                  {t.investments.buildingValueTitle}
-                </h2>
-                <div className="w-12 h-[3px] bg-[#22c55e] mt-3"></div>
-              </div>
-              
-              <div className="p-4 rounded-xl bg-[#f0f6f2] border border-emerald-900/10 text-slate-700">
-                <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider block mb-1">
-                  Disciplined Strategy
-                </span>
-                <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                  Focusing on fundamental asset quality, diversified market exposure, and continuous post-acquisition value creation.
-                </p>
-              </div>
+          {/* Top Section Header - Full Width, No collisions */}
+          <div className="max-w-3xl mb-8">
+            <span className="text-xs font-bold tracking-widest text-[#0b3b24] uppercase block mb-1">
+              Investment Mandate
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
+              {t.investments.buildingValueTitle}
+            </h2>
+            <div className="w-12 h-[3px] bg-[#22c55e] mt-2 mb-4"></div>
+          </div>
 
-              {/* Target Allocation Visual Balance Card (Fills gap seamlessly) */}
-              <div className="p-5 rounded-2xl bg-gradient-to-br from-[#0b3b24] to-[#0f4d30] text-white space-y-4 shadow-xs border border-emerald-800">
-                <div className="flex items-center justify-between">
+          {/* Full-Width Lead Corporate Statement Banner */}
+          <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-emerald-50/30 to-white border-l-4 border-[#22c55e] border-y border-r border-slate-200 shadow-xs mb-8">
+            <p className="text-base sm:text-lg text-slate-900 font-medium leading-relaxed">
+              {t.investments.p1}
+            </p>
+          </div>
+
+          {/* Balanced Symmetrical Middle Grid: 3 Strategic Drivers (8 cols) + Target Portfolio Structure (4 cols) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8 items-stretch">
+            
+            {/* 3 Strategic Drivers Grid */}
+            {t.investments.drivers && (
+              <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {t.investments.drivers.items.map((item, idx) => (
+                  <div 
+                    key={idx}
+                    className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 transition-colors flex flex-col justify-between"
+                  >
+                    <div>
+                      <span className="font-serif text-lg font-bold text-[#22c55e] block mb-1">
+                        {item.num}
+                      </span>
+                      <h4 className="font-serif text-sm sm:text-base font-bold text-slate-900 mb-2 leading-snug">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Target Allocation Visual Balance Card */}
+            <div className="lg:col-span-4 p-5 rounded-2xl bg-gradient-to-br from-[#0b3b24] to-[#0f4d30] text-white space-y-4 shadow-xs border border-emerald-800 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
                   <span className="text-xs font-bold text-emerald-300 uppercase tracking-wider">
                     Target Portfolio Structure
                   </span>
@@ -144,73 +170,43 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div className="pt-2 border-t border-white/10 flex flex-wrap gap-1.5 text-[11px] text-emerald-200">
-                  <span className="px-2 py-0.5 rounded bg-white/10">Cash Flow Visibility</span>
-                  <span className="px-2 py-0.5 rounded bg-white/10">Inflation Hedge</span>
-                  <span className="px-2 py-0.5 rounded bg-white/10">Macro Resilience</span>
-                </div>
+              <div className="pt-2 border-t border-white/10 flex flex-wrap gap-1.5 text-[11px] text-emerald-200">
+                <span className="px-2 py-0.5 rounded bg-white/10">Cash Flow Visibility</span>
+                <span className="px-2 py-0.5 rounded bg-white/10">Inflation Hedge</span>
+                <span className="px-2 py-0.5 rounded bg-white/10">Macro Resilience</span>
               </div>
             </div>
 
-            {/* Right Content Column: Executive Lead & Strategic Drivers */}
-            <div className="lg:col-span-8 space-y-6">
-              <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-emerald-50/30 to-white border border-slate-200 text-slate-900 font-medium leading-relaxed border-l-4 border-l-[#22c55e] shadow-2xs">
-                <p className="text-base sm:text-lg leading-relaxed">{t.investments.p1}</p>
+          </div>
+
+          {/* Full-Width Collapsible Complete Investment Strategy Document */}
+          <div className="rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs mb-14">
+            <button
+              onClick={() => setShowFullStatement(!showFullStatement)}
+              className="w-full px-5 py-4 flex items-center justify-between bg-slate-50 hover:bg-slate-100 text-slate-800 transition-colors cursor-pointer text-left"
+            >
+              <div className="flex items-center gap-2.5">
+                <FileText className="w-4 h-4 text-[#0b3b24]" />
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
+                  {showFullStatement ? t.investments.hideFullStatement : t.investments.readFullStatement}
+                </span>
               </div>
-
-              {/* 3 Strategic Value Drivers Grid */}
-              {t.investments.drivers && (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {t.investments.drivers.items.map((item, idx) => (
-                    <div 
-                      key={idx}
-                      className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 transition-colors flex flex-col justify-between"
-                    >
-                      <div>
-                        <span className="font-serif text-lg font-bold text-[#22c55e] block mb-1">
-                          {item.num}
-                        </span>
-                        <h4 className="font-serif text-sm font-bold text-slate-900 mb-2 leading-snug">
-                          {item.title}
-                        </h4>
-                        <p className="text-xs text-slate-600 leading-relaxed">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* Collapsible Complete Strategy Accordion */}
-              <div className="rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs">
-                <button
-                  onClick={() => setShowFullStatement(!showFullStatement)}
-                  className="w-full px-5 py-3.5 flex items-center justify-between bg-slate-50 hover:bg-slate-100 text-slate-800 transition-colors cursor-pointer text-left"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <FileText className="w-4 h-4 text-[#0b3b24]" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                      {showFullStatement ? t.investments.hideFullStatement : t.investments.readFullStatement}
-                    </span>
-                  </div>
-                  <div className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600">
-                    {showFullStatement ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                  </div>
-                </button>
-
-                {showFullStatement && (
-                  <div className="p-6 bg-white border-t border-slate-200 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    <p className="p-3 rounded-lg bg-emerald-50/50 text-slate-800 font-medium">{t.investments.p1}</p>
-                    <p>{t.investments.p2}</p>
-                    <p>{t.investments.p3}</p>
-                    <p>{t.investments.p4}</p>
-                    <p className="font-medium text-slate-800">{t.investments.p5}</p>
-                  </div>
-                )}
+              <div className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600">
+                {showFullStatement ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
               </div>
-            </div>
+            </button>
+
+            {showFullStatement && (
+              <div className="p-6 bg-white border-t border-slate-200 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="p-3 rounded-lg bg-emerald-50/50 text-slate-800 font-medium">{t.investments.p1}</p>
+                <p>{t.investments.p2}</p>
+                <p>{t.investments.p3}</p>
+                <p>{t.investments.p4}</p>
+                <p className="font-medium text-slate-800">{t.investments.p5}</p>
+              </div>
+            )}
           </div>
 
           {/* TWO LARGE FEATURE CARDS (Real Estate vs Financial) */}
@@ -232,7 +228,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
                   <div className="w-10 h-10 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-300 mb-3">
                     <Building className="w-5 h-5 stroke-[1.75]" />
                   </div>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+                  <h3 className="font-serif text-lg sm:text-xl lg:text-[22px] font-bold text-white mb-2 sm:whitespace-nowrap">
                     {t.investments.reCardTitle}
                   </h3>
                   <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-light">
@@ -270,7 +266,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
                   <div className="w-10 h-10 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-300 mb-3">
                     <Coins className="w-5 h-5 stroke-[1.75]" />
                   </div>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+                  <h3 className="font-serif text-lg sm:text-xl lg:text-[22px] font-bold text-white mb-2 sm:whitespace-nowrap">
                     {t.investments.fiCardTitle}
                   </h3>
                   <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-light">
@@ -355,20 +351,20 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div className="lg:col-span-3">
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
+            <div className="lg:col-span-4">
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 whitespace-nowrap">
                 {t.investments.principlesTitle}
               </h3>
               <div className="w-12 h-[3px] bg-[#22c55e] mt-2"></div>
             </div>
 
-            <div className="lg:col-span-9 grid grid-cols-2 sm:grid-cols-5 gap-3">
+            <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-5 gap-3">
               {t.investments.principles.map((pr, idx) => {
                 const IconComp = principleIcons[idx % principleIcons.length];
                 return (
-                  <div key={idx} className="flex flex-col items-center text-center p-3 rounded-xl bg-slate-50 border border-slate-200/80">
-                    <div className="w-10 h-10 flex items-center justify-center text-[#0b3b24] bg-emerald-50 rounded-full mb-2">
-                      <IconComp className="w-5 h-5 stroke-[1.75]" />
+                  <div key={idx} className="flex flex-col items-center text-center p-3 rounded-xl bg-slate-50 border border-slate-200/80 min-h-[96px] justify-center">
+                    <div className="w-9 h-9 flex items-center justify-center text-[#0b3b24] bg-emerald-50 rounded-full mb-2">
+                      <IconComp className="w-4 h-4 stroke-[1.75]" />
                     </div>
                     <span className="text-xs sm:text-[13px] font-semibold text-slate-900 leading-tight">
                       {pr}

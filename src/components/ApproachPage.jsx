@@ -57,71 +57,36 @@ export const ApproachPage = ({ setCurrentView }) => {
       <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12">
+          {/* Top Section Header - Full Width, No collisions */}
+          <div className="max-w-3xl mb-8">
+            <span className="text-xs font-bold tracking-widest text-[#0b3b24] uppercase block mb-1">
+              Strategic Foundation
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
+              {t.approach.philosophyTitle}
+            </h2>
+            <div className="w-12 h-[3px] bg-[#22c55e] mt-2 mb-4"></div>
+          </div>
+
+          {/* Full-Width Lead Philosophical Block */}
+          <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-emerald-50/30 to-white border-l-4 border-[#22c55e] border-y border-r border-slate-200 shadow-xs mb-8">
+            <p className="text-base sm:text-lg text-slate-900 font-medium leading-relaxed">
+              {t.approach.p1}
+            </p>
+          </div>
+
+          {/* Balanced Symmetrical Middle Grid: 4-Quadrant Matrix (8 cols) + Risk Governance Protocol (4 cols) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8 items-stretch">
             
-            {/* Left Title Column: No awkward breaks + Rich Balanced Card */}
-            <div className="lg:col-span-4 space-y-5">
-              <div>
-                <span className="text-xs font-bold tracking-widest text-[#0b3b24] uppercase block mb-1">
-                  Strategic Foundation
-                </span>
-                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-snug sm:whitespace-nowrap">
-                  {t.approach.philosophyTitle}
-                </h2>
-                <div className="w-12 h-[3px] bg-[#22c55e] mt-3"></div>
-              </div>
-              
-              <div className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200 text-slate-700 space-y-2 shadow-2xs">
-                <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider block">
-                  Core Tenet
-                </span>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  Patience, independent research, and prudent risk governance across full economic cycles.
-                </p>
-              </div>
-
-              {/* Risk Governance System Card (Fills gap seamlessly) */}
-              <div className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200 text-slate-800 space-y-3 shadow-2xs">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-[#22c55e]" />
-                  <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider">
-                    Risk Governance Protocol
-                  </span>
-                </div>
-                
-                <div className="space-y-2.5 text-xs text-slate-600">
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></div>
-                    <p><strong className="text-slate-800">Underwriting Rigor:</strong> In-depth cash-flow sensitivity & multi-cycle stress testing.</p>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></div>
-                    <p><strong className="text-slate-800">Moderate Leverage:</strong> Strict debt caps and strong interest coverage buffers.</p>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></div>
-                    <p><strong className="text-slate-800">Liquidity Reserves:</strong> Preserving capital agility to withstand downturns.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Lead Statement, 4-Quadrant Matrix & Collapsible Accordion */}
-            <div className="lg:col-span-8 space-y-6">
-              
-              {/* Lead Philosophical Block */}
-              <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-emerald-50/30 to-white border border-slate-200 text-slate-900 font-medium leading-relaxed border-l-4 border-l-[#22c55e] shadow-2xs">
-                <p className="text-base sm:text-lg leading-relaxed">{t.approach.p1}</p>
-              </div>
-
-              {/* 4-Quadrant Philosophy Matrix */}
-              {t.approach.matrix && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {t.approach.matrix.items.map((item, idx) => (
-                    <div 
-                      key={idx}
-                      className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 transition-colors"
-                    >
+            {/* 4-Quadrant Philosophy Matrix in 8 cols */}
+            {t.approach.matrix && (
+              <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {t.approach.matrix.items.map((item, idx) => (
+                  <div 
+                    key={idx}
+                    className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 transition-colors flex flex-col justify-between"
+                  >
+                    <div>
                       <span className="font-serif text-base font-bold text-[#22c55e] block mb-1">
                         {item.num}
                       </span>
@@ -132,50 +97,87 @@ export const ApproachPage = ({ setCurrentView }) => {
                         {item.desc}
                       </p>
                     </div>
-                  ))}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Risk Governance & Core Tenet Column in 4 cols */}
+            <div className="lg:col-span-4 flex flex-col gap-4 justify-between">
+              
+              <div className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200 text-slate-800 space-y-3 shadow-2xs flex-1">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-[#22c55e]" />
+                  <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider">
+                    Risk Governance Protocol
+                  </span>
                 </div>
-              )}
+                
+                <div className="space-y-2.5 text-xs text-slate-600">
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></div>
+                    <p><strong className="text-slate-800">Underwriting Rigor:</strong> In-depth cash-flow sensitivity & stress testing.</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></div>
+                    <p><strong className="text-slate-800">Moderate Leverage:</strong> Strict debt caps & interest coverage buffers.</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></div>
+                    <p><strong className="text-slate-800">Liquidity Reserves:</strong> Preserving capital agility to withstand downturns.</p>
+                  </div>
+                </div>
+              </div>
 
-              {/* Collapsible Complete Philosophy Manifesto */}
-              <div className="rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs">
-                <button
-                  onClick={() => setShowFullStatement(!showFullStatement)}
-                  className="w-full px-5 py-3.5 flex items-center justify-between bg-slate-50 hover:bg-slate-100 text-slate-800 transition-colors cursor-pointer text-left"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <FileText className="w-4 h-4 text-[#0b3b24]" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                      {showFullStatement ? t.approach.hideFullStatement : t.approach.readFullStatement}
-                    </span>
-                  </div>
-                  <div className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600">
-                    {showFullStatement ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                  </div>
-                </button>
-
-                {showFullStatement && (
-                  <div className="p-6 bg-white border-t border-slate-200 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    <p className="p-3 rounded-lg bg-emerald-50/50 text-slate-800 font-medium">{t.approach.p1}</p>
-                    <p>{t.approach.p2}</p>
-                    <p>{t.approach.p3}</p>
-                    <p>{t.approach.p4}</p>
-                    <p>{t.approach.p5}</p>
-                    <p>{t.approach.p6}</p>
-                    <p>{t.approach.p7}</p>
-                    <div className="p-4 rounded-xl bg-[#0b3b24] text-white">
-                      <span className="text-xs font-semibold text-emerald-300 uppercase tracking-wider block mb-1">
-                        Resilient Holding Ambition
-                      </span>
-                      <p className="text-xs sm:text-sm text-emerald-50 font-light leading-relaxed">
-                        {t.approach.p8}
-                      </p>
-                    </div>
-                  </div>
-                )}
+              <div className="p-4 rounded-xl bg-[#f0f6f2] border border-emerald-900/10 text-slate-700">
+                <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider block mb-1">
+                  Core Tenet
+                </span>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Patience, independent research, and prudent risk governance across full economic cycles.
+                </p>
               </div>
 
             </div>
 
+          </div>
+
+          {/* Full-Width Collapsible Complete Philosophy Manifesto */}
+          <div className="rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs mb-4">
+            <button
+              onClick={() => setShowFullStatement(!showFullStatement)}
+              className="w-full px-5 py-4 flex items-center justify-between bg-slate-50 hover:bg-slate-100 text-slate-800 transition-colors cursor-pointer text-left"
+            >
+              <div className="flex items-center gap-2.5">
+                <FileText className="w-4 h-4 text-[#0b3b24]" />
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
+                  {showFullStatement ? t.approach.hideFullStatement : t.approach.readFullStatement}
+                </span>
+              </div>
+              <div className="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600">
+                {showFullStatement ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+              </div>
+            </button>
+
+            {showFullStatement && (
+              <div className="p-6 bg-white border-t border-slate-200 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="p-3 rounded-lg bg-emerald-50/50 text-slate-800 font-medium">{t.approach.p1}</p>
+                <p>{t.approach.p2}</p>
+                <p>{t.approach.p3}</p>
+                <p>{t.approach.p4}</p>
+                <p>{t.approach.p5}</p>
+                <p>{t.approach.p6}</p>
+                <p>{t.approach.p7}</p>
+                <div className="p-4 rounded-xl bg-[#0b3b24] text-white">
+                  <span className="text-xs font-semibold text-emerald-300 uppercase tracking-wider block mb-1">
+                    Resilient Holding Ambition
+                  </span>
+                  <p className="text-xs sm:text-sm text-emerald-50 font-light leading-relaxed">
+                    {t.approach.p8}
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
 
         </div>
@@ -192,31 +194,34 @@ export const ApproachPage = ({ setCurrentView }) => {
             <div className="w-12 h-[3px] bg-[#22c55e] mt-2"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {t.process.steps.map((step, idx) => {
               const IconComp = processIcons[idx % processIcons.length];
               return (
                 <div 
                   key={idx}
-                  className="bg-white border border-slate-200 rounded-2xl p-6 shadow-2xs hover:shadow-md transition-shadow relative group flex flex-col justify-between"
+                  className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-md transition-shadow relative group flex flex-col items-center text-center justify-between"
                 >
-                  <div className="absolute top-4 right-4 text-slate-200 font-serif font-bold text-3xl group-hover:text-emerald-100 transition-colors">
-                    0{idx + 1}
+                  <div className="w-full flex justify-between items-center mb-3">
+                    <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100">
+                      Step 0{idx + 1}
+                    </span>
+                    <span className="font-serif text-slate-300 font-bold text-xs">
+                      0{idx + 1}
+                    </span>
                   </div>
                   
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#0b3b24] flex items-center justify-center mb-5">
-                      <IconComp className="w-6 h-6 stroke-[1.75]" />
-                    </div>
-
-                    <h3 className="font-serif text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug">
-                      {step.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {step.desc}
-                    </p>
+                  <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#0b3b24] flex items-center justify-center mb-3 mx-auto">
+                    <IconComp className="w-6 h-6 stroke-[1.75]" />
                   </div>
+
+                  <h3 className="font-serif text-xs sm:text-[13px] lg:text-sm font-bold text-slate-900 mb-2 whitespace-nowrap text-center">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-xs text-slate-600 leading-relaxed text-center">
+                    {step.desc}
+                  </p>
                 </div>
               );
             })}

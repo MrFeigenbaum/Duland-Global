@@ -88,11 +88,11 @@ export const AboutPage = ({ setCurrentView }) => {
                   key={idx}
                   className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 transition-colors"
                 >
-                  <div className="flex items-baseline gap-1.5 mb-1">
-                    <span className="text-2xl sm:text-3xl font-bold text-[#0b3b24] tracking-tight">
+                  <div className="flex items-baseline gap-1.5 mb-1 flex-wrap">
+                    <span className="text-lg sm:text-xl lg:text-2xl font-bold text-[#0b3b24] tracking-tight whitespace-nowrap">
                       {stat.value}
                     </span>
-                    <span className="text-xs sm:text-sm font-semibold text-[#22c55e] uppercase tracking-wider">
+                    <span className="text-xs sm:text-sm font-semibold text-[#22c55e] uppercase tracking-wider whitespace-nowrap">
                       {stat.unit}
                     </span>
                   </div>
@@ -128,9 +128,9 @@ export const AboutPage = ({ setCurrentView }) => {
                       </span>
                     </div>
 
-                    <h4 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-3 flex items-center gap-3">
-                      <Building2 className="w-6 h-6 text-[#0b3b24] shrink-0" />
-                      {t.about.dualPillars.p1.title}
+                    <h4 className="font-serif text-lg sm:text-xl lg:text-[22px] font-bold text-slate-900 mb-3 flex items-center gap-2.5 sm:whitespace-nowrap">
+                      <Building2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#0b3b24] shrink-0" />
+                      <span>{t.about.dualPillars.p1.title}</span>
                     </h4>
 
                     <p className="text-sm text-slate-600 leading-relaxed mb-6">
@@ -139,7 +139,7 @@ export const AboutPage = ({ setCurrentView }) => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6">
                       {t.about.dualPillars.p1.items.map((item, i) => (
-                        <div key={i} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/60 text-xs font-medium text-slate-700">
+                        <div key={i} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/60 text-xs font-medium text-slate-700 whitespace-nowrap">
                           <CheckCircle2 className="w-3.5 h-3.5 text-[#22c55e] shrink-0" />
                           <span>{item}</span>
                         </div>
@@ -164,9 +164,9 @@ export const AboutPage = ({ setCurrentView }) => {
                       </span>
                     </div>
 
-                    <h4 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-3 flex items-center gap-3">
-                      <TrendingUp className="w-6 h-6 text-[#0b3b24] shrink-0" />
-                      {t.about.dualPillars.p2.title}
+                    <h4 className="font-serif text-lg sm:text-xl lg:text-[22px] font-bold text-slate-900 mb-3 flex items-center gap-2.5 sm:whitespace-nowrap">
+                      <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-[#0b3b24] shrink-0" />
+                      <span>{t.about.dualPillars.p2.title}</span>
                     </h4>
 
                     <p className="text-sm text-slate-600 leading-relaxed mb-6">
@@ -175,7 +175,7 @@ export const AboutPage = ({ setCurrentView }) => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6">
                       {t.about.dualPillars.p2.items.map((item, i) => (
-                        <div key={i} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/60 text-xs font-medium text-slate-700">
+                        <div key={i} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/60 text-xs font-medium text-slate-700 whitespace-nowrap">
                           <CheckCircle2 className="w-3.5 h-3.5 text-[#22c55e] shrink-0" />
                           <span>{item}</span>
                         </div>
