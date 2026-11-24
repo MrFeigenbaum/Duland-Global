@@ -9,76 +9,74 @@ import {
   BarChart2, 
   ShieldCheck, 
   Leaf,
-  Binoculars
+  Binoculars,
+  ArrowRight
 } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
+  const { t } = useLanguage();
+
   const assetPortfolio = [
     {
       id: 'residential',
-      title: 'Residential Properties',
+      title: t.assets.residential.title,
       icon: Building,
       image: '/assets/hq_exact_prop_residential.webp',
       fallbackImage: '/assets/prop_residential.webp',
-      desc: 'High-quality urban and suburban residential living assets developed for sustainable yields.'
+      desc: t.assets.residential.desc,
     },
     {
       id: 'office',
-      title: 'Office Properties',
+      title: t.assets.office.title,
       icon: Building2,
       image: '/assets/hq_exact_prop_office.webp',
       fallbackImage: '/assets/prop_office.webp',
-      desc: 'Prime modern commercial office complexes offering energy-efficient workplaces and steady occupancy.'
+      desc: t.assets.office.desc,
     },
     {
       id: 'industrial',
-      title: 'Industrial Assets',
+      title: t.assets.industrial.title,
       icon: Factory,
       image: '/assets/hq_exact_prop_industrial.webp',
       fallbackImage: '/assets/prop_industrial.webp',
-      desc: 'Modern factory production plant and industrial facilities held as tangible fixed real assets on the balance sheet.'
+      desc: t.assets.industrial.desc,
     },
     {
       id: 'land',
-      title: 'Land & Development',
+      title: t.assets.land.title,
       icon: Tractor,
       image: '/assets/hq_exact_prop_land.webp',
       fallbackImage: '/assets/prop_land.webp',
-      desc: 'High-potential agricultural, commercial, and mixed-use land parcels positioned for future value enhancement.'
+      desc: t.assets.land.desc,
     }
   ];
 
-  const principles = [
-    { title: 'Opportunity Focus', icon: Binoculars },
-    { title: 'Diversification', icon: Layers },
-    { title: 'Sustainable Returns', icon: BarChart2 },
-    { title: 'Risk Management', icon: ShieldCheck },
-    { title: 'Long-Term Perspective', icon: Leaf },
-  ];
+  const principleIcons = [Binoculars, Layers, BarChart2, ShieldCheck, Leaf];
 
   return (
     <div className="w-full bg-white text-slate-800">
       
-      {/* 1. TOP BANNER: Matching Reference Image 3 */}
-      <section className="relative w-full h-[260px] sm:h-[320px] lg:h-[360px] overflow-hidden flex items-center">
+      {/* 1. TOP BANNER */}
+      <section className="relative w-full h-[280px] sm:h-[340px] lg:h-[380px] overflow-hidden flex items-center">
         <img 
           src="/assets/banner_investments_skyline_4k.webp" 
           alt="Our Investments"
           className="absolute inset-0 w-full h-full object-cover object-center"
           onError={(e) => { e.target.src = '/assets/banner_investments_3mix.webp'; }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 sm:via-40% to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 sm:via-40% to-transparent"></div>
         
         <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl text-white">
             <div className="flex items-start gap-3 sm:gap-4 mb-2">
-              <span className="w-1.5 h-14 sm:h-16 bg-[#22c55e] shrink-0 mt-1"></span>
+              <span className="w-1.5 h-16 sm:h-20 bg-[#22c55e] shrink-0 mt-1 rounded-xs"></span>
               <div>
                 <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-                  Our Investments
+                  {t.investments.title}
                 </h1>
-                <p className="text-xs sm:text-sm text-slate-100 mt-2 font-normal tracking-wide">
-                  A Diversified Portfolio for Sustainable, Long-Term Growth
+                <p className="text-sm sm:text-base text-slate-100 mt-2 font-normal tracking-wide">
+                  {t.investments.subtitle}
                 </p>
               </div>
             </div>
@@ -86,72 +84,84 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
         </div>
       </section>
 
-      {/* 2. BUILDING LONG-TERM VALUE */}
-      <section className="py-12 sm:py-16 bg-white">
+      {/* 2. BUILDING LONG-TERM VALUE - STRUCTURED EDITORIAL DESIGN */}
+      <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-14">
+            
+            {/* Left Title Column (No awkward line breaks) */}
             <div className="lg:col-span-4">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 leading-tight">
-                Building <br /> Long-Term <br /> Value
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-snug">
+                {t.investments.buildingValueTitle}
               </h2>
-              <div className="w-10 h-[3px] bg-[#22c55e] mt-2"></div>
+              <div className="w-12 h-[3px] bg-[#22c55e] mt-3 mb-5"></div>
+              
+              <div className="p-4 rounded-xl bg-[#f0f6f2] border border-emerald-900/10 text-slate-700">
+                <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider block mb-1">
+                  Disciplined Strategy
+                </span>
+                <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                  Focusing on fundamental asset quality, diversified market exposure, and continuous post-acquisition value creation.
+                </p>
+              </div>
             </div>
 
-            <div className="lg:col-span-8 space-y-4 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
+            {/* Right Content Column with Comfortable Typography */}
+            <div className="lg:col-span-8 space-y-5 text-slate-600 text-sm sm:text-base leading-relaxed">
+              <div className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200 text-slate-900 font-medium leading-relaxed border-l-4 border-l-[#22c55e]">
+                {t.investments.p1}
+              </div>
               <p>
-                At Duland Global, we are committed to building and managing a diversified international investment portfolio that combines real estate assets with carefully selected financial investments. Our primary objective is to preserve and grow capital, generate sustainable income and create lasting value through disciplined investment decisions and responsible asset management.
+                {t.investments.p2}
               </p>
               <p>
-                We approach investments with a long-term perspective, recognizing that sustainable growth requires careful planning, comprehensive analysis and a balanced allocation of financial resources. Rather than focusing on short-term market fluctuations, we seek opportunities supported by strong fundamentals, attractive long-term potential and clearly defined investment objectives.
+                {t.investments.p3}
               </p>
               <p>
-                Our strategy emphasizes diversification across different asset classes and geographical markets. By combining income-generating properties, development opportunities and financial instruments, we aim to strengthen portfolio resilience, maintain financial flexibility and reduce excessive dependence on any single investment sector or market.
+                {t.investments.p4}
               </p>
-              <p>
-                We believe that successful investment management extends beyond the initial acquisition of an asset. Continuous performance evaluation, prudent risk management and the active development of our portfolio are essential elements of our approach.
-              </p>
-              <p>
-                Through this disciplined strategy, Duland Global seeks to establish a financially strong and adaptable international investment holding company, capable of responding to changing market conditions while consistently pursuing sustainable income, capital appreciation and long-term value creation.
+              <p className="font-medium text-slate-800">
+                {t.investments.p5}
               </p>
             </div>
           </div>
 
           {/* TWO LARGE FEATURE CARDS (Real Estate vs Financial) */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             
             {/* Card 1: Real Estate Investments */}
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col sm:flex-row bg-[#0b3b24]">
-              <div className="sm:w-1/2 h-52 sm:h-auto overflow-hidden relative bg-slate-900">
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md flex flex-col sm:flex-row bg-[#0b3b24]">
+              <div className="sm:w-1/2 h-56 sm:h-auto overflow-hidden relative bg-slate-900">
                 <img 
                   src="/assets/prop_residential_4k.webp" 
-                  alt="Real Estate Investments" 
+                  alt={t.investments.reCardTitle} 
                   className="w-full h-full object-cover"
                   onError={(e) => { e.target.src = '/assets/hq_exact_prop_residential.webp'; }}
                 />
               </div>
 
-              <div className="sm:w-1/2 p-6 flex flex-col justify-between text-white">
+              <div className="sm:w-1/2 p-6 sm:p-7 flex flex-col justify-between text-white">
                 <div>
-                  <div className="w-9 h-9 flex items-center justify-center text-emerald-300 mb-2">
-                    <Building className="w-6 h-6 stroke-[1.75]" />
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-300 mb-3">
+                    <Building className="w-5 h-5 stroke-[1.75]" />
                   </div>
-                  <h3 className="font-serif text-lg font-bold text-white mb-2">
-                    Real Estate Investments
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+                    {t.investments.reCardTitle}
                   </h3>
-                  <p className="text-xs text-emerald-100/90 leading-relaxed font-light">
-                    Acquisition, development and long-term management of income-generating real estate assets.
+                  <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-light">
+                    {t.investments.reCardDesc}
                   </p>
                 </div>
 
-                <div className="mt-5">
+                <div className="mt-6">
                   <button 
                     onClick={() => {
                       if (setSelectedAsset) setSelectedAsset(assetPortfolio[0]);
                     }}
-                    className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-white/80 text-white text-xs font-semibold hover:bg-white hover:text-[#0b3b24] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-2 px-5 py-2 min-h-[42px] rounded-full border border-white/80 text-white text-xs sm:text-sm font-semibold hover:bg-white hover:text-[#0b3b24] transition-colors cursor-pointer"
                   >
-                    <span>Explore Real Estate</span>
+                    <span>{t.common.exploreRealEstate}</span>
                     <span className="font-bold">&gt;</span>
                   </button>
                 </div>
@@ -159,37 +169,37 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
             </div>
 
             {/* Card 2: Financial Investments */}
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col sm:flex-row bg-[#0b3b24]">
-              <div className="sm:w-1/2 h-52 sm:h-auto overflow-hidden relative bg-slate-900">
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md flex flex-col sm:flex-row bg-[#0b3b24]">
+              <div className="sm:w-1/2 h-56 sm:h-auto overflow-hidden relative bg-slate-900">
                 <img 
                   src="/assets/financial_upward_bullish_hq.webp" 
-                  alt="Financial Investments" 
+                  alt={t.investments.fiCardTitle} 
                   className="w-full h-full object-cover"
                   onError={(e) => { e.target.src = '/assets/hq_exact_financial_invest.webp'; }}
                 />
               </div>
 
-              <div className="sm:w-1/2 p-6 flex flex-col justify-between text-white">
+              <div className="sm:w-1/2 p-6 sm:p-7 flex flex-col justify-between text-white">
                 <div>
-                  <div className="w-9 h-9 flex items-center justify-center text-emerald-300 mb-2">
-                    <Coins className="w-6 h-6 stroke-[1.75]" />
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-300 mb-3">
+                    <Coins className="w-5 h-5 stroke-[1.75]" />
                   </div>
-                  <h3 className="font-serif text-lg font-bold text-white mb-2">
-                    Financial Investments
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+                    {t.investments.fiCardTitle}
                   </h3>
-                  <p className="text-xs text-emerald-100/90 leading-relaxed font-light">
-                    A diversified investment portfolio focused on capital growth, income and financial stability.
+                  <p className="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-light">
+                    {t.investments.fiCardDesc}
                   </p>
                 </div>
 
-                <div className="mt-5">
+                <div className="mt-6">
                   <button 
                     onClick={() => {
                       if (setCurrentView) setCurrentView('contact');
                     }}
-                    className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-white/80 text-white text-xs font-semibold hover:bg-white hover:text-[#0b3b24] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-2 px-5 py-2 min-h-[42px] rounded-full border border-white/80 text-white text-xs sm:text-sm font-semibold hover:bg-white hover:text-[#0b3b24] transition-colors cursor-pointer"
                   >
-                    <span>Explore Financial</span>
+                    <span>{t.common.exploreFinancial}</span>
                     <span className="font-bold">&gt;</span>
                   </button>
                 </div>
@@ -202,23 +212,23 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       </section>
 
       {/* 3. OUR INVESTMENT PORTFOLIO */}
-      <section className="py-12 bg-white border-t border-slate-200">
+      <section className="py-14 sm:py-20 bg-[#fafcfb] border-t border-slate-200">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
-                Our Investment Portfolio
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
+                {t.investments.portfolioTitle}
               </h2>
-              <div className="w-10 h-[3px] bg-[#22c55e] mt-2"></div>
+              <div className="w-12 h-[3px] bg-[#22c55e] mt-2"></div>
             </div>
-            <p className="text-xs sm:text-[13px] text-slate-600 max-w-xl leading-relaxed">
-              We invest across a broad range of real estate asset classes, creating a balanced and resilient portfolio with both income-generating and development opportunities.
+            <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed">
+              {t.investments.portfolioDesc}
             </p>
           </div>
 
-          {/* 4 Cards in Row matching Reference */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* 4 Cards in Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {assetPortfolio.map((item) => {
               const IconComp = item.icon;
               return (
@@ -227,9 +237,9 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
                   onClick={() => {
                     if (setSelectedAsset) setSelectedAsset(item);
                   }}
-                  className="group rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-slate-200 transition-all cursor-pointer flex flex-col bg-white"
+                  className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-md border border-slate-200 transition-all cursor-pointer flex flex-col bg-white"
                 >
-                  <div className="h-36 overflow-hidden relative bg-slate-100">
+                  <div className="h-44 overflow-hidden relative bg-slate-100">
                     <img 
                       src={item.image} 
                       alt={item.title} 
@@ -238,10 +248,10 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
                     />
                   </div>
 
-                  <div className="px-3.5 py-2.5 bg-[#0b3b24] text-white flex items-center justify-between group-hover:bg-[#072617] transition-colors">
-                    <div className="flex items-center gap-2">
+                  <div className="px-4 py-3 bg-[#0b3b24] text-white flex items-center justify-between group-hover:bg-[#072617] transition-colors">
+                    <div className="flex items-center gap-2.5">
                       <IconComp className="w-4 h-4 text-white shrink-0" />
-                      <span className="text-xs font-semibold tracking-tight">{item.title}</span>
+                      <span className="text-xs sm:text-[13px] font-semibold tracking-tight">{item.title}</span>
                     </div>
                     <span className="text-xs text-white/90 font-bold">&gt;</span>
                   </div>
@@ -254,28 +264,28 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
       </section>
 
       {/* 4. INVESTMENT PRINCIPLES */}
-      <section className="py-12 bg-white border-t border-slate-200">
+      <section className="py-14 bg-white border-t border-slate-200">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-3">
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900">
-                Investment Principles
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
+                {t.investments.principlesTitle}
               </h3>
-              <div className="w-10 h-[3px] bg-[#22c55e] mt-1.5"></div>
+              <div className="w-12 h-[3px] bg-[#22c55e] mt-2"></div>
             </div>
 
-            <div className="lg:col-span-9 grid grid-cols-2 sm:grid-cols-5 gap-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-200">
-              {principles.map((pr, idx) => {
-                const IconComp = pr.icon;
+            <div className="lg:col-span-9 grid grid-cols-2 sm:grid-cols-5 gap-3">
+              {t.investments.principles.map((pr, idx) => {
+                const IconComp = principleIcons[idx % principleIcons.length];
                 return (
-                  <div key={idx} className={`flex flex-col items-center text-center p-2 ${idx > 0 ? 'sm:pl-3' : ''}`}>
-                    <div className="w-9 h-9 flex items-center justify-center text-[#0b3b24] mb-2">
-                      <IconComp className="w-6 h-6 stroke-[1.75]" />
+                  <div key={idx} className="flex flex-col items-center text-center p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+                    <div className="w-10 h-10 flex items-center justify-center text-[#0b3b24] bg-emerald-50 rounded-full mb-2">
+                      <IconComp className="w-5 h-5 stroke-[1.75]" />
                     </div>
-                    <span className="text-xs font-semibold text-slate-900 leading-tight">
-                      {pr.title}
+                    <span className="text-xs sm:text-[13px] font-semibold text-slate-900 leading-tight">
+                      {pr}
                     </span>
                   </div>
                 );

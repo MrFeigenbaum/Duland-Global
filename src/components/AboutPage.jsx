@@ -7,48 +7,43 @@ import {
   Handshake, 
   Target, 
   Scale, 
-  Users 
+  Users,
+  Compass,
+  ShieldCheck,
+  CheckCircle2,
+  MapPin
 } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 export const AboutPage = ({ setCurrentView }) => {
-  const focusAreas = [
-    { title: 'Real Estate Investments', icon: Building2 },
-    { title: 'Financial Investments', icon: Coins },
-    { title: 'Value Creation', icon: TrendingUp },
-    { title: 'Sustainable Development', icon: Leaf },
-  ];
+  const { t } = useLanguage();
 
-  const values = [
-    { title: 'Trust', icon: Handshake },
-    { title: 'Discipline', icon: Target },
-    { title: 'Responsibility', icon: Scale },
-    { title: 'Sustainability', icon: Leaf },
-    { title: 'Partnership', icon: Users },
-  ];
+  const focusIcons = [Building2, Coins, TrendingUp, Leaf];
+  const valueIcons = [Handshake, Target, Scale, Leaf, Users];
 
   return (
     <div className="w-full bg-white text-slate-800">
       
-      {/* 1. TOP BANNER: Matching Reference Image 2 */}
-      <section className="relative w-full h-[260px] sm:h-[320px] lg:h-[360px] overflow-hidden flex items-center">
+      {/* 1. TOP BANNER */}
+      <section className="relative w-full h-[280px] sm:h-[340px] lg:h-[380px] overflow-hidden flex items-center">
         <img 
           src="/assets/banner_about_headquarters_4k.webp" 
           alt="About Duland Global"
           className="absolute inset-0 w-full h-full object-cover object-center"
           onError={(e) => { e.target.src = '/assets/banner_about_3mix.webp'; }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 sm:via-40% to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 sm:via-40% to-transparent"></div>
         
         <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl text-white">
             <div className="flex items-start gap-3 sm:gap-4 mb-2">
-              <span className="w-1.5 h-14 sm:h-16 bg-[#22c55e] shrink-0 mt-1"></span>
+              <span className="w-1.5 h-16 sm:h-20 bg-[#22c55e] shrink-0 mt-1 rounded-xs"></span>
               <div>
                 <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-                  About Us
+                  {t.about.title}
                 </h1>
-                <p className="text-xs sm:text-sm text-slate-100 mt-2 font-normal tracking-wide">
-                  A Global Investment Holding for Real Assets and Sustainable Growth
+                <p className="text-sm sm:text-base text-slate-100 mt-2 font-normal tracking-wide">
+                  {t.about.subtitle}
                 </p>
               </div>
             </div>
@@ -56,47 +51,75 @@ export const AboutPage = ({ setCurrentView }) => {
         </div>
       </section>
 
-      {/* 2. WHO WE ARE */}
-      <section className="py-12 sm:py-16 bg-white">
+      {/* 2. WHO WE ARE - ELEGANT EDITORIAL STRUCTURE */}
+      <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Section Header */}
+          <div className="max-w-3xl mb-8">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
+              {t.about.whoWeAreTitle}
+            </h2>
+            <div className="w-12 h-[3px] bg-[#22c55e] mt-2 mb-4"></div>
+          </div>
+
+          {/* Lead Corporate Statement */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-emerald-50/70 via-emerald-50/30 to-transparent border-l-4 border-[#22c55e] border-y border-r border-slate-200/60 mb-10 shadow-2xs">
+            <p className="text-base sm:text-lg text-slate-900 font-medium leading-relaxed">
+              {t.about.p1}
+            </p>
+          </div>
+
+          {/* Split Content: Two Pillars & Context */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-12">
             
-            {/* Left Content - 7 Detailed Paragraphs */}
-            <div className="lg:col-span-7">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
-                Who We Are
-              </h2>
-              <div className="w-10 h-[3px] bg-[#22c55e] mt-2 mb-5"></div>
+            {/* Left Content (7 Cols) */}
+            <div className="lg:col-span-7 space-y-6">
               
-              <div className="space-y-4 text-slate-600 text-xs sm:text-[13px] leading-relaxed">
-                <p>
-                  Duland Global Kft. is a Hungary-based international asset and investment holding company focused on the acquisition, ownership, development and long-term management of a diversified portfolio of real estate assets and financial investments across international markets.
-                </p>
-                <p>
-                  Our investment activities are built around two fundamental pillars: real estate ownership and development, and financial investment portfolio management. By combining tangible assets with carefully selected financial investments, we seek to establish a balanced and resilient investment structure capable of generating sustainable income and supporting long-term capital growth.
-                </p>
-                <p>
-                  Within the real estate sector, our interests extend across residential properties, commercial and office buildings, industrial facilities, income-generating assets and strategically located land with future development potential. We approach each investment with careful consideration of its location, market fundamentals, income potential and prospects for long-term appreciation.
-                </p>
-                <p>
-                  Alongside our real estate activities, we pursue opportunities in financial markets through the management and allocation of our own investment capital. This complementary approach allows us to diversify our portfolio, maintain financial flexibility and explore investment opportunities across different asset classes and economic environments.
-                </p>
-                <p>
-                  Our philosophy is based on the belief that sustainable wealth creation requires patience, financial discipline and a clear long-term perspective. Rather than focusing on short-term market movements, we emphasize the fundamental value of assets, responsible ownership and the careful evaluation of investment opportunities.
-                </p>
-                <p>
-                  As an internationally oriented investment holding company, Duland Global aims to gradually expand its geographical presence, strengthen its asset portfolio and develop lasting professional relationships across selected markets.
-                </p>
-                <p>
-                  Our long-term ambition is to build a financially strong, diversified and enduring investment holding company that preserves capital, develops valuable assets and creates sustainable value for the future.
+              {/* Pillar 1 & 2 Callout Box */}
+              <div className="p-6 rounded-2xl bg-[#fafcfb] border border-slate-200 shadow-2xs space-y-3">
+                <span className="text-xs font-bold text-[#0b3b24] tracking-wider uppercase flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-[#22c55e]" />
+                  Dual Investment Foundation
+                </span>
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                  {t.about.p2}
                 </p>
               </div>
+
+              {/* Tangible Real Estate Scope */}
+              <div className="space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+                <p>
+                  {t.about.p3}
+                </p>
+                <p>
+                  {t.about.p4}
+                </p>
+              </div>
+
+              {/* Discipline & Long-Term Philosophy */}
+              <div className="border-t border-slate-200/80 pt-5 space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+                <p>
+                  {t.about.p5}
+                </p>
+                <p>
+                  {t.about.p6}
+                </p>
+                <div className="p-4 rounded-xl bg-[#0b3b24] text-white mt-4 shadow-sm">
+                  <span className="text-xs font-semibold text-emerald-300 uppercase tracking-wider block mb-1">
+                    Long-Term Ambition
+                  </span>
+                  <p className="text-xs sm:text-sm text-emerald-50 font-light leading-relaxed">
+                    {t.about.p7}
+                  </p>
+                </div>
+              </div>
+
             </div>
 
-            {/* Right Landscape Image & Fact Card */}
-            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-4">
-              <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-200 h-64 sm:h-72 lg:h-[360px]">
+            {/* Right Visual Card (5 Cols, Sticky) */}
+            <div className="lg:col-span-5 lg:sticky lg:top-24 space-y-5">
+              <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200 h-72 sm:h-80 lg:h-[380px]">
                 <img 
                   src="/assets/ref_about_hills.webp" 
                   alt="Duland Global Who We Are"
@@ -104,13 +127,23 @@ export const AboutPage = ({ setCurrentView }) => {
                   onError={(e) => { e.target.src = '/assets/who_we_are_hills_4k.webp'; }}
                 />
               </div>
-              <div className="p-4 rounded-xl bg-[#f0f6f2] border border-emerald-900/10 text-slate-700">
-                <span className="text-[11px] font-bold text-[#0b3b24] uppercase tracking-wider block mb-1">
-                  Institutional Asset Holding
-                </span>
-                <p className="text-[11px] text-slate-600 leading-relaxed">
-                  Headquartered in Budapest, Hungary, managing institutional real estate assets and proprietary financial capital with long-term governance.
+
+              {/* Registered Holding Badge */}
+              <div className="p-5 rounded-2xl bg-[#f0f6f2] border border-emerald-900/10 text-slate-700 space-y-2">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-[#0b3b24]" />
+                  <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider">
+                    {t.about.holdingBadge}
+                  </span>
+                </div>
+                <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                  {t.about.holdingDesc}
                 </p>
+                <div className="pt-2 flex flex-wrap gap-2 text-[11px] font-semibold text-slate-600">
+                  <span className="px-2.5 py-1 rounded bg-white border border-slate-200">1065 Budapest</span>
+                  <span className="px-2.5 py-1 rounded bg-white border border-slate-200">Hungary</span>
+                  <span className="px-2.5 py-1 rounded bg-white border border-slate-200">Corporate Holding</span>
+                </div>
               </div>
             </div>
 
@@ -120,29 +153,29 @@ export const AboutPage = ({ setCurrentView }) => {
       </section>
 
       {/* 3. OUR FOCUS */}
-      <section className="py-10 bg-white">
+      <section className="py-12 bg-[#fafcfb] border-t border-slate-200">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-3">
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900">
-                Our Focus
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
+                {t.about.ourFocusTitle}
               </h3>
-              <div className="w-10 h-[3px] bg-[#22c55e] mt-1.5"></div>
+              <div className="w-12 h-[3px] bg-[#22c55e] mt-2"></div>
             </div>
 
             <div className="lg:col-span-9">
-              <div className="bg-[#eef5f1] border border-emerald-900/10 rounded-xl p-4 sm:p-5 grid grid-cols-2 sm:grid-cols-4 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-emerald-900/10">
-                {focusAreas.map((area, idx) => {
-                  const IconComp = area.icon;
+              <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 grid grid-cols-2 sm:grid-cols-4 gap-5 shadow-xs">
+                {t.about.focusAreas.map((area, idx) => {
+                  const IconComp = focusIcons[idx % focusIcons.length];
                   return (
-                    <div key={idx} className={`flex flex-col items-center text-center p-2 ${idx > 0 ? 'sm:pl-4' : ''}`}>
-                      <div className="w-10 h-10 flex items-center justify-center text-[#0b3b24] mb-2">
+                    <div key={idx} className="flex flex-col items-center text-center p-2.5">
+                      <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#0b3b24] flex items-center justify-center mb-3">
                         <IconComp className="w-6 h-6 stroke-[1.75]" />
                       </div>
-                      <span className="text-xs font-semibold text-slate-900 leading-tight">
-                        {area.title}
+                      <span className="text-xs sm:text-sm font-semibold text-slate-900 leading-snug">
+                        {area}
                       </span>
                     </div>
                   );
@@ -156,13 +189,13 @@ export const AboutPage = ({ setCurrentView }) => {
       </section>
 
       {/* 4. OUR COMMITMENT (50/50 Split Walkway & Dark Green Box) */}
-      <section className="py-10 bg-white">
+      <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+          <div className="grid grid-cols-1 lg:grid-cols-12 rounded-3xl overflow-hidden shadow-md border border-slate-200">
             
             {/* Left Image: Walkway */}
-            <div className="lg:col-span-6 h-64 sm:h-80 lg:h-auto min-h-[260px]">
+            <div className="lg:col-span-6 h-72 sm:h-96 lg:h-auto min-h-[300px]">
               <img 
                 src="/assets/ref_about_walkway.webp" 
                 alt="Our Commitment"
@@ -172,14 +205,14 @@ export const AboutPage = ({ setCurrentView }) => {
             </div>
 
             {/* Right Green Box */}
-            <div className="lg:col-span-6 bg-[#0b3b24] text-white p-6 sm:p-10 lg:p-12 flex flex-col justify-center">
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
-                Our Commitment
+            <div className="lg:col-span-6 bg-[#0b3b24] text-white p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
+              <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
+                {t.about.commitmentTitle}
               </h3>
-              <div className="w-10 h-[3px] bg-[#22c55e] mt-2 mb-4"></div>
+              <div className="w-12 h-[3px] bg-[#22c55e] mt-3 mb-5"></div>
               
-              <p className="text-xs sm:text-[13px] text-emerald-50 leading-relaxed font-light">
-                We aim to generate stable returns, support sustainable growth and contribute to the development of the regions in which we invest. We believe in building long-term partnerships based on trust, transparency and shared value.
+              <p className="text-sm sm:text-base text-emerald-50 leading-relaxed font-light">
+                {t.about.commitmentDesc}
               </p>
             </div>
 
@@ -189,28 +222,28 @@ export const AboutPage = ({ setCurrentView }) => {
       </section>
 
       {/* 5. OUR VALUES */}
-      <section className="py-12 bg-white">
+      <section className="py-14 bg-white border-t border-slate-200">
         <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-3">
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900">
-                Our Values
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
+                {t.about.valuesTitle}
               </h3>
-              <div className="w-10 h-[3px] bg-[#22c55e] mt-1.5"></div>
+              <div className="w-12 h-[3px] bg-[#22c55e] mt-2"></div>
             </div>
 
-            <div className="lg:col-span-9 grid grid-cols-2 sm:grid-cols-5 gap-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-200">
-              {values.map((v, idx) => {
-                const IconComp = v.icon;
+            <div className="lg:col-span-9 grid grid-cols-2 sm:grid-cols-5 gap-3">
+              {t.about.values.map((val, idx) => {
+                const IconComp = valueIcons[idx % valueIcons.length];
                 return (
-                  <div key={idx} className={`flex flex-col items-center text-center p-2 ${idx > 0 ? 'sm:pl-3' : ''}`}>
-                    <div className="w-9 h-9 flex items-center justify-center text-[#0b3b24] mb-2">
-                      <IconComp className="w-6 h-6 stroke-[1.75]" />
+                  <div key={idx} className="flex flex-col items-center text-center p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+                    <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-[#0b3b24] mb-2.5">
+                      <IconComp className="w-5 h-5 stroke-[1.75]" />
                     </div>
-                    <span className="text-xs font-semibold text-slate-900 leading-tight">
-                      {v.title}
+                    <span className="text-xs sm:text-sm font-semibold text-slate-900 leading-tight">
+                      {val}
                     </span>
                   </div>
                 );

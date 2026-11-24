@@ -7,25 +7,27 @@ import InvestmentsPage from './components/InvestmentsPage';
 import ApproachPage from './components/ApproachPage';
 import ContactPage from './components/ContactPage';
 import AssetDetailModal from './components/AssetDetailModal';
+import { LanguageProvider, useLanguage } from './LanguageContext';
 
-export function App() {
+function AppContent() {
   const [currentView, setCurrentView] = useState('home');
   const [selectedAsset, setSelectedAsset] = useState(null);
+  const { lang, t } = useLanguage();
 
-  // Sync window title with current view
+  // Sync window title with current view and language
   useEffect(() => {
     const titles = {
-      home: 'Duland Global | Investing in Real Assets for Lasting Value',
-      about: 'About Us | Duland Global',
-      investments: 'Our Investments | Duland Global',
-      approach: 'Investment Approach | Duland Global',
-      contact: 'Contact | Duland Global',
+      home: `Duland Global | ${t.hero.titleLine1} ${t.hero.titleLine2} ${t.hero.titleLine3}`,
+      about: `${t.nav.about} | Duland Global`,
+      investments: `${t.nav.investments} | Duland Global`,
+      approach: `${t.nav.approach} | Duland Global`,
+      contact: `${t.nav.contact} | Duland Global`,
     };
     document.title = titles[currentView] || 'Duland Global';
-  }, [currentView]);
+  }, [currentView, lang, t]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-[#006400] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-[#0b3b24] selection:text-white">
       {/* Persistent Navigation Header */}
       <Header currentView={currentView} setCurrentView={setCurrentView} />
 
@@ -74,6 +76,14 @@ export function App() {
         />
       )}
     </div>
+  );
+}
+
+export function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }
 

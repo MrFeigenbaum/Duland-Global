@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Menu, X, ChevronDown, Check } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 export const Header = ({ currentView, setCurrentView }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState('EN');
+  const { lang, setLang, t } = useLanguage();
+  const dropdownRef = useRef(null);
 
   const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Us' },
-    { id: 'investments', label: 'Our Investments' },
-    { id: 'approach', label: 'Investment Approach' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'home', label: t.nav.home },
+    { id: 'about', label: t.nav.about },
+    { id: 'investments', label: t.nav.investments },
+    { id: 'approach', label: t.nav.approach },
+    { id: 'contact', label: t.nav.contact },
   ];
 
   const languages = [
@@ -21,7 +23,24 @@ export const Header = ({ currentView, setCurrentView }) => {
     { code: 'UZ', name: "O'zbek (UZ)" },
   ];
 
-  // Precision SVG Flags (renders crisply on Windows, Mac, and mobile without relying on OS emoji support)
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setLangDropdownOpen(false);
+      }
+    };
+    if (langDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [langDropdownOpen]);
+
+  // Precision SVG Flags
   const renderFlag = (code) => {
     switch (code) {
       case 'EN':
@@ -76,6 +95,11 @@ export const Header = ({ currentView, setCurrentView }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const selectLanguage = (code) => {
+    setLang(code);
+    setLangDropdownOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full bg-[#0b3b24] text-white shadow-md">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 h-16 relative flex items-center justify-between">
@@ -98,9 +122,9 @@ export const Header = ({ currentView, setCurrentView }) => {
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
-                className={`text-[13px] tracking-wide transition-all py-1 cursor-pointer font-medium ${
+                className={`text-[14px] tracking-wide transition-all py-1 cursor-pointer font-medium ${
                   isActive 
-                    ? 'text-white border-b-2 border-white pb-0.5' 
+                    ? 'text-white border-b-2 border-[#22c55e] pb-0.5 font-semibold' 
                     : 'text-white/85 hover:text-white'
                 }`}
               >
@@ -110,101 +134,109 @@ export const Header = ({ currentView, setCurrentView }) => {
           })}
         </nav>
 
-        {/* Right Section: Language Selector Desktop & Mobile Menu Trigger */}
-        <div className="flex items-center gap-3 z-10">
+        {/* Right Section: Language Selector Desktop & Mobile Controls */}
+        <div className="flex items-center gap-2 sm:gap-3 z-10" ref={dropdownRef}>
           
-          {/* Language Selector Desktop */}
-          <div className="relative hidden lg:block">
+          {/* Universal Language Trigger (Desktop + Mobile touch-friendly) */}
+          <div className="relative">
             <button
-              onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-black/15 hover:bg-black/25 text-[13px] font-medium text-white/95 hover:text-white transition-colors cursor-pointer border border-white/10"
+              type="button"
+              onClick={() => setLangDropdownOpen((prev) => !prev)}
+              aria-label="Select language"
+              className="flex items-center gap-1.5 px-3 py-1.5 min-h-[40px] rounded-lg bg-black/20 hover:bg-black/30 active:bg-black/40 text-xs sm:text-[13px] font-medium text-white transition-colors cursor-pointer border border-white/15 select-none"
             >
-              {renderFlag(currentLang)}
-              <span>{currentLang}</span>
-              <ChevronDown className="w-3.5 h-3.5 text-white/70" />
+              {renderFlag(lang)}
+              <span className="font-semibold">{lang}</span>
+              <ChevronDown className={`w-3.5 h-3.5 text-white/80 transition-transform duration-200 ${langDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
 
+            {/* Language Dropdown Menu (Universal for Desktop & Mobile) */}
             {langDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-36 bg-[#092e1c] border border-emerald-800/80 rounded-md shadow-2xl overflow-hidden z-50 py-1">
-                {languages.map((lang) => (
+              <div className="absolute right-0 mt-2 w-44 bg-[#092e1c] border border-emerald-700/80 rounded-xl shadow-2xl overflow-hidden z-50 py-1 animate-fadeIn backdrop-blur-md">
+                <div className="px-3 py-1.5 border-b border-emerald-900/60 text-[10px] font-bold tracking-wider uppercase text-emerald-300">
+                  Select Language
+                </div>
+                {languages.map((item) => (
                   <button
-                    key={lang.code}
-                    onClick={() => {
-                      setCurrentLang(lang.code);
-                      setLangDropdownOpen(false);
-                    }}
-                    className={`w-full flex items-center gap-2.5 px-3 py-2 text-xs transition-colors cursor-pointer ${
-                      currentLang === lang.code ? 'bg-[#0b3b24] text-white font-bold' : 'text-slate-200 hover:bg-[#0e4229]'
+                    key={item.code}
+                    type="button"
+                    onClick={() => selectLanguage(item.code)}
+                    className={`w-full flex items-center justify-between px-3.5 py-2.5 text-xs sm:text-[13px] transition-colors cursor-pointer text-left ${
+                      lang === item.code ? 'bg-[#0e482c] text-white font-bold' : 'text-slate-200 hover:bg-[#0c3822] active:bg-[#072617]'
                     }`}
                   >
-                    {renderFlag(lang.code)}
-                    <span>{lang.name}</span>
+                    <div className="flex items-center gap-2.5">
+                      {renderFlag(item.code)}
+                      <span>{item.name}</span>
+                    </div>
+                    {lang === item.code && <Check className="w-3.5 h-3.5 text-[#22c55e]" />}
                   </button>
                 ))}
               </div>
             )}
           </div>
 
-          {/* Mobile Header Menu Trigger */}
-          <div className="lg:hidden flex items-center gap-2.5">
-            <button
-              onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-              className="flex items-center gap-1.5 text-xs font-medium text-white/95 px-2 py-1 bg-black/25 rounded border border-white/15 cursor-pointer"
-            >
-              {renderFlag(currentLang)}
-              <span>{currentLang}</span>
-              <ChevronDown className="w-3 h-3 text-white/80" />
-            </button>
-            
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 rounded text-white hover:bg-black/20 transition-colors cursor-pointer"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
+          {/* Mobile Hamburger Trigger */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+            className="lg:hidden p-2 min-h-[40px] min-w-[40px] rounded-lg text-white hover:bg-black/20 active:bg-black/30 transition-colors cursor-pointer flex items-center justify-center border border-white/10"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
 
         </div>
 
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#092e1c] border-t border-emerald-900/60 px-4 pt-3 pb-5 space-y-1">
-          {navLinks.map((link) => {
-            const isActive = currentView === link.id;
-            return (
-              <button
-                key={link.id}
-                onClick={() => handleNavClick(link.id)}
-                className={`w-full text-left px-3 py-2 text-sm rounded transition-all cursor-pointer ${
-                  isActive ? 'bg-[#0b3b24] text-white font-bold' : 'text-slate-200 hover:bg-black/20'
-                }`}
-              >
-                {link.label}
-              </button>
-            );
-          })}
+        <div className="lg:hidden bg-[#092e1c] border-t border-emerald-900/80 px-4 pt-3 pb-6 space-y-2 animate-fadeIn">
+          <nav className="space-y-1">
+            {navLinks.map((link) => {
+              const isActive = currentView === link.id;
+              return (
+                <button
+                  key={link.id}
+                  type="button"
+                  onClick={() => handleNavClick(link.id)}
+                  className={`w-full text-left px-3.5 py-2.5 min-h-[44px] text-sm rounded-lg transition-all cursor-pointer flex items-center justify-between ${
+                    isActive ? 'bg-[#0b3b24] text-white font-bold border-l-4 border-[#22c55e]' : 'text-slate-200 hover:bg-black/20'
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>}
+                </button>
+              );
+            })}
+          </nav>
 
-          {/* Mobile Menu Language Selection */}
-          <div className="pt-3 mt-2 border-t border-emerald-800/60 flex items-center gap-2 px-1">
-            {languages.map((lang) => (
-              <button
-                key={lang.code}
-                onClick={() => {
-                  setCurrentLang(lang.code);
-                  setMobileMenuOpen(false);
-                }}
-                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-semibold transition-all cursor-pointer ${
-                  currentLang === lang.code 
-                    ? 'bg-[#0b3b24] text-white border border-emerald-500/50 shadow-xs' 
-                    : 'text-slate-300 hover:text-white bg-black/20'
-                }`}
-              >
-                {renderFlag(lang.code)}
-                <span>{lang.code}</span>
-              </button>
-            ))}
+          {/* Quick Language Selector Inside Mobile Menu */}
+          <div className="pt-4 mt-2 border-t border-emerald-800/60">
+            <span className="text-[11px] font-bold text-emerald-300 uppercase tracking-wider block px-1 mb-2">
+              Language / Nyelv / Sprache / Til:
+            </span>
+            <div className="grid grid-cols-2 gap-2">
+              {languages.map((item) => (
+                <button
+                  key={item.code}
+                  type="button"
+                  onClick={() => {
+                    setLang(item.code);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`flex items-center gap-2 px-3 py-2 min-h-[42px] rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                    lang === item.code 
+                      ? 'bg-[#0b3b24] text-white border border-[#22c55e] shadow-xs' 
+                      : 'text-slate-300 hover:text-white bg-black/25 border border-white/5'
+                  }`}
+                >
+                  {renderFlag(item.code)}
+                  <span>{item.name}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       )}
