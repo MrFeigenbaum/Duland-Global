@@ -59,15 +59,17 @@ export const ApproachPage = ({ setCurrentView }) => {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-12">
             
-            {/* Left Title Column */}
-            <div className="lg:col-span-4">
-              <span className="text-xs font-bold tracking-widest text-[#0b3b24] uppercase block mb-1">
-                Strategic Foundation
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-snug">
-                {t.approach.philosophyTitle}
-              </h2>
-              <div className="w-12 h-[3px] bg-[#22c55e] mt-3 mb-5"></div>
+            {/* Left Title Column: No awkward breaks + Rich Balanced Card */}
+            <div className="lg:col-span-4 space-y-5">
+              <div>
+                <span className="text-xs font-bold tracking-widest text-[#0b3b24] uppercase block mb-1">
+                  Strategic Foundation
+                </span>
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-snug sm:whitespace-nowrap">
+                  {t.approach.philosophyTitle}
+                </h2>
+                <div className="w-12 h-[3px] bg-[#22c55e] mt-3"></div>
+              </div>
               
               <div className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200 text-slate-700 space-y-2 shadow-2xs">
                 <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider block">
@@ -76,6 +78,31 @@ export const ApproachPage = ({ setCurrentView }) => {
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Patience, independent research, and prudent risk governance across full economic cycles.
                 </p>
+              </div>
+
+              {/* Risk Governance System Card (Fills gap seamlessly) */}
+              <div className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200 text-slate-800 space-y-3 shadow-2xs">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-[#22c55e]" />
+                  <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider">
+                    Risk Governance Protocol
+                  </span>
+                </div>
+                
+                <div className="space-y-2.5 text-xs text-slate-600">
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></div>
+                    <p><strong className="text-slate-800">Underwriting Rigor:</strong> In-depth cash-flow sensitivity & multi-cycle stress testing.</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></div>
+                    <p><strong className="text-slate-800">Moderate Leverage:</strong> Strict debt caps and strong interest coverage buffers.</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></div>
+                    <p><strong className="text-slate-800">Liquidity Reserves:</strong> Preserving capital agility to withstand downturns.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -226,6 +253,8 @@ export const ApproachPage = ({ setCurrentView }) => {
             <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {t.approach.principles.map((pr, idx) => {
                 const IconComp = principleIcons[idx % principleIcons.length];
+                const title = typeof pr === 'object' && pr?.title ? pr.title : pr;
+                const desc = typeof pr === 'object' && pr?.desc ? pr.desc : '';
                 return (
                   <div 
                     key={idx}
@@ -236,12 +265,14 @@ export const ApproachPage = ({ setCurrentView }) => {
                         <IconComp className="w-4 h-4 stroke-[2]" />
                       </div>
                       <h4 className="font-serif text-sm sm:text-base font-bold text-slate-900">
-                        {pr.title}
+                        {title}
                       </h4>
                     </div>
-                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed pl-11">
-                      {pr.desc}
-                    </p>
+                    {desc ? (
+                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed pl-11">
+                        {desc}
+                      </p>
+                    ) : null}
                   </div>
                 );
               })}

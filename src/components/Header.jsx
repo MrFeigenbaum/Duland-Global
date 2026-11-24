@@ -114,21 +114,30 @@ export const Header = ({ currentView, setCurrentView }) => {
           </span>
         </div>
 
-        {/* Desktop Navigation (Perfect Center Placement) */}
-        <nav className="hidden lg:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
+        {/* Desktop Navigation (Center Placement with Cool Underline Effect) */}
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-7 absolute left-1/2 -translate-x-1/2 shrink-0">
           {navLinks.map((link) => {
             const isActive = currentView === link.id;
             return (
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
-                className={`text-[14px] tracking-wide transition-all py-1 cursor-pointer font-medium ${
+                className={`relative group py-2 text-[14px] font-medium tracking-wide whitespace-nowrap cursor-pointer transition-colors duration-200 select-none ${
                   isActive 
-                    ? 'text-white border-b-2 border-[#22c55e] pb-0.5 font-semibold' 
+                    ? 'text-white font-semibold' 
                     : 'text-white/85 hover:text-white'
                 }`}
               >
-                {link.label}
+                <span>{link.label}</span>
+
+                {/* Cool Animated Underline Effect */}
+                {isActive ? (
+                  /* Active Link: Default Lime/Emerald (#22c55e), on Hover turns to Bright Amber/Gold (#facc15) */
+                  <span className="absolute bottom-0 left-0 w-full h-[2.5px] rounded-full bg-[#22c55e] group-hover:bg-[#facc15] transition-colors duration-300 shadow-[0_1px_8px_rgba(34,197,94,0.5)] group-hover:shadow-[0_1px_8px_rgba(250,204,21,0.6)]"></span>
+                ) : (
+                  /* Inactive Link: Cool expand-from-center underline on hover */
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] rounded-full bg-emerald-400 group-hover:w-full transition-all duration-300 ease-out shadow-[0_1px_6px_rgba(52,211,153,0.4)]"></span>
+                )}
               </button>
             );
           })}

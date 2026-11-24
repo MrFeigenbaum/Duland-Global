@@ -14,7 +14,8 @@ import {
   FileText,
   ChevronDown,
   ChevronUp,
-  CheckCircle2
+  CheckCircle2,
+  PieChart
 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
@@ -95,12 +96,14 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-14">
             
-            {/* Left Title Column (No awkward line breaks) */}
-            <div className="lg:col-span-4">
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-snug">
-                {t.investments.buildingValueTitle}
-              </h2>
-              <div className="w-12 h-[3px] bg-[#22c55e] mt-3 mb-5"></div>
+            {/* Left Title Column: No awkward breaks + Rich Balanced Card */}
+            <div className="lg:col-span-4 space-y-5">
+              <div>
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 leading-snug sm:whitespace-nowrap">
+                  {t.investments.buildingValueTitle}
+                </h2>
+                <div className="w-12 h-[3px] bg-[#22c55e] mt-3"></div>
+              </div>
               
               <div className="p-4 rounded-xl bg-[#f0f6f2] border border-emerald-900/10 text-slate-700">
                 <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider block mb-1">
@@ -109,6 +112,44 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
                 <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
                   Focusing on fundamental asset quality, diversified market exposure, and continuous post-acquisition value creation.
                 </p>
+              </div>
+
+              {/* Target Allocation Visual Balance Card (Fills gap seamlessly) */}
+              <div className="p-5 rounded-2xl bg-gradient-to-br from-[#0b3b24] to-[#0f4d30] text-white space-y-4 shadow-xs border border-emerald-800">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-emerald-300 uppercase tracking-wider">
+                    Target Portfolio Structure
+                  </span>
+                  <PieChart className="w-4 h-4 text-[#22c55e]" />
+                </div>
+                
+                <div className="space-y-3">
+                  <div>
+                    <div className="flex justify-between text-xs font-semibold mb-1">
+                      <span className="text-emerald-100">Physical Real Assets</span>
+                      <span className="text-white">65% Target</span>
+                    </div>
+                    <div className="w-full bg-black/30 rounded-full h-2 overflow-hidden">
+                      <div className="bg-[#22c55e] h-full rounded-full w-[65%]"></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-xs font-semibold mb-1">
+                      <span className="text-emerald-100">Financial Investments</span>
+                      <span className="text-white">35% Target</span>
+                    </div>
+                    <div className="w-full bg-black/30 rounded-full h-2 overflow-hidden">
+                      <div className="bg-emerald-300 h-full rounded-full w-[35%]"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-white/10 flex flex-wrap gap-1.5 text-[11px] text-emerald-200">
+                  <span className="px-2 py-0.5 rounded bg-white/10">Cash Flow Visibility</span>
+                  <span className="px-2 py-0.5 rounded bg-white/10">Inflation Hedge</span>
+                  <span className="px-2 py-0.5 rounded bg-white/10">Macro Resilience</span>
+                </div>
               </div>
             </div>
 

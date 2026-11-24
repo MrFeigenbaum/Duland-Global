@@ -321,7 +321,32 @@ export const translations = {
       hideFullStatement: "Collapse Philosophy Manifesto",
       processTitle: 'Our Investment Process',
       principlesTitle: 'Our Guiding Principles',
-      principles: ['Long-Term Perspective', 'Value Creation', 'Diversification', 'Prudent Risk Management', 'Responsible Investment', 'Sustainability'],
+      principles: [
+        {
+          title: "Long-Term Perspective",
+          desc: "Prioritizing enduring asset appreciation and capital preservation over volatile short-term market speculation."
+        },
+        {
+          title: "Value Creation",
+          desc: "Active asset optimization, property enhancements, and strategic development to maximize income potential."
+        },
+        {
+          title: "Disciplined Diversification",
+          desc: "Allocating capital across high-utility property sectors, financial instruments, and international markets."
+        },
+        {
+          title: "Prudent Risk Management",
+          desc: "Multi-scenario stress testing, moderate leverage, and dedicated balance sheet liquidity buffers."
+        },
+        {
+          title: "Responsible Investment",
+          desc: "High standards of corporate governance, transparency, and sustainable regional economic contribution."
+        },
+        {
+          title: "Sustainability",
+          desc: "Investing in high-efficiency, environmentally compliant assets with long-term commercial utility."
+        }
+      ],
       riskTitle: 'Risk Management',
       riskDesc: 'We take a prudent and balanced approach to risk, assessing market, operational and financial factors for every investment. Our goal is to protect capital, ensure portfolio resilience and maintain long-term financial stability.',
       valueTitle: 'Long-Term Value',
@@ -671,7 +696,32 @@ export const translations = {
       hideFullStatement: "Filozófia Kiáltvány Összecsukása",
       processTitle: 'Befektetési Folyamatunk',
       principlesTitle: 'Irányadó Alapelveink',
-      principles: ['Hosszú Távú Perspektíva', 'Értékteremtés', 'Diverzifikáció', 'Körültekintő Kockázatkezelés', 'Felelős Befektetés', 'Fenntarthatóság'],
+      principles: [
+        {
+          title: "Hosszú Távú Perspektíva",
+          desc: "A tartós értékmegőrzés és tőkegyümölcsöztetés előtérbe helyezése a rövid távú spekulációval szemben."
+        },
+        {
+          title: "Értékteremtés",
+          desc: "Aktív eszközfejlesztés, hatékonyságnövelés és korszerűsítés a jövedelemtermelő képesség maximalizálása érdekében."
+        },
+        {
+          title: "Fegyelmezett Diverzifikáció",
+          desc: "Tőkeallokáció több ingatlanszektor, pénzügyi eszköz és nemzetközi piac között."
+        },
+        {
+          title: "Körültekintő Kockázatkezelés",
+          desc: "Folyamatos stressztesztek, megfontolt tőkeáttétel és dedikált likviditási tartalékok fenntartása."
+        },
+        {
+          title: "Felelős Befektetés",
+          desc: "Szigorú vállalatirányítási normák, átlátható döntéshozatal és pozitív gazdasági hozzájárulás."
+        },
+        {
+          title: "Fenntarthatóság",
+          desc: "Energiahatékony, környezettudatos és időtálló vagyonelemekbe történő beruházás."
+        }
+      ],
       riskTitle: 'Kockázatkezelés',
       riskDesc: 'Megfontolt és kiegyensúlyozott megközelítést alkalmazunk, felmérve a piaci, működési és pénzügyi tényezőket minden beruházásnál.',
       valueTitle: 'Hosszú Távú Érték',
@@ -1019,7 +1069,32 @@ export const translations = {
       hideFullStatement: "Manifest Einklappen",
       processTitle: 'Unser Investitionsprozess',
       principlesTitle: 'Leitprinzipien',
-      principles: ['Langfristige Perspektive', 'Wertschöpfung', 'Diversifikation', 'Umsichtiges Risikomanagement', 'Verantwortung', 'Nachhaltigkeit'],
+      principles: [
+        {
+          title: "Langfristige Perspektive",
+          desc: "Vorrang für nachhaltigen Kapitalerhalt und Substanzwert gegenüber kurzfristiger Marktspekulation."
+        },
+        {
+          title: "Wertschöpfung",
+          desc: "Aktive Bewirtschaftung, Modernisierung und strategische Projektentwicklung zur Ertragssteigerung."
+        },
+        {
+          title: "Disziplinierte Diversifikation",
+          desc: "Breite Streuung über verschiedene Immobiliensektoren, Finanzanlagen und Auslandsmärkte."
+        },
+        {
+          title: "Umsichtiges Risikomanagement",
+          desc: "Strikte Stresstests, moderate Verschuldung und verlässliche Liquiditätspuffer."
+        },
+        {
+          title: "Verantwortungsvolles Eigentum",
+          desc: "Höchste Standards bei Unternehmensführung, Transparenz und regionalem wirtschaftlichem Nutzen."
+        },
+        {
+          title: "Nachhaltigkeit",
+          desc: "Investitionen in zukunftsfähige, energieeffiziente und ökologisch vorbildliche Sachwerte."
+        }
+      ],
       riskTitle: 'Risikomanagement',
       riskDesc: 'Wir analysieren Markt-, Betriebs- und Finanzrisiken für jede Transaktion, um Kapitalstabilität und Resilienz zu gewährleisten.',
       valueTitle: 'Langfristiger Wert',
@@ -1367,7 +1442,32 @@ export const translations = {
       hideFullStatement: "Manifestni Yopish",
       processTitle: 'Bizning investitsiya jarayoni',
       principlesTitle: 'Asosiy tamoyillarimiz',
-      principles: ['Uzoq muddatli istiqbol', 'Qiymat yaratish', 'Diversifikatsiya', 'Ehtiyotkor xatarlar boshqaruvi', 'Mas’uliyatli investitsiya', 'Barqarorlik'],
+      principles: [
+        {
+          title: "Uzoq muddatli istiqbol",
+          desc: "Qisqa muddatli tebranishlardan ko'ra kapitalni asrash va uzoq muddatli o'sishga ustuvorlik berish."
+        },
+        {
+          title: "Qiymat yaratish",
+          desc: "Aktivlarni faol rivojlantirish, modernizatsiya qilish va daromadlilik darajasini oshirish."
+        },
+        {
+          title: "Intizomli diversifikatsiya",
+          desc: "Mablag'larni turli ko'chmas mulk sohalari va xalqaro moliya bozorlariga taqsimlash."
+        },
+        {
+          title: "Ehtiyotkor xatarlar boshqaruvi",
+          desc: "Doimiy risk-tahlil, mo'tadil qarz darajasi va likvidlik zaxiralarini shakllantirish."
+        },
+        {
+          title: "Mas'uliyatli investitsiya",
+          desc: "Shaffof korporativ boshqaruv standartlari va mintaqaviy iqtisodiyotga munosib hissa qo'shish."
+        },
+        {
+          title: "Barqarorlik",
+          desc: "Ekologik talablarga javob beradigan, energiya jihatdan samarador va mustahkam obyektlarga sarmoya kiritish."
+        }
+      ],
       riskTitle: 'Xatarlarni boshqarish',
       riskDesc: 'Biz har bir investitsiya uchun bozor, operatsion va moliyaviy omillarni chuqur tahlil qilamiz, kapitalni saqlash va portfel mustahkamligini ta’minlaymiz.',
       valueTitle: 'Uzoq muddatli qiymat',
