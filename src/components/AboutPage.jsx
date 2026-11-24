@@ -64,7 +64,7 @@ export const AboutPage = ({ setCurrentView }) => {
           {/* Section Header */}
           <Reveal className="max-w-3xl mb-8">
             <span className="text-xs font-bold tracking-widest text-[#0b3b24] uppercase block mb-1">
-              Corporate Profile
+              {t.about.profileEyebrow}
             </span>
             <div className="inline-block max-w-full">
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
@@ -292,9 +292,9 @@ export const AboutPage = ({ setCurrentView }) => {
                   <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500">
                     <div className="flex items-center gap-2 font-medium">
                       <MapPin className="w-4 h-4 text-[#0b3b24]" />
-                      <span>1065 Budapest, Révay köz 4., Hungary</span>
+                      <span>{t.contact.addressLine1}, {t.contact.addressLine2}</span>
                     </div>
-                    <span className="text-slate-400">Duland Global Kft. • Corporate Holding</span>
+                    <span className="text-slate-400">{t.about.statementFooter}</span>
                   </div>
                 </div>
               </div>

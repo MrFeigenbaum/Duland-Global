@@ -26,6 +26,26 @@ export const translations = {
       activePortfolio: 'Active Asset Portfolio',
       logisticsIndustry: 'Logistics & Industry',
       ourRegions: 'Our Regions',
+      languageRegion: 'Language & Region',
+      loading: 'Loading...',
+      holdingTagline: 'Asset & Investment Holding Kft.',
+      notFoundTitle: '404 - Page Not Found | Duland Global',
+    },
+
+    intro: {
+      subtitle: 'Asset & Investment Holding • Budapest',
+      clickToEnter: 'Click anywhere to enter',
+    },
+
+    assetModal: {
+      eyebrow: 'Asset Class Profile',
+      criteriaTitle: 'Investment Criteria & Focus',
+      criteria: [
+        'Prime micro-locations with strong macroeconomic fundamentals',
+        'Long-term cash flow predictability and capital preservation',
+        'Modern environmental standards, energy efficiency, and sustainability',
+      ],
+      close: 'Close',
     },
 
     // Home Page
@@ -101,6 +121,7 @@ export const translations = {
 
     process: {
       eyebrow: 'OUR APPROACH',
+      stepLabel: 'Step',
       title: 'A Disciplined Investment Process',
       desc: 'We follow a structured and long-term approach to identify, evaluate, develop and manage investment opportunities.',
       steps: [
@@ -125,6 +146,9 @@ export const translations = {
 
     insights: {
       title: 'Latest Insights',
+      researchTitle: 'Institutional Research & Market Intelligence',
+      researchDesc: 'Macro real estate dynamics and capital allocation reports',
+      viewMethodology: 'View Methodology',
       items: [
         { title: 'Real Estate Market Outlook 2026', date: 'Nov 15, 2026' },
         { title: 'Industrial Assets: A Growing Opportunity', date: 'Nov 08, 2026' },
@@ -149,12 +173,14 @@ export const translations = {
       },
       europe: {
         name: 'Central & Southern Europe',
+        subline: 'Key Central & Southern European Metropolitan Hubs',
         badge: 'Active Asset Portfolio',
         desc: 'Core income-generating real estate properties, premium multi-family residential communities, and modern Grade-A commercial office parks.',
         tags: ['Residential Living', 'Office Parks', 'Core Real Estate'],
       },
       asia: {
         name: 'Central Asian Corridors',
+        subline: 'Industrial Trade Corridors & Production Infrastructure',
         badge: 'Industrial Logistics & Growth',
         desc: 'Strategic manufacturing production plants, distribution logistics infrastructure, and cross-border commercial development facilities.',
         tags: ['Production Plants', 'Logistics Assets', 'Regional Expansion'],
@@ -165,6 +191,8 @@ export const translations = {
     about: {
       title: 'About Us',
       subtitle: 'A Global Investment Holding for Real Assets and Sustainable Growth',
+      profileEyebrow: 'Corporate Profile',
+      statementFooter: 'Duland Global Kft. • Corporate Holding',
       whoWeAreTitle: 'Who We Are',
       p1: 'Duland Global Kft. is a Hungary-based international asset and investment holding company focused on the acquisition, ownership, development and long-term management of a diversified portfolio of real estate assets and financial investments across international markets.',
       p2: 'Our investment activities are built around two fundamental pillars: real estate ownership and development, and financial investment portfolio management. By combining tangible assets with carefully selected financial investments, we seek to establish a balanced and resilient investment structure capable of generating sustainable income and supporting long-term capital growth.',
@@ -241,6 +269,16 @@ export const translations = {
     investments: {
       title: 'Our Investments',
       subtitle: 'A Diversified Portfolio for Sustainable, Long-Term Growth',
+      mandateEyebrow: 'Investment Mandate',
+      portfolioEyebrow: 'Asset Portfolio',
+      strategyFooter: 'Duland Global Kft. • Investment Strategy',
+      targetPortfolio: {
+        title: 'Target Portfolio Structure',
+        realAssets: 'Physical Real Assets',
+        financial: 'Financial Investments',
+        targetSuffix: 'Target',
+        tags: ['Cash Flow Visibility', 'Inflation Hedge', 'Macro Resilience'],
+      },
       buildingValueTitle: 'Building Long-Term Value',
       p1: 'At Duland Global, we are committed to building and managing a diversified international investment portfolio that combines real estate assets with carefully selected financial investments. Our primary objective is to preserve and grow capital, generate sustainable income and create lasting value through disciplined investment decisions and responsible asset management.',
       p2: 'We approach investments with a long-term perspective, recognizing that sustainable growth requires careful planning, comprehensive analysis and a balanced allocation of financial resources. Rather than focusing on short-term market fluctuations, we seek opportunities supported by strong fundamentals, attractive long-term potential and clearly defined investment objectives.',
@@ -292,6 +330,21 @@ export const translations = {
     approach: {
       title: 'Investment Approach',
       subtitle: 'A Disciplined, Long-Term and Value-Oriented Investment Approach',
+      foundationEyebrow: 'Strategic Foundation',
+      manifestoFooter: 'Duland Global Kft. • Philosophy Manifesto',
+      principlesDesc: 'Our core operating principles guide our long-term capital allocation.',
+      riskProtocol: {
+        title: 'Risk Governance Protocol',
+        items: [
+          { title: 'Underwriting Rigor', desc: 'In-depth cash-flow sensitivity & multi-scenario stress testing.' },
+          { title: 'Moderate Leverage', desc: 'Strict debt caps & strong interest coverage buffers.' },
+          { title: 'Liquidity Reserves', desc: 'Preserving capital agility to withstand downturns.' },
+        ],
+      },
+      coreTenet: {
+        title: 'Core Tenet',
+        desc: 'Patience, independent research, and prudent risk governance across full economic cycles.',
+      },
       philosophyTitle: 'Our Investment Philosophy',
       p1: 'At Duland Global, our investment philosophy is founded on a long-term perspective, disciplined capital allocation and a commitment to creating sustainable value across international markets. We believe that successful investment management requires more than identifying attractive opportunities; it demands a comprehensive understanding of asset fundamentals, market dynamics, financial risks and long-term economic potential.',
       p2: 'Our strategy is centered on building and managing a diversified portfolio that combines the stability and income-generating potential of real estate assets with the flexibility and growth opportunities offered by financial investments. Through this balanced approach, we seek to preserve capital, generate recurring income and achieve sustainable appreciation in the value of our investments over time.',
@@ -404,6 +457,21 @@ export const translations = {
       emailAddr: 'info@dulandglobal.com',
       inquiriesTitle: 'Business Inquiries',
       inquiriesDesc: 'For investment proposals, partnership opportunities or other business inquiries, please contact us directly or use the contact form.',
+      directLine: 'Direct Line',
+      businessHours: '09:00 – 18:00 CET',
+      investorInquiriesLabel: 'Investor & Corporate Inquiries',
+      officialDesk: 'Official Desk',
+      consultationsTitle: 'Institutional Consultations & Delegations',
+      consultationsDesc: 'Meetings with corporate leadership are conducted by prior confirmed appointment.',
+      partnershipFocus: 'Partnership Focus',
+      errors: {
+        cooldown: 'Please wait {sec}s before sending another message.',
+        invalidName: 'Please enter your full name.',
+        invalidEmail: 'Please enter a valid email address.',
+        invalidMessage: 'Please enter your inquiry message.',
+        sendFailed: 'Unable to send right now. Please try again or email us directly at {email}.',
+        networkError: 'Network error while sending message. Please try again or write directly to {email}.',
+      },
       collaborateTitle: '— How We Can Collaborate —',
       collaborate: [
         'Strategic Partnerships',
@@ -438,6 +506,24 @@ export const translations = {
       activePortfolio: 'Aktív Eszközportfólió',
       logisticsIndustry: 'Logisztika és Ipar',
       ourRegions: 'Régióink',
+      languageRegion: 'Nyelv és Régió',
+      loading: 'Betöltés...',
+      holdingTagline: 'Vagyon- és Befektetési Holding Kft.',
+      notFoundTitle: '404 - Az oldal nem található | Duland Global',
+    },
+    intro: {
+      subtitle: 'Vagyon- és Befektetési Holding • Budapest',
+      clickToEnter: 'Kattintson bárhová a belépéshez',
+    },
+    assetModal: {
+      eyebrow: 'Eszközosztály Profil',
+      criteriaTitle: 'Befektetési Kritériumok és Fókusz',
+      criteria: [
+        'Kiemelt mikrolokációk erős makrogazdasági alapokkal',
+        'Hosszú távú, kiszámítható cash-flow és tőkemegőrzés',
+        'Korszerű környezetvédelmi szabványok, energiahatékonyság és fenntarthatóság',
+      ],
+      close: 'Bezárás',
     },
     hero: {
       eyebrow: 'Nemzetközi Befektetési Holding',
@@ -506,6 +592,7 @@ export const translations = {
     },
     process: {
       eyebrow: 'FOLYAMATUNK',
+      stepLabel: 'Lépés',
       title: 'Fegyelmezett Befektetési Folyamat',
       desc: 'Strukturált folyamatot követünk a piaci lehetőségek azonosítása, értékelése, fejlesztése és kezelése során.',
       steps: [
@@ -528,6 +615,9 @@ export const translations = {
     },
     insights: {
       title: 'Legfrissebb Elemzések',
+      researchTitle: 'Intézményi Kutatás és Piaci Elemzés',
+      researchDesc: 'Makro ingatlanpiaci dinamikák és tőkeallokációs jelentések',
+      viewMethodology: 'Módszertan Megtekintése',
       items: [
         { title: 'Ingatlanpiaci Kilátások 2026', date: '2026. nov. 15.' },
         { title: 'Ipari Eszközök: Növekvő Piaci Lehetőség', date: '2026. nov. 08.' },
@@ -551,12 +641,14 @@ export const translations = {
       },
       europe: {
         name: 'Közép- és Dél-Európa',
+        subline: 'Kiemelt Közép- és Dél-Európai Nagyvárosi Központok',
         badge: 'Aktív Eszközportfólió',
         desc: "Prémium lakóparkok, 'A' kategóriás modern irodakomplexumok és stabil készpénzáramot biztosító kereskedelmi ingatlanok.",
         tags: ['Lakóingatlanok', 'Irodaparkok', 'Valós Eszközök'],
       },
       asia: {
         name: 'Közép-ázsiai Folyosók',
+        subline: 'Ipari Kereskedelmi Folyosók és Gyártási Infrastruktúra',
         badge: 'Ipar és Logisztika',
         desc: 'Kereskedelmi folyosók, modern ipari gyártóüzemek és stratégiai elosztó logisztikai infrastruktúra.',
         tags: ['Gyártóüzemek', 'Logisztika', 'Régiós Növekedés'],
@@ -565,6 +657,8 @@ export const translations = {
     about: {
       title: 'Rólunk',
       subtitle: 'Globális Befektetési Holding a Valós Eszközökért és Fenntartható Növekedésért',
+      profileEyebrow: 'Vállalati Profil',
+      statementFooter: 'Duland Global Kft. • Vállalati Holding',
       whoWeAreTitle: 'Kik Vagyunk',
       p1: 'A Duland Global Kft. egy magyarországi székhelyű nemzetközi eszköz- és befektetéskezelő holding, amely diverzifikált ingatlan- és pénzügyi befektetési portfólió megszerzésére, birtoklására, fejlesztésére és hosszú távú kezelésére összpontosít a nemzetközi piacokon.',
       p2: 'Befektetési tevékenységünk két alappillérre épül: az ingatlantulajdonlásra és -fejlesztésre, valamint a pénzügyi befektetési portfólió kezelésére. A kézzelfogható eszközök és a gondosan kiválasztott pénzügyi befektetések ötvözésével kiegyensúlyozott és ellenálló struktúrát alakítunk ki, amely képes fenntartható jövedelmet termelni és támogatni a hosszú távú tőkenövekedést.',
@@ -639,6 +733,16 @@ export const translations = {
     investments: {
       title: 'Befektetéseink',
       subtitle: 'Diverzifikált Portfólió a Fenntartható, Hosszú Távú Növekedésért',
+      mandateEyebrow: 'Befektetési Mandátum',
+      portfolioEyebrow: 'Eszközportfólió',
+      strategyFooter: 'Duland Global Kft. • Befektetési Stratégia',
+      targetPortfolio: {
+        title: 'Cél Portfólió Struktúra',
+        realAssets: 'Fizikai Reáleszközök',
+        financial: 'Pénzügyi Befektetések',
+        targetSuffix: 'Cél',
+        tags: ['Kiszámítható Cash-Flow', 'Inflációvédelem', 'Makro Ellenállóképesség'],
+      },
       buildingValueTitle: 'Hosszú Távú Értéképítés',
       p1: 'A Duland Globalnál elkötelezettek vagyunk egy olyan diverzifikált nemzetközi befektetési portfólió felépítése és kezelése mellett, amely egyesíti az ingatlaneszközöket a gondosan kiválasztott pénzügyi befektetésekkel. Elsődleges célunk a tőke megőrzése és gyarapítása, fenntartható jövedelem generálása és tartós érték teremtése fegyelmezett döntések és felelős vagyonkezelés révén.',
       p2: 'A befektetésekhez hosszú távú perspektívával közelítünk, felismerve, hogy a fenntartható növekedés gondos tervezést, átfogó elemzést és a pénzügyi források kiegyensúlyozott elosztását igényli. A rövid távú piaci ingadozások helyett a szilárd fundamentumokkal és vonzó potenciállal rendelkező lehetőségeket keressük.',
@@ -688,6 +792,21 @@ export const translations = {
     approach: {
       title: 'Befektetési Stratégia',
       subtitle: 'Fegyelmezett, Hosszú Távú és Értékalapú Befektetési Megközelítés',
+      foundationEyebrow: 'Stratégiai Alapok',
+      manifestoFooter: 'Duland Global Kft. • Filozófiai Kiáltvány',
+      principlesDesc: 'Alapvető működési elveink irányítják hosszú távú tőkeallokációnkat.',
+      riskProtocol: {
+        title: 'Kockázatkezelési Protokoll',
+        items: [
+          { title: 'Szigorú Átvilágítás', desc: 'Részletes cash-flow érzékenységi és többforgatókönyves stressztesztek.' },
+          { title: 'Mérsékelt Tőkeáttétel', desc: 'Szigorú adósságkorlátok és erős kamatfedezeti tartalékok.' },
+          { title: 'Likviditási Tartalékok', desc: 'Tőkerugalmasság megőrzése a gazdasági visszaesések kezelésére.' },
+        ],
+      },
+      coreTenet: {
+        title: 'Alapelv',
+        desc: 'Türelem, független kutatás és fegyelmezett kockázatkezelés a teljes gazdasági ciklusokon át.',
+      },
       philosophyTitle: 'Befektetési Filozófiánk',
       p1: 'A Duland Globalnál befektetési filozófiánk a hosszú távú perspektíván, a fegyelmezett tőkeallokáción és a fenntartható értékteremtés iránti elkötelezettségen alapul. Meggyőződésünk, hogy a sikeres vagyonkezelés többet kíván a vonzó lehetőségek azonosításánál: az eszközök fundamentumainak és a gazdasági folyamatoknak az alapos megértését követeli meg.',
       p2: 'Stratégiánk középpontjában egy olyan kiegyensúlyozott portfólió áll, amely ötvözi az ingatlanok stabilitását a pénzügyi befektetések rugalmasságával és növekedési lehetőségeivel.',
@@ -798,6 +917,21 @@ export const translations = {
       emailAddr: 'info@dulandglobal.com',
       inquiriesTitle: 'Üzleti Megkeresések',
       inquiriesDesc: 'Befektetési javaslatokkal vagy partnerségi lehetőségekkel kapcsolatban kérjük, keressen minket közvetlenül.',
+      directLine: 'Közvetlen Vonal',
+      businessHours: '09:00 – 18:00 CET',
+      investorInquiriesLabel: 'Befektetői és Vállalati Megkeresések',
+      officialDesk: 'Hivatalos Iroda',
+      consultationsTitle: 'Intézményi Konzultációk és Delegációk',
+      consultationsDesc: 'A vállalat vezetésével való személyes egyeztetések előzetesen egyeztetett időpontban történnek.',
+      partnershipFocus: 'Partnerségi Fókusz',
+      errors: {
+        cooldown: 'Kérjük, várjon {sec} másodpercet az újabb üzenet küldése előtt.',
+        invalidName: 'Kérjük, adja meg a teljes nevét.',
+        invalidEmail: 'Kérjük, adjon meg egy érvényes e-mail címet.',
+        invalidMessage: 'Kérjük, írja be üzenetét.',
+        sendFailed: 'Jelenleg nem sikerült elküldeni. Kérjük, próbálja újra, vagy írjon közvetlenül a(z) {email} címre.',
+        networkError: 'Hálózati hiba történt. Kérjük, próbálja újra, vagy írjon közvetlenül a(z) {email} címre.',
+      },
       collaborateTitle: '— Együttműködési Területek —',
       collaborate: [
         'Stratégiai Partnerségek',
@@ -832,6 +966,24 @@ export const translations = {
       activePortfolio: 'Aktives Anlageportfolio',
       logisticsIndustry: 'Logistik & Industrie',
       ourRegions: 'Unsere Regionen',
+      languageRegion: 'Sprache & Region',
+      loading: 'Wird geladen...',
+      holdingTagline: 'Vermögens- & Beteiligungsholding Kft.',
+      notFoundTitle: '404 - Seite nicht gefunden | Duland Global',
+    },
+    intro: {
+      subtitle: 'Vermögens- & Beteiligungsholding • Budapest',
+      clickToEnter: 'Zum Eintreten beliebig klicken',
+    },
+    assetModal: {
+      eyebrow: 'Anlageklassen-Profil',
+      criteriaTitle: 'Anlagekriterien & Fokus',
+      criteria: [
+        'Erstklassige Mikrolagen mit starken makroökonomischen Fundamentaldaten',
+        'Langfristige Cashflow-Planbarkeit und nachhaltiger Kapitalerhalt',
+        'Moderne Umweltstandards, Energieeffizienz und Nachhaltigkeit',
+      ],
+      close: 'Schließen',
     },
     hero: {
       eyebrow: 'Internationale Investment-Holding',
@@ -900,6 +1052,7 @@ export const translations = {
     },
     process: {
       eyebrow: 'UNSER ANSATZ',
+      stepLabel: 'Schritt',
       title: 'Ein Disziplinierter Anlageprozess',
       desc: 'Wir verfolgen einen strukturierten Prozess zur Identifikation, Prüfung, Entwicklung und Betreuung von Investitionen.',
       steps: [
@@ -922,6 +1075,9 @@ export const translations = {
     },
     insights: {
       title: 'Aktuelle Marktanalysen',
+      researchTitle: 'Institutionelle Forschung & Marktanalysen',
+      researchDesc: 'Makro-Immobiliendynamik und Kapitalallokationsberichte',
+      viewMethodology: 'Methodik ansehen',
       items: [
         { title: 'Immobilienmarktausblick 2026', date: '15. Nov. 2026' },
         { title: 'Industrieanlagen: Ein Wachsender Markt', date: '08. Nov. 2026' },
@@ -945,12 +1101,14 @@ export const translations = {
       },
       europe: {
         name: 'Mittel- und Südeuropa',
+        subline: 'Zentrale Metropolregionen in Mittel- und Südeuropa',
         badge: 'Aktives Bestandsportfolio',
         desc: 'Ertragsstarke Gewerbeobjekte, erstklassige Bürokomplexe und moderne Wohnanlagen in wirtschaftsstarken Ballungszentren.',
         tags: ['Wohnanlagen', 'Büroparks', 'Sachwerte'],
       },
       asia: {
         name: 'Zentralasiatische Korridore',
+        subline: 'Industrielle Handelskorridore & Produktionsinfrastruktur',
         badge: 'Industrie & Logistik',
         desc: 'Industrieproduktionsstandorte, Distributionslogistik und moderne Infrastruktur an wichtigen Handelsachsen.',
         tags: ['Produktionswerke', 'Logistikhallen', 'Handelskorridore'],
@@ -959,6 +1117,8 @@ export const translations = {
     about: {
       title: 'Über Uns',
       subtitle: 'Eine Globale Investment-Holding für Reale Sachwerte und Nachhaltiges Wachstum',
+      profileEyebrow: 'Unternehmensprofil',
+      statementFooter: 'Duland Global Kft. • Unternehmensholding',
       whoWeAreTitle: 'Wer Wir Sind',
       p1: 'Die Duland Global Kft. ist eine in Ungarn ansässige internationale Vermögens- und Beteiligungsholding, die sich auf den Erwerb, das Eigentum, die Entwicklung und die langfristige Verwaltung eines diversifizierten Portfolios von Immobilienwerten und Finanzinvestitionen auf internationalen Märkten konzentriert.',
       p2: 'Unsere Investitionstätigkeit basiert auf zwei fundamentalen Säulen: dem Eigentum und der Entwicklung von Immobilien sowie dem Management unseres Finanzanlageportfolios. Durch die Kombination von Sachwerten mit sorgfältig ausgewählten Finanzanlagen schaffen wir eine ausgewogene und krisenfeste Anlagestruktur, die nachhaltige Erträge generiert und langfristiges Kapitalwachstum sichert.',
@@ -1033,6 +1193,16 @@ export const translations = {
     investments: {
       title: 'Unsere Investitionen',
       subtitle: 'Ein Diversifiziertes Portfolio für Nachhaltiges, Langfristiges Wachstum',
+      mandateEyebrow: 'Anlagemandat',
+      portfolioEyebrow: 'Anlageportfolio',
+      strategyFooter: 'Duland Global Kft. • Anlagestrategie',
+      targetPortfolio: {
+        title: 'Ziel-Portfoliostruktur',
+        realAssets: 'Physische Sachwerte',
+        financial: 'Finanzanlagen',
+        targetSuffix: 'Ziel',
+        tags: ['Cashflow-Visibilität', 'Inflationsschutz', 'Makro-Resilienz'],
+      },
       buildingValueTitle: 'Nachhaltigen Wert Aufbauen',
       p1: 'Bei Duland Global engagieren wir uns für den Aufbau und die Verwaltung eines diversifizierten internationalen Anlageportfolios, das Immobilienwerte mit sorgfältig ausgewählten Finanzanlagen kombiniert. Unser oberstes Ziel ist es, Kapital zu bewahren und zu vermehren, nachhaltige Einnahmen zu erzielen und durch disziplinierte Anlageentscheidungen bleibende Werte zu schaffen.',
       p2: 'Wir betrachten Investitionen mit einer langfristigen Perspektive und erkennen an, dass nachhaltiges Wachstum sorgfältige Planung, umfassende Analysen und eine ausgewogene Allokation der Finanzmittel erfordert.',
@@ -1082,6 +1252,21 @@ export const translations = {
     approach: {
       title: 'Investitionsansatz',
       subtitle: 'Ein Disziplinierter, Langfristiger und Wertorientierter Investitionsansatz',
+      foundationEyebrow: 'Strategisches Fundament',
+      manifestoFooter: 'Duland Global Kft. • Philosophie-Manifest',
+      principlesDesc: 'Unsere zentralen Leitprinzipien bestimmen unsere langfristige Kapitalallokation.',
+      riskProtocol: {
+        title: 'Risikomanagement-Protokoll',
+        items: [
+          { title: 'Prüfungsstrenge', desc: 'Tiefgehende Cashflow-Sensitivitätsanalysen & Multi-Szenario-Stresstests.' },
+          { title: 'Moderate Verschuldung', desc: 'Strikte Verschuldungsobergrenzen & solide Zinsdeckungspuffer.' },
+          { title: 'Liquiditätsreserven', desc: 'Erhalt der Kapitalagilität zur Bewältigung von Marktabschwüngen.' },
+        ],
+      },
+      coreTenet: {
+        title: 'Kerngrundsatz',
+        desc: 'Geduld, unabhängige Forschung und umsichtiges Risikomanagement über ganze Konjunkturzyklen hinweg.',
+      },
       philosophyTitle: 'Unsere Anlagephilosophie',
       p1: 'Bei Duland Global gründet unsere Anlagephilosophie auf einer langfristigen Perspektive, disziplinierter Kapitalallokation und dem Bekenntnis zu nachhaltiger Wertschöpfung auf internationalen Märkten.',
       p2: 'Unsere Strategie konzentriert sich auf den Aufbau eines diversifizierten Portfolios, das die Stabilität von Sachwerten mit den Wachstumschancen von Finanzanlagen vereint.',
@@ -1192,6 +1377,21 @@ export const translations = {
       emailAddr: 'info@dulandglobal.com',
       inquiriesTitle: 'Geschäftliche Anfragen',
       inquiriesDesc: 'Für konkrete Investitionsvorschläge oder Kooperationen kontaktieren Sie uns gern direkt.',
+      directLine: 'Direktdurchwahl',
+      businessHours: '09:00 – 18:00 MEZ',
+      investorInquiriesLabel: 'Investoren- & Unternehmensanfragen',
+      officialDesk: 'Offizielle Stelle',
+      consultationsTitle: 'Institutionelle Beratungen & Delegationen',
+      consultationsDesc: 'Gespräche mit der Unternehmensleitung finden nach vorheriger Terminbestätigung statt.',
+      partnershipFocus: 'Partnerschaftsfokus',
+      errors: {
+        cooldown: 'Bitte warten Sie {sec}s, bevor Sie eine weitere Nachricht senden.',
+        invalidName: 'Bitte geben Sie Ihren vollständigen Namen ein.',
+        invalidEmail: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+        invalidMessage: 'Bitte geben Sie Ihre Nachricht ein.',
+        sendFailed: 'Derzeit nicht sendbar. Bitte versuchen Sie es erneut oder schreiben Sie direkt an {email}.',
+        networkError: 'Netzwerkfehler beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an {email}.',
+      },
       collaborateTitle: '— Formen der Zusammenarbeit —',
       collaborate: [
         'Strategische Partnerschaften',
@@ -1226,6 +1426,24 @@ export const translations = {
       activePortfolio: 'Faol aktivlar portfeli',
       logisticsIndustry: 'Logistika va sanoat',
       ourRegions: 'Bizning hududlar',
+      languageRegion: 'Til va Mintaqa',
+      loading: 'Yuklanmoqda...',
+      holdingTagline: 'Aktiv va Investitsiya Xoldingi Kft.',
+      notFoundTitle: '404 - Sahifa topilmadi | Duland Global',
+    },
+    intro: {
+      subtitle: 'Aktiv va Investitsiya Xoldingi • Budapesht',
+      clickToEnter: 'Kirish uchun istalgan joyga bosing',
+    },
+    assetModal: {
+      eyebrow: 'Aktiv toifasi profili',
+      criteriaTitle: 'Investitsiya mezonlari va yo‘nalishi',
+      criteria: [
+        'Kuchli makroiqtisodiy asoslarga ega nufuzli joylashuvlar',
+        'Uzoq muddatli barqaror pul oqimi va kapitalni saqlash',
+        'Zamonaviy ekologik standartlar, energiya samaradorligi va barqarorlik',
+      ],
+      close: 'Yopish',
     },
     hero: {
       eyebrow: 'Xalqaro investitsiya xoldingi',
@@ -1294,6 +1512,7 @@ export const translations = {
     },
     process: {
       eyebrow: 'BIZNING METODOLOGIYA',
+      stepLabel: 'Bosqich',
       title: 'Intizomli investitsiya jarayoni',
       desc: "Investitsiya imkoniyatlarini aniqlash, baholash, rivojlantirish va boshqarishda tizimli yondashuvga tayanamiz.",
       steps: [
@@ -1316,6 +1535,9 @@ export const translations = {
     },
     insights: {
       title: 'So‘nggi tahlillar',
+      researchTitle: 'Institutsional Tadqiqot va Bozor Tahlili',
+      researchDesc: 'Makro ko‘chmas mulk dinamikasi va kapital taqsimoti hisobotlari',
+      viewMethodology: 'Metodologiyani ko‘rish',
       items: [
         { title: '2026-yilgi ko‘chmas mulk bozori sharhi', date: '15-noyabr, 2026' },
         { title: 'Sanoat aktivlari: Rivojlanayotgan imkoniyat', date: '08-noyabr, 2026' },
@@ -1339,12 +1561,14 @@ export const translations = {
       },
       europe: {
         name: 'Markaziy va Janubiy Yevropa',
+        subline: 'Markaziy va Janubiy Yevropaning asosiy markazlari',
         badge: 'Faol aktivlar portfeli',
         desc: "Barqaror daromad keltiruvchi ko‘chmas mulklar, nufuzli turar joy majmualari va zamonaviy 'A' toifadagi biznes markazlar.",
         tags: ['Turar-joy majmualari', 'Ofis parklari', 'Real aktivlar'],
       },
       asia: {
         name: 'Markaziy Osiyo yo‘laklari',
+        subline: 'Sanoat savdo yo‘laklari va ishlab chiqarish infratuzilmasi',
         badge: 'Sanoat va logistika',
         desc: 'Sanoat ishlab chiqarish korxonalari, zamonaviy tarqatish logistika markazlari va savdo infratuzilmasi.',
         tags: ['Ishlab chiqarish', 'Logistika', 'Mintaqaviy rivojlanish'],
@@ -1353,6 +1577,8 @@ export const translations = {
     about: {
       title: 'Biz haqimizda',
       subtitle: 'Real aktivlar va barqaror rivojlanish bo‘yicha global investitsiya xoldingi',
+      profileEyebrow: 'Korporativ Profil',
+      statementFooter: 'Duland Global Kft. • Korporativ Xolding',
       whoWeAreTitle: 'Biz kimmiz',
       p1: 'Duland Global Kft. — xalqaro bozorlarda ko‘chmas mulk aktivlari va moliyaviy investitsiyalarning diversifikatsiyalangan portfelini sotib olish, egalik qilish, rivojlantirish va uzoq muddatli boshqarishga ixtisoslashgan Vengriyada joylashgan xalqaro aktiv va investitsiya xolding kompaniyasidir.',
       p2: 'Bizning investitsiya faoliyatimiz ikkita asosiy ustunga tayanadi: ko‘chmas mulkka egalik qilish va uni rivojlantirish hamda moliyaviy investitsiyalar portfelini boshqarish. Moddiy aktivlarni puxta tanlangan moliyaviy investitsiyalar bilan birlashtirib, biz barqaror daromad keltirishga va uzoq muddatli kapital o‘sishini ta’minlashga qodir mustahkam tuzilmani shakllantiramiz.',
@@ -1427,6 +1653,16 @@ export const translations = {
     investments: {
       title: 'Investitsiyalarimiz',
       subtitle: 'Barqaror va uzoq muddatli o‘sish uchun diversifikatsiyalangan portfel',
+      mandateEyebrow: 'Investitsiya Mandati',
+      portfolioEyebrow: 'Aktivlar Portfeli',
+      strategyFooter: 'Duland Global Kft. • Investitsiya Strategiyasi',
+      targetPortfolio: {
+        title: 'Maqsadli Portfel Tuzilmasi',
+        realAssets: 'Moddiy Real Aktivlar',
+        financial: 'Moliyaviy Investitsiyalar',
+        targetSuffix: 'Maqsad',
+        tags: ['Pul Oqimi Barqarorligi', 'Inflyatsiyadan Himoya', 'Makro Barqarorlik'],
+      },
       buildingValueTitle: 'Uzoq muddatli qiymat yaratish',
       p1: 'Duland Global kompaniyasida biz ko‘chmas mulk aktivlarini puxta tanlangan moliyaviy investitsiyalar bilan birlashtirgan diversifikatsiyalangan xalqaro portfelni barpo etish va boshqarishga intilamiz. Bizning asosiy maqsadimiz kapitalni saqlash va ko‘paytirish, barqaror daromad olish va intizomli qarorlar orqali uzoq muddatli qiymat yaratishdir.',
       p2: 'Biz investitsiyalarga uzoq muddatli nuqtai nazardan yondashamiz, chunki barqaror o‘sish puxta rejalashtirish, keng qamrovli tahlil va moliyaviy resurslarni muvozanatli taqsimlashni talab qiladi.',
@@ -1476,6 +1712,21 @@ export const translations = {
     approach: {
       title: 'Investitsiya yondashuvi',
       subtitle: 'Intizomli, uzoq muddatli va qiymatga yo‘naltirilgan investitsiya yondashuvi',
+      foundationEyebrow: 'Strategik Asos',
+      manifestoFooter: 'Duland Global Kft. • Falsafa Manifesti',
+      principlesDesc: 'Asosiy faoliyat tamoyillarimiz uzoq muddatli kapital taqsimotimizni belgilaydi.',
+      riskProtocol: {
+        title: 'Xatarlarni Boshqarish Protokoli',
+        items: [
+          { title: 'Qat’iy Tahlil', desc: 'Chuqur pul oqimi sezgirligi va ko‘p ssenariyli stress-testlar.' },
+          { title: 'Mo‘tadil Qarz Yuklamasi', desc: 'Qat’iy qarz chegaralari va mustahkam foiz qoplash zaxiralari.' },
+          { title: 'Likvidlik Zaxiralari', desc: 'Inqiroz davrlarida kapital moslashuvchanligini saqlash.' },
+        ],
+      },
+      coreTenet: {
+        title: 'Asosiy Tamoyil',
+        desc: 'Barcha iqtisodiy davrlar davomida sabr, mustaqil tadqiqot va ehtiyotkor xatarlar boshqaruvi.',
+      },
       philosophyTitle: 'Investitsiya falsafamiz',
       p1: 'Duland Global kompaniyasida bizning investitsiya falsafamiz uzoq muddatli istiqbol, intizomli kapital taqsimoti va xalqaro bozorlarda barqaror qiymat yaratishga asoslangan.',
       p2: 'Bizning strategiyamiz ko‘chmas mulk aktivlarining barqarorligi va daromad salohiyatini moliyaviy investitsiyalarning o‘sish imkoniyatlari bilan birlashtirgan portfelni shakllantirishga qaratilgan.',
@@ -1586,6 +1837,21 @@ export const translations = {
       emailAddr: 'info@dulandglobal.com',
       inquiriesTitle: 'Tijoriy so‘rovlar',
       inquiriesDesc: 'Investitsiya takliflari yoki hamkorlik imkoniyatlari bo‘yicha biz bilan to‘g‘ridan-to‘g‘ri bog‘lanishingiz yoki aloqa shaklidan foydalanishingiz mumkin.',
+      directLine: 'To‘g‘ridan-to‘g‘ri liniya',
+      businessHours: '09:00 – 18:00 CET',
+      investorInquiriesLabel: 'Investor va Korporativ Murojaatlar',
+      officialDesk: 'Rasmiy Bo‘lim',
+      consultationsTitle: 'Institutsional Maslahatlar va Delegatsiyalar',
+      consultationsDesc: 'Kompaniya rahbariyati bilan uchrashuvlar oldindan kelishilgan vaqtda o‘tkaziladi.',
+      partnershipFocus: 'Hamkorlik Yo‘nalishi',
+      errors: {
+        cooldown: 'Yana xabar yuborishdan oldin {sec} soniya kuting.',
+        invalidName: 'Iltimos, to‘liq ismingizni kiriting.',
+        invalidEmail: 'Iltimos, to‘g‘ri elektron pochta manzilini kiriting.',
+        invalidMessage: 'Iltimos, xabaringizni kiriting.',
+        sendFailed: 'Hozircha yuborib bo‘lmadi. Qayta urinib ko‘ring yoki to‘g‘ridan-to‘g‘ri {email} manziliga yozing.',
+        networkError: 'Tarmoq xatoligi yuz berdi. Qayta urinib ko‘ring yoki {email} manziliga yozing.',
+      },
       collaborateTitle: '— Hamkorlik yo‘nalishlari —',
       collaborate: [
         'Strategik hamkorlik',

@@ -182,7 +182,7 @@ export const Header = ({ currentView, setCurrentView }) => {
               >
                 <div className="flex items-center gap-2 px-3 py-2 mb-1 border-b border-emerald-800/60 text-[10px] font-bold tracking-widest uppercase text-emerald-300/90">
                   <Globe className="w-3.5 h-3.5 text-[#22c55e]" />
-                  <span>Language &amp; Region</span>
+                  <span>{t.common.languageRegion}</span>
                 </div>
                 <div className="space-y-1">
                   {languages.map((item) => {

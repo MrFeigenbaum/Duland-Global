@@ -8,9 +8,9 @@ export const Footer = ({ setCurrentView }) => {
     <footer className="w-full bg-[#082919] text-emerald-100/75 border-t border-emerald-950/80 py-6 font-sans">
       <div className="max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-[13px]">
         <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-2 gap-y-1 text-center md:text-left">
-          <span className="font-serif font-bold text-white tracking-wide">Duland Global Kft.</span>
+          <span className="font-serif font-bold text-white tracking-wide">{t.contact.addressName}</span>
           <span className="text-emerald-700 hidden sm:inline">•</span>
-          <span>1065 Budapest, Révay köz 4., Hungary</span>
+          <span>{t.contact.addressLine1}, {t.contact.addressLine2}</span>
           <span className="text-emerald-700 hidden sm:inline">•</span>
           <span>{t.common.allRightsReserved}</span>
         </div>

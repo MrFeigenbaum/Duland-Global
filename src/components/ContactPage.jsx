@@ -59,7 +59,7 @@ export const ContactPage = () => {
       const lastSubmit = Number(sessionStorage.getItem(COOLDOWN_KEY) || 0);
       if (lastSubmit && Date.now() - lastSubmit < COOLDOWN_MS) {
         const waitSec = Math.ceil((COOLDOWN_MS - (Date.now() - lastSubmit)) / 1000);
-        setErrorMessage(`Please wait ${waitSec}s before sending another message.`);
+        setErrorMessage(t.contact.errors.cooldown.replace('{sec}', String(waitSec)));
         return;
       }
     } catch {
@@ -76,17 +76,17 @@ export const ContactPage = () => {
     const cleanMessage = sanitizeText(formData.message, 3000);
 
     if (!cleanName || cleanName.length < 2) {
-      setErrorMessage('Please enter your full name.');
+      setErrorMessage(t.contact.errors.invalidName);
       return;
     }
 
     if (!EMAIL_REGEX.test(cleanEmail)) {
-      setErrorMessage('Please enter a valid email address.');
+      setErrorMessage(t.contact.errors.invalidEmail);
       return;
     }
 
     if (!cleanMessage || cleanMessage.length < 5) {
-      setErrorMessage('Please enter your inquiry message.');
+      setErrorMessage(t.contact.errors.invalidMessage);
       return;
     }
 
@@ -132,12 +132,12 @@ export const ContactPage = () => {
       } else {
         setErrorMessage(
           data.message ||
-            `Unable to send right now. Please try again or email us directly at ${CONTACT_CONFIG.recipientEmail}.`
+            t.contact.errors.sendFailed.replace('{email}', CONTACT_CONFIG.recipientEmail)
         );
       }
     } catch {
       setErrorMessage(
-        `Network error while sending message. Please try again or write directly to ${CONTACT_CONFIG.recipientEmail}.`
+        t.contact.errors.networkError.replace('{email}', CONTACT_CONFIG.recipientEmail)
       );
     } finally {
       setLoading(false);
@@ -388,7 +388,7 @@ export const ContactPage = () => {
                       </div>
                       <div>
                         <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
-                          Direct Line
+                          {t.contact.directLine}
                         </span>
                         <span className="text-xs sm:text-sm font-semibold text-slate-900">
                           {t.contact.phoneNum}
@@ -396,7 +396,7 @@ export const ContactPage = () => {
                       </div>
                     </div>
                     <span className="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">
-                      09:00 – 18:00 CET
+                      {t.contact.businessHours}
                     </span>
                   </div>
                 </div>
@@ -410,7 +410,7 @@ export const ContactPage = () => {
                       </div>
                       <div className="min-w-0">
                         <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
-                          Investor &amp; Corporate Inquiries
+                          {t.contact.investorInquiriesLabel}
                         </span>
                         <span className="text-xs sm:text-sm font-semibold text-slate-900 break-all">
                           {t.contact.emailAddr}
@@ -418,7 +418,7 @@ export const ContactPage = () => {
                       </div>
                     </div>
                     <span className="text-[11px] font-semibold text-[#0b3b24] bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md shrink-0">
-                      Official Desk
+                      {t.contact.officialDesk}
                     </span>
                   </div>
                 </div>
@@ -432,10 +432,10 @@ export const ContactPage = () => {
                 </div>
                 <div>
                   <span className="text-xs font-bold text-slate-900 block leading-snug">
-                    Institutional Consultations &amp; Delegations
+                    {t.contact.consultationsTitle}
                   </span>
                   <p className="text-[11px] text-slate-600 leading-snug">
-                    Meetings with corporate leadership are conducted by prior confirmed appointment.
+                    {t.contact.consultationsDesc}
                   </p>
                 </div>
               </div>
@@ -444,7 +444,7 @@ export const ContactPage = () => {
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center bg-[#0b3b24] text-white p-5 rounded-2xl shadow-sm border border-emerald-800">
                 <div className="sm:col-span-7">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 block mb-1">
-                    Partnership Focus
+                    {t.contact.partnershipFocus}
                   </span>
                   <h4 className="font-serif text-sm font-bold text-white mb-1.5 leading-snug">
                     {t.contact.inquiriesTitle}

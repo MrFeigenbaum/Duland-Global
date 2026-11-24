@@ -52,7 +52,7 @@ export const AssetDetailModal = ({ asset, onClose, onContactClick }) => {
 
           <div className="absolute bottom-4 left-5 right-5 sm:left-6 sm:right-6 text-white">
             <span className="text-xs font-sans uppercase tracking-widest text-emerald-400 font-semibold">
-              Asset Class Profile
+              {t.assetModal.eyebrow}
             </span>
             <h3 id="asset-modal-title" className="font-serif text-xl sm:text-2xl font-bold mt-1 text-white">
               {asset.title}
@@ -69,21 +69,15 @@ export const AssetDetailModal = ({ asset, onClose, onContactClick }) => {
           <div className="bg-[#f0f6f2] rounded-2xl p-4 sm:p-5 border border-emerald-900/10 space-y-3">
             <h4 className="text-xs uppercase tracking-wider text-[#0b3b24] font-bold flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-[#0b3b24] shrink-0" />
-              <span>Investment Criteria & Focus</span>
+              <span>{t.assetModal.criteriaTitle}</span>
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
-              <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#0b3b24] shrink-0 mt-0.5" />
-                <span>Prime micro-locations with strong macroeconomic fundamentals</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#0b3b24] shrink-0 mt-0.5" />
-                <span>Long-term cash flow predictability and capital preservation</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#0b3b24] shrink-0 mt-0.5" />
-                <span>Modern environmental standards, energy efficiency, and sustainability</span>
-              </li>
+              {t.assetModal.criteria.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-[#0b3b24] shrink-0 mt-0.5" />
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -93,7 +87,7 @@ export const AssetDetailModal = ({ asset, onClose, onContactClick }) => {
               onClick={onClose}
               className="px-4 py-2.5 min-h-[42px] rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
             >
-              Close
+              {t.assetModal.close}
             </button>
             <button
               type="button"

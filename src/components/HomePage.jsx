@@ -369,7 +369,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
                   >
                     <div className="w-full flex justify-between items-center mb-3">
                       <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100 shadow-2xs">
-                        Step {idx + 1}
+                        {t.process.stepLabel} {idx + 1}
                       </span>
                       <span className="font-serif font-bold text-xl sm:text-2xl text-slate-300/75 select-none leading-none">
                         0{idx + 1}
@@ -492,10 +492,10 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
                     </div>
                     <div>
                       <span className="text-xs sm:text-[13px] font-bold text-slate-900 block leading-snug">
-                        Institutional Research &amp; Market Intelligence
+                        {t.insights.researchTitle}
                       </span>
                       <span className="text-[11px] text-slate-500 block">
-                        Macro real estate dynamics and capital allocation reports
+                        {t.insights.researchDesc}
                       </span>
                     </div>
                   </div>
@@ -504,7 +504,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
                     onClick={() => setCurrentView('approach')}
                     className="inline-flex items-center gap-1.5 px-3 py-2 min-h-[38px] rounded-lg bg-white border border-slate-200 hover:border-[#0b3b24] text-[#0b3b24] text-xs font-semibold transition-colors cursor-pointer shrink-0 shadow-2xs"
                   >
-                    <span className="whitespace-nowrap">View Methodology</span>
+                    <span className="whitespace-nowrap">{t.insights.viewMethodology}</span>
                     <span className="font-bold">&gt;</span>
                   </button>
                 </div>
@@ -614,7 +614,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
                               {t.presence.europe.name}
                             </span>
                             <span className="text-xs text-slate-500 font-medium">
-                              Key Central &amp; Southern European Metropolitan Hubs
+                              {t.presence.europe.subline}
                             </span>
                           </div>
                         </div>
@@ -649,7 +649,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
                               {t.presence.asia.name}
                             </span>
                             <span className="text-xs text-slate-500 font-medium">
-                              Industrial Trade Corridors &amp; Production Infrastructure
+                              {t.presence.asia.subline}
                             </span>
                           </div>
                         </div>

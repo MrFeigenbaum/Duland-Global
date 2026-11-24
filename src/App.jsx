@@ -59,7 +59,7 @@ function AppContent() {
       investments: `${t.nav.investments} | Duland Global`,
       approach: `${t.nav.approach} | Duland Global`,
       contact: `${t.nav.contact} | Duland Global`,
-      '404': `404 - Page Not Found | Duland Global`
+      '404': t.common.notFoundTitle
     };
     document.title = titles[currentView] || 'Duland Global';
   }, [currentView, lang, t]);
@@ -77,7 +77,7 @@ function AppContent() {
 
       {/* 3. Main View Router with Suspense & Smooth Entrance */}
       <main key={currentView} className="flex-1 animate-pageEnter">
-        <Suspense fallback={<LoadingScreen text="Loading..." />}>
+        <Suspense fallback={<LoadingScreen text={t.common.loading} />}>
           {currentView === 'home' && (
             <HomePage 
               setCurrentView={handleViewChange} 

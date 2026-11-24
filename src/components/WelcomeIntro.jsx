@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../LanguageContext';
 
 export const WelcomeIntro = ({ onComplete }) => {
+  const { t } = useLanguage();
   const [stage, setStage] = useState('initial'); // 'initial', 'appear', 'fadeout'
 
   useEffect(() => {
@@ -9,12 +11,10 @@ export const WelcomeIntro = ({ onComplete }) => {
       window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Stage 1: Trigger entrance animation immediately
     const enterTimer = setTimeout(() => {
       setStage('appear');
     }, prefersReducedMotion ? 10 : 50);
 
-    // Stage 2: Begin smooth fadeout
     const exitTimer = setTimeout(() => {
       handleExit();
     }, prefersReducedMotion ? 600 : 2400);
@@ -27,8 +27,6 @@ export const WelcomeIntro = ({ onComplete }) => {
 
   const handleExit = () => {
     setStage('fadeout');
-    // Save to sessionStorage so it doesn't show on page navigations,
-    // but WILL show again if the user closes and re-opens the website
     try {
       sessionStorage.setItem('duland_intro_shown', 'true');
     } catch {
@@ -57,11 +55,9 @@ export const WelcomeIntro = ({ onComplete }) => {
             stage === 'appear' ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
           }`}
         >
-          {/* Subtle Outer Glow Rings */}
           <div className="absolute inset-0 rounded-full border border-emerald-400/30 animate-pulse"></div>
           <div className="absolute -inset-2 rounded-full border border-emerald-500/10 animate-ping"></div>
 
-          {/* Core Crest */}
           <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0f4d30] via-[#0b3b24] to-[#041a0f] border-2 border-emerald-400/60 flex items-center justify-center shadow-2xl">
             <span className="font-serif text-2xl font-bold tracking-widest text-emerald-200">
               DG
@@ -86,7 +82,7 @@ export const WelcomeIntro = ({ onComplete }) => {
         >
           <span className="h-[1px] w-6 bg-[#22c55e]"></span>
           <span className="text-[11px] sm:text-xs font-semibold tracking-[0.3em] text-emerald-300 uppercase">
-            Asset & Investment Holding • Budapest
+            {t.intro.subtitle}
           </span>
           <span className="h-[1px] w-6 bg-[#22c55e]"></span>
         </div>
@@ -106,7 +102,7 @@ export const WelcomeIntro = ({ onComplete }) => {
             stage === 'appear' ? 'opacity-70 hover:opacity-100' : 'opacity-0'
           }`}
         >
-          Click anywhere to enter
+          {t.intro.clickToEnter}
         </span>
 
       </div>

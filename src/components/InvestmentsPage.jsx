@@ -162,7 +162,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
           {/* Top Section Header - Full Width, No collisions */}
           <Reveal className="max-w-3xl mb-8">
             <span className="text-xs font-bold tracking-widest text-[#0b3b24] uppercase block mb-1">
-              Investment Mandate
+              {t.investments.mandateEyebrow}
             </span>
             <div className="inline-block max-w-full">
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
@@ -217,7 +217,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xs font-bold text-emerald-300 uppercase tracking-wider">
-                    Target Portfolio Structure
+                    {t.investments.targetPortfolio.title}
                   </span>
                   <PieChart className="w-4 h-4 text-[#22c55e] animate-pulse" />
                 </div>
@@ -225,8 +225,8 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
                 <div className="space-y-3">
                   <div>
                     <div className="flex justify-between text-xs font-semibold mb-1">
-                      <span className="text-emerald-100">Physical Real Assets</span>
-                      <span className="text-white font-mono">{realAssetPct}% Target</span>
+                      <span className="text-emerald-100">{t.investments.targetPortfolio.realAssets}</span>
+                      <span className="text-white font-mono">{realAssetPct}% {t.investments.targetPortfolio.targetSuffix}</span>
                     </div>
                     <div className="w-full bg-black/40 rounded-full h-2.5 overflow-hidden p-0.5 border border-white/10">
                       <div 
@@ -240,8 +240,8 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
 
                   <div>
                     <div className="flex justify-between text-xs font-semibold mb-1">
-                      <span className="text-emerald-100">Financial Investments</span>
-                      <span className="text-white font-mono">{financialPct}% Target</span>
+                      <span className="text-emerald-100">{t.investments.targetPortfolio.financial}</span>
+                      <span className="text-white font-mono">{financialPct}% {t.investments.targetPortfolio.targetSuffix}</span>
                     </div>
                     <div className="w-full bg-black/40 rounded-full h-2.5 overflow-hidden p-0.5 border border-white/10">
                       <div 
@@ -256,9 +256,9 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
               </div>
 
               <div className="pt-2 border-t border-white/10 flex flex-wrap gap-1.5 text-[11px] text-emerald-200">
-                <span className="px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition-colors">Cash Flow Visibility</span>
-                <span className="px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition-colors">Inflation Hedge</span>
-                <span className="px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition-colors">Macro Resilience</span>
+                {t.investments.targetPortfolio.tags.map((tag, i) => (
+                  <span key={i} className="px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition-colors">{tag}</span>
+                ))}
               </div>
             </div>
 
@@ -343,9 +343,9 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
                   <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500">
                     <div className="flex items-center gap-2 font-medium">
                       <MapPin className="w-4 h-4 text-[#0b3b24]" />
-                      <span>1065 Budapest, Révay köz 4., Hungary</span>
+                      <span>{t.contact.addressLine1}, {t.contact.addressLine2}</span>
                     </div>
-                    <span className="text-slate-400">Duland Global Kft. • Investment Strategy</span>
+                    <span className="text-slate-400">{t.investments.strategyFooter}</span>
                   </div>
 
                 </div>
@@ -454,7 +454,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
           {/* Top Section Header - Full Width, Matching Building Long-Term Value Style */}
           <Reveal className="max-w-3xl mb-8">
             <span className="text-xs font-bold tracking-widest text-[#0b3b24] uppercase block mb-1">
-              Asset Portfolio
+              {t.investments.portfolioEyebrow}
             </span>
             <div className="inline-block max-w-full">
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">

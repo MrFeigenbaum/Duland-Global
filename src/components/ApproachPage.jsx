@@ -62,7 +62,7 @@ export const ApproachPage = ({ setCurrentView }) => {
           {/* Top Section Header - Full Width, No collisions */}
           <Reveal className="max-w-3xl mb-8">
             <span className="text-xs font-bold tracking-widest text-[#0b3b24] uppercase block mb-1">
-              Strategic Foundation
+              {t.approach.foundationEyebrow}
             </span>
             <div className="inline-block max-w-full">
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900">
@@ -116,38 +116,28 @@ export const ApproachPage = ({ setCurrentView }) => {
                 <div className="flex items-center gap-2 mb-3.5">
                   <ShieldCheck className="w-4 h-4 text-[#22c55e] shrink-0" />
                   <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider">
-                    Risk Governance Protocol
+                    {t.approach.riskProtocol.title}
                   </span>
                 </div>
                 
                 <div className="space-y-2.5 text-xs text-slate-600">
-                  <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-2xs text-left hover:border-emerald-200 transition-colors">
-                    <strong className="text-slate-800 block text-xs mb-0.5">Underwriting Rigor</strong>
-                    <span className="text-slate-600 text-[11px] leading-relaxed block">
-                      In-depth cash-flow sensitivity &amp; multi-scenario stress testing.
-                    </span>
-                  </div>
-                  <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-2xs text-left hover:border-emerald-200 transition-colors">
-                    <strong className="text-slate-800 block text-xs mb-0.5">Moderate Leverage</strong>
-                    <span className="text-slate-600 text-[11px] leading-relaxed block">
-                      Strict debt caps &amp; strong interest coverage buffers.
-                    </span>
-                  </div>
-                  <div className="p-3 rounded-xl bg-white border border-slate-100 shadow-2xs text-left hover:border-emerald-200 transition-colors">
-                    <strong className="text-slate-800 block text-xs mb-0.5">Liquidity Reserves</strong>
-                    <span className="text-slate-600 text-[11px] leading-relaxed block">
-                      Preserving capital agility to withstand downturns.
-                    </span>
-                  </div>
+                  {t.approach.riskProtocol.items.map((item, idx) => (
+                    <div key={idx} className="p-3 rounded-xl bg-white border border-slate-100 shadow-2xs text-left hover:border-emerald-200 transition-colors">
+                      <strong className="text-slate-800 block text-xs mb-0.5">{item.title}</strong>
+                      <span className="text-slate-600 text-[11px] leading-relaxed block">
+                        {item.desc}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
               <div className="p-4 rounded-xl bg-[#f0f6f2] border border-emerald-900/10 text-slate-700 text-left">
                 <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider block mb-1">
-                  Core Tenet
+                  {t.approach.coreTenet.title}
                 </span>
                 <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                  Patience, independent research, and prudent risk governance across full economic cycles.
+                  {t.approach.coreTenet.desc}
                 </p>
               </div>
 
@@ -239,9 +229,9 @@ export const ApproachPage = ({ setCurrentView }) => {
                   <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500">
                     <div className="flex items-center gap-2 font-medium">
                       <MapPin className="w-4 h-4 text-[#0b3b24]" />
-                      <span>1065 Budapest, Révay köz 4., Hungary</span>
+                      <span>{t.contact.addressLine1}, {t.contact.addressLine2}</span>
                     </div>
-                    <span className="text-slate-400">Duland Global Kft. • Philosophy Manifesto</span>
+                    <span className="text-slate-400">{t.approach.manifestoFooter}</span>
                   </div>
 
                 </div>
@@ -275,7 +265,7 @@ export const ApproachPage = ({ setCurrentView }) => {
                   >
                     <div className="w-full flex justify-between items-center mb-3">
                       <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100 shadow-2xs">
-                        Step {idx + 1}
+                        {t.process.stepLabel} {idx + 1}
                       </span>
                       <span className="font-serif font-bold text-xl sm:text-2xl text-slate-300/75 select-none leading-none">
                         0{idx + 1}
@@ -317,7 +307,7 @@ export const ApproachPage = ({ setCurrentView }) => {
                   <div className="w-full h-[3px] bg-[#22c55e] mt-2 rounded-full"></div>
                 </div>
                 <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                  {t.approach.principlesDesc || 'Our core operating principles guide our long-term capital allocation.'}
+                  {t.approach.principlesDesc}
                 </p>
               </div>
 
