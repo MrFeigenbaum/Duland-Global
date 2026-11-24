@@ -254,7 +254,7 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md flex flex-col sm:flex-row bg-[#0b3b24]">
               <div className="sm:w-1/2 h-56 sm:h-auto overflow-hidden relative bg-slate-900">
                 <img 
-                  src="/assets/financial_upward_bullish_hq.webp" 
+                  src="/assets/financial_markets_institutional_4k.jpg" 
                   alt={t.investments.fiCardTitle} 
                   className="w-full h-full object-cover"
                   onError={(e) => { e.target.src = '/assets/hq_exact_financial_invest.webp'; }}

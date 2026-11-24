@@ -8,7 +8,10 @@ import {
   Coins, 
   Building2, 
   TrendingUp, 
-  ChevronDown 
+  ChevronDown,
+  Clock,
+  ShieldCheck,
+  ArrowRight
 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
@@ -198,64 +201,124 @@ export const ContactPage = () => {
               )}
             </div>
 
-            {/* Right: Contact Information & Desk Photo (5 cols) */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+            {/* Right: Contact Information & Headquarters Panel (5 cols) - Fully Balanced, No Empty Space */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-5 h-full">
+              
+              {/* Header */}
               <div>
                 <h3 className="font-serif text-2xl font-bold text-slate-900">
                   {t.contact.contactInfoTitle}
                 </h3>
-                <div className="w-12 h-[3px] bg-[#22c55e] mt-2 mb-6"></div>
+                <div className="w-12 h-[3px] bg-[#22c55e] mt-2 mb-4"></div>
+              </div>
 
-                {/* Contact List */}
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-start gap-3.5">
-                    <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#0b3b24] border border-emerald-200/80 flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
+              {/* Contact Information Cards */}
+              <div className="space-y-3">
+                
+                {/* Registered Office Card */}
+                <div className="p-4 rounded-xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 transition-colors">
+                  <div className="flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#0b3b24] border border-emerald-200/80 flex items-center justify-center shrink-0 shadow-2xs mt-0.5">
                       <MapPin className="w-4 h-4 stroke-[2]" />
                     </div>
-                    <div>
-                      <div className="text-sm font-bold text-slate-900">{t.contact.addressName}</div>
-                      <div className="text-xs sm:text-sm text-slate-600">{t.contact.addressLine1}</div>
-                      <div className="text-xs sm:text-sm text-slate-600">{t.contact.addressLine2}</div>
-                      <div className="text-xs text-slate-400 italic">({t.common.registeredOffice})</div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between gap-2 mb-0.5">
+                        <span className="text-sm font-bold text-slate-900">{t.contact.addressName}</span>
+                        <span className="text-[10px] font-semibold text-[#0b3b24] bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
+                          {t.common.registeredOffice}
+                        </span>
+                      </div>
+                      <p className="text-xs sm:text-[13px] text-slate-600 leading-snug">
+                        {t.contact.addressLine1}, {t.contact.addressLine2}
+                      </p>
                     </div>
-                  </div>
-
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#0b3b24] border border-emerald-200/80 flex items-center justify-center shrink-0 shadow-2xs">
-                      <Phone className="w-4 h-4 stroke-[2]" />
-                    </div>
-                    <span className="text-sm font-medium text-slate-800">{t.contact.phoneNum}</span>
-                  </div>
-
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#0b3b24] border border-emerald-200/80 flex items-center justify-center shrink-0 shadow-2xs">
-                      <Mail className="w-4 h-4 stroke-[2]" />
-                    </div>
-                    <span className="text-sm font-medium text-slate-800">{t.contact.emailAddr}</span>
                   </div>
                 </div>
 
-                {/* Business Inquiries Card */}
-                <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center bg-[#fafcfb] p-5 rounded-2xl border border-slate-200 shadow-2xs">
-                  <div className="sm:col-span-7">
-                    <h4 className="font-bold text-sm text-slate-900 mb-1.5">
-                      {t.contact.inquiriesTitle}
-                    </h4>
-                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
-                      {t.contact.inquiriesDesc}
-                    </p>
+                {/* Telephone & Operating Hours Card */}
+                <div className="p-4 rounded-xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 transition-colors">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#0b3b24] border border-emerald-200/80 flex items-center justify-center shrink-0 shadow-2xs">
+                        <Phone className="w-4 h-4 stroke-[2]" />
+                      </div>
+                      <div>
+                        <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                          Direct Line
+                        </span>
+                        <span className="text-xs sm:text-sm font-semibold text-slate-900">
+                          {t.contact.phoneNum}
+                        </span>
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-medium text-slate-500 bg-slate-100 px-2.5 py-1 rounded-md">
+                      09:00 – 18:00 CET
+                    </span>
                   </div>
-                  <div className="sm:col-span-5 h-32 rounded-xl overflow-hidden border border-slate-200 shadow-2xs">
-                    <img 
-                      src="/assets/ref_contact_desk.webp" 
-                      alt="Business Inquiries" 
-                      className="w-full h-full object-cover"
-                      onError={(e) => { e.target.src = '/assets/contact_desk_4k.webp'; }}
-                    />
+                </div>
+
+                {/* Email & Investor Inquiries Card */}
+                <div className="p-4 rounded-xl bg-[#fafcfb] border border-slate-200/90 shadow-2xs hover:border-emerald-300 transition-colors">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#0b3b24] border border-emerald-200/80 flex items-center justify-center shrink-0 shadow-2xs">
+                        <Mail className="w-4 h-4 stroke-[2]" />
+                      </div>
+                      <div>
+                        <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                          Investor & Corporate Inquiries
+                        </span>
+                        <span className="text-xs sm:text-sm font-semibold text-slate-900">
+                          {t.contact.emailAddr}
+                        </span>
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-semibold text-[#0b3b24] bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md">
+                      Official Desk
+                    </span>
                   </div>
                 </div>
 
               </div>
+
+              {/* Institutional Delegations & Visiting Policy */}
+              <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-50/70 via-emerald-50/30 to-white border border-emerald-200/70 shadow-2xs flex items-center gap-3.5">
+                <div className="w-8 h-8 rounded-lg bg-[#0b3b24] text-white flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold text-slate-900 block leading-snug">
+                    Institutional Consultations & Delegations
+                  </span>
+                  <p className="text-[11px] text-slate-600 leading-snug">
+                    Meetings with corporate leadership are conducted by prior confirmed appointment.
+                  </p>
+                </div>
+              </div>
+
+              {/* Business Inquiries Card - Perfectly Fills Bottom Space */}
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center bg-[#0b3b24] text-white p-5 rounded-2xl shadow-sm border border-emerald-800">
+                <div className="sm:col-span-7">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 block mb-1">
+                    Partnership Focus
+                  </span>
+                  <h4 className="font-serif text-sm font-bold text-white mb-1.5 leading-snug">
+                    {t.contact.inquiriesTitle}
+                  </h4>
+                  <p className="text-xs text-emerald-100/90 leading-relaxed font-light">
+                    {t.contact.inquiriesDesc}
+                  </p>
+                </div>
+                <div className="sm:col-span-5 h-28 rounded-xl overflow-hidden border border-emerald-700/60 shadow-xs">
+                  <img 
+                    src="/assets/ref_contact_desk.webp" 
+                    alt="Business Inquiries" 
+                    className="w-full h-full object-cover"
+                    onError={(e) => { e.target.src = '/assets/contact_desk_4k.webp'; }}
+                  />
+                </div>
+              </div>
+
             </div>
 
           </div>

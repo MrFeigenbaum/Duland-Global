@@ -29,7 +29,7 @@ export const ApproachPage = ({ setCurrentView }) => {
       {/* 1. TOP BANNER */}
       <section className="relative w-full h-[280px] sm:h-[340px] lg:h-[380px] overflow-hidden flex items-center">
         <img 
-          src="/assets/banner_approach_strategic_vision.webp" 
+          src="/assets/banner_approach_architecture_4k.jpg" 
           alt="Investment Approach"
           className="absolute inset-0 w-full h-full object-cover object-center"
           onError={(e) => { e.target.src = '/assets/banner_corporate.webp'; }}
@@ -105,35 +105,41 @@ export const ApproachPage = ({ setCurrentView }) => {
             {/* Risk Governance & Core Tenet Column in 4 cols */}
             <div className="lg:col-span-4 flex flex-col gap-4 justify-between">
               
-              <div className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200 text-slate-800 space-y-3 shadow-2xs flex-1">
-                <div className="flex items-center gap-2">
+              <div className="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200 text-slate-800 shadow-2xs flex-1 flex flex-col justify-center text-center">
+                <div className="flex items-center justify-center gap-2 mb-3.5">
                   <ShieldCheck className="w-4 h-4 text-[#22c55e]" />
-                  <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider">
+                  <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider text-center">
                     Risk Governance Protocol
                   </span>
                 </div>
                 
                 <div className="space-y-2.5 text-xs text-slate-600">
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></div>
-                    <p><strong className="text-slate-800">Underwriting Rigor:</strong> In-depth cash-flow sensitivity & stress testing.</p>
+                  <div className="p-2.5 rounded-xl bg-white border border-slate-100 shadow-2xs text-center">
+                    <strong className="text-slate-800 block text-xs mb-0.5">Underwriting Rigor</strong>
+                    <span className="text-slate-600 text-[11px] leading-relaxed block">
+                      In-depth cash-flow sensitivity & multi-scenario stress testing.
+                    </span>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></div>
-                    <p><strong className="text-slate-800">Moderate Leverage:</strong> Strict debt caps & interest coverage buffers.</p>
+                  <div className="p-2.5 rounded-xl bg-white border border-slate-100 shadow-2xs text-center">
+                    <strong className="text-slate-800 block text-xs mb-0.5">Moderate Leverage</strong>
+                    <span className="text-slate-600 text-[11px] leading-relaxed block">
+                      Strict debt caps & strong interest coverage buffers.
+                    </span>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#22c55e] mt-1.5 shrink-0"></div>
-                    <p><strong className="text-slate-800">Liquidity Reserves:</strong> Preserving capital agility to withstand downturns.</p>
+                  <div className="p-2.5 rounded-xl bg-white border border-slate-100 shadow-2xs text-center">
+                    <strong className="text-slate-800 block text-xs mb-0.5">Liquidity Reserves</strong>
+                    <span className="text-slate-600 text-[11px] leading-relaxed block">
+                      Preserving capital agility to withstand downturns.
+                    </span>
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#f0f6f2] border border-emerald-900/10 text-slate-700">
-                <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider block mb-1">
+              <div className="p-4 rounded-xl bg-[#f0f6f2] border border-emerald-900/10 text-slate-700 text-center">
+                <span className="text-xs font-bold text-[#0b3b24] uppercase tracking-wider block mb-1 text-center">
                   Core Tenet
                 </span>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed text-center">
                   Patience, independent research, and prudent risk governance across full economic cycles.
                 </p>
               </div>
@@ -202,12 +208,9 @@ export const ApproachPage = ({ setCurrentView }) => {
                   key={idx}
                   className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-2xs hover:shadow-md transition-shadow relative group flex flex-col items-center text-center justify-between"
                 >
-                  <div className="w-full flex justify-between items-center mb-3">
-                    <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100">
+                  <div className="w-full flex justify-center items-center mb-3">
+                    <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100 shadow-2xs">
                       Step 0{idx + 1}
-                    </span>
-                    <span className="font-serif text-slate-300 font-bold text-xs">
-                      0{idx + 1}
                     </span>
                   </div>
                   
