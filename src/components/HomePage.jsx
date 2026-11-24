@@ -73,19 +73,19 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
     {
       title: 'Development Projects',
       desc: 'Value creation through new and mixed-use developments.',
-      image: '/assets/ref_dev_crane.webp',
+      image: '/assets/focus_dev_crane_hq.webp',
       icon: HardHat
     },
     {
       title: 'Income-Generating Assets',
       desc: 'Stable and predictable returns from high-quality properties.',
-      image: '/assets/ref_dev_warehouse.webp',
+      image: '/assets/focus_warehouse_hq.webp',
       icon: Package
     },
     {
       title: 'Sustainable Investments',
       desc: 'Long-term assets with environmental and economic value.',
-      image: '/assets/ref_dev_solar.webp',
+      image: '/assets/focus_solar_blue_hq.webp',
       icon: Leaf
     }
   ];
