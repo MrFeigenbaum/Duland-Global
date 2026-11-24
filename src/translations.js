@@ -275,6 +275,15 @@ export const translations = {
       },
       readFullStatement: "Read Complete Investment Strategy Document",
       hideFullStatement: "Collapse Strategy Document",
+      strategyDocMeta: {
+        leadLabel: "Section I • Core Mandate",
+        clauses: [
+          { num: "02", label: "Section II", title: "Long-Term Perspective" },
+          { num: "03", label: "Section III", title: "Multi-Asset Diversification" },
+          { num: "04", label: "Section IV", title: "Active Lifecycle Management" },
+        ],
+        conclusionLabel: "Section V • Strategic Objective",
+      },
       principlesTitle: 'Investment Principles',
       principles: ['Opportunity Focus', 'Diversification', 'Sustainable Returns', 'Risk Management', 'Long-Term Perspective'],
     },
@@ -319,6 +328,18 @@ export const translations = {
       },
       readFullStatement: "Read Complete Philosophy Manifesto (8 Articles)",
       hideFullStatement: "Collapse Philosophy Manifesto",
+      manifestoMeta: {
+        preambleLabel: "Article I • Foundational Philosophy",
+        articles: [
+          { num: "02", label: "Article II", title: "Balanced Dual-Asset Portfolio" },
+          { num: "03", label: "Article III", title: "Independent Fundamental Research" },
+          { num: "04", label: "Article IV", title: "Cross-Market Diversification" },
+          { num: "05", label: "Article V", title: "Patient & Responsible Ownership" },
+          { num: "06", label: "Article VI", title: "Integrated Risk Governance" },
+          { num: "07", label: "Article VII", title: "Active Portfolio Oversight" },
+        ],
+        conclusionLabel: "Article VIII • Resilient Holding Ambition",
+      },
       processTitle: 'Our Investment Process',
       principlesTitle: 'Our Guiding Principles',
       principles: [
@@ -652,6 +673,15 @@ export const translations = {
       },
       readFullStatement: "Teljes Befektetési Stratégiai Dokumentum Olvasása",
       hideFullStatement: "Stratégiai Dokumentum Összecsukása",
+      strategyDocMeta: {
+        leadLabel: "I. Szakasz • Alapmandátum",
+        clauses: [
+          { num: "02", label: "II. Szakasz", title: "Hosszú Távú Szemlélet" },
+          { num: "03", label: "III. Szakasz", title: "Többeszközös Diverzifikáció" },
+          { num: "04", label: "IV. Szakasz", title: "Aktív Életciklus-Menedzsment" },
+        ],
+        conclusionLabel: "V. Szakasz • Stratégiai Célkitűzés",
+      },
       principlesTitle: 'Befektetési Alapelvek',
       principles: ['Lehetőségközpontúság', 'Diverzifikáció', 'Fenntartható Hozamok', 'Kockázatkezelés', 'Hosszú Távú Szemlélet'],
     },
@@ -694,6 +724,18 @@ export const translations = {
       },
       readFullStatement: "Teljes Befektetési Filozófia Kiáltvány (8 Cikkely)",
       hideFullStatement: "Filozófia Kiáltvány Összecsukása",
+      manifestoMeta: {
+        preambleLabel: "I. Cikkely • Alapfilozófia",
+        articles: [
+          { num: "02", label: "II. Cikkely", title: "Kiegyensúlyozott Kettős Portfólió" },
+          { num: "03", label: "III. Cikkely", title: "Független Fundamentális Elemzés" },
+          { num: "04", label: "IV. Cikkely", title: "Piacokon Átívelő Diverzifikáció" },
+          { num: "05", label: "V. Cikkely", title: "Türelmes és Felelős Tulajdonlás" },
+          { num: "06", label: "VI. Cikkely", title: "Integrált Kockázatkezelés" },
+          { num: "07", label: "VII. Cikkely", title: "Aktív Portfólió-Felügyelet" },
+        ],
+        conclusionLabel: "VIII. Cikkely • Ellenálló Holding Ambíció",
+      },
       processTitle: 'Befektetési Folyamatunk',
       principlesTitle: 'Irányadó Alapelveink',
       principles: [
@@ -1025,6 +1067,15 @@ export const translations = {
       },
       readFullStatement: "Vollständiges Anlagestrategie-Dokument Lesen",
       hideFullStatement: "Strategie-Dokument Einklappen",
+      strategyDocMeta: {
+        leadLabel: "Abschnitt I • Kernmandat",
+        clauses: [
+          { num: "02", label: "Abschnitt II", title: "Langfristige Perspektive" },
+          { num: "03", label: "Abschnitt III", title: "Multi-Asset-Diversifikation" },
+          { num: "04", label: "Abschnitt IV", title: "Aktives Lebenszyklus-Management" },
+        ],
+        conclusionLabel: "Abschnitt V • Strategisches Ziel",
+      },
       principlesTitle: 'Investitionsgrundsätze',
       principles: ['Chancenfokus', 'Diversifikation', 'Nachhaltige Erträge', 'Risikomanagement', 'Langfristige Perspektive'],
     },
@@ -1067,6 +1118,18 @@ export const translations = {
       },
       readFullStatement: "Vollständiges Philosophie-Manifest Lesen (8 Artikel)",
       hideFullStatement: "Manifest Einklappen",
+      manifestoMeta: {
+        preambleLabel: "Artikel I • Grundphilosophie",
+        articles: [
+          { num: "02", label: "Artikel II", title: "Ausgewogenes Dual-Asset-Portfolio" },
+          { num: "03", label: "Artikel III", title: "Unabhängige Fundamentalanalyse" },
+          { num: "04", label: "Artikel IV", title: "Marktübergreifende Diversifikation" },
+          { num: "05", label: "Artikel V", title: "Geduldiges & Verantwortliches Eigentum" },
+          { num: "06", label: "Artikel VI", title: "Integriertes Risikomanagement" },
+          { num: "07", label: "Artikel VII", title: "Aktive Portfolio-Aufsicht" },
+        ],
+        conclusionLabel: "Artikel VIII • Resiliente Holding-Ambition",
+      },
       processTitle: 'Unser Investitionsprozess',
       principlesTitle: 'Leitprinzipien',
       principles: [
@@ -1398,6 +1461,15 @@ export const translations = {
       },
       readFullStatement: "To'liq Investitsiya Strategiyasi Hujjatini O'qish",
       hideFullStatement: "Hujjatni Yopish",
+      strategyDocMeta: {
+        leadLabel: "I Bo‘lim • Asosiy Mandat",
+        clauses: [
+          { num: "02", label: "II Bo‘lim", title: "Uzoq Muddatli Istiqbol" },
+          { num: "03", label: "III Bo‘lim", title: "Ko‘p Aktivli Diversifikatsiya" },
+          { num: "04", label: "IV Bo‘lim", title: "Faol Portfel Boshqaruvi" },
+        ],
+        conclusionLabel: "V Bo‘lim • Strategik Maqsad",
+      },
       principlesTitle: 'Investitsiya tamoyillari',
       principles: ['Imkoniyatlarga e’tibor', 'Diversifikatsiya', 'Barqaror daromad', 'Xatarlarni boshqarish', 'Uzoq muddatli yondashuv'],
     },
@@ -1440,6 +1512,18 @@ export const translations = {
       },
       readFullStatement: "To'liq Investitsiya Falsafasi Manifestini O'qish (8 Modda)",
       hideFullStatement: "Manifestni Yopish",
+      manifestoMeta: {
+        preambleLabel: "I Modda • Asosiy Falsafa",
+        articles: [
+          { num: "02", label: "II Modda", title: "Muvozanatli Ikki Yo‘nalishli Portfel" },
+          { num: "03", label: "III Modda", title: "Mustaqil Fundamental Tahlil" },
+          { num: "04", label: "IV Modda", title: "Bozorlararo Diversifikatsiya" },
+          { num: "05", label: "V Modda", title: "Sabrli va Mas’uliyatli Egalik" },
+          { num: "06", label: "VI Modda", title: "Integratsiyalashgan Xatarlar Boshqaruvi" },
+          { num: "07", label: "VII Modda", title: "Faol Portfel Nazorati" },
+        ],
+        conclusionLabel: "VIII Modda • Barqaror Xolding Maqsadi",
+      },
       processTitle: 'Bizning investitsiya jarayoni',
       principlesTitle: 'Asosiy tamoyillarimiz',
       principles: [

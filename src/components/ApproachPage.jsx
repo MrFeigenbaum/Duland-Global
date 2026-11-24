@@ -12,7 +12,8 @@ import {
   CircleDot,
   FileText,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  MapPin
 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import Reveal from './Reveal';
@@ -175,22 +176,74 @@ export const ApproachPage = ({ setCurrentView }) => {
 
             <div className={`grid transition-all duration-300 ease-out ${showFullStatement ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
               <div className="overflow-hidden">
-                <div className="p-6 bg-white border-t border-slate-200 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  <p className="p-3 rounded-lg bg-emerald-50/50 text-slate-800 font-medium">{t.approach.p1}</p>
-                  <p>{t.approach.p2}</p>
-                  <p>{t.approach.p3}</p>
-                  <p>{t.approach.p4}</p>
-                  <p>{t.approach.p5}</p>
-                  <p>{t.approach.p6}</p>
-                  <p>{t.approach.p7}</p>
-                  <div className="p-4 rounded-xl bg-[#0b3b24] text-white">
-                    <span className="text-xs font-semibold text-emerald-300 uppercase tracking-wider block mb-1">
-                      Resilient Holding Ambition
+                <div className="p-6 sm:p-8 bg-white border-t border-slate-200 space-y-5">
+                  
+                  {/* Article I Preamble Banner */}
+                  <div className="p-5 sm:p-6 rounded-xl bg-gradient-to-r from-emerald-50/80 via-emerald-50/30 to-white border-l-4 border-[#22c55e] border-y border-r border-slate-200/80">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#0b3b24] block mb-2">
+                      {t.approach.manifestoMeta?.preambleLabel || 'Article I • Foundational Philosophy'}
+                    </span>
+                    <p className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+                      {t.approach.p1}
+                    </p>
+                  </div>
+
+                  {/* Symmetrical 2-Column 6-Article Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+                    {[
+                      t.approach.p2,
+                      t.approach.p3,
+                      t.approach.p4,
+                      t.approach.p5,
+                      t.approach.p6,
+                      t.approach.p7,
+                    ].map((paragraph, idx) => {
+                      const art = t.approach.manifestoMeta?.articles?.[idx];
+                      return (
+                        <div
+                          key={idx}
+                          className="p-5 rounded-xl bg-[#fafcfb] border border-slate-200/90 hover:border-emerald-300 hover:shadow-xs transition-all flex flex-col justify-start"
+                        >
+                          <div className="flex items-center justify-between gap-2 mb-3">
+                            <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100">
+                              {art?.label || `Article 0${idx + 2}`}
+                            </span>
+                            <span className="font-serif font-bold text-xl text-slate-300/75 select-none leading-none">
+                              {art?.num || `0${idx + 2}`}
+                            </span>
+                          </div>
+                          {art?.title && (
+                            <h4 className="font-serif text-sm sm:text-base font-bold text-slate-900 mb-2 leading-snug">
+                              {art.title}
+                            </h4>
+                          )}
+                          <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                            {paragraph}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Article VIII Closing Charter */}
+                  <div className="p-5 sm:p-6 rounded-xl bg-gradient-to-r from-[#0b3b24] to-[#0f4d30] text-white border border-emerald-800 shadow-xs">
+                    <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-wider block mb-1.5">
+                      {t.approach.manifestoMeta?.conclusionLabel || 'Article VIII • Resilient Holding Ambition'}
                     </span>
                     <p className="text-xs sm:text-sm text-emerald-50 font-light leading-relaxed">
                       {t.approach.p8}
                     </p>
                   </div>
+
+                  {/* Subtle Corporate Document Footer */}
+                  <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500">
+                    <div className="flex items-center gap-2 font-medium">
+                      <MapPin className="w-4 h-4 text-[#0b3b24]" />
+                      <span>1065 Budapest, Révay köz 4., Hungary</span>
+                    </div>
+                    <span className="text-slate-400">Duland Global Kft. • Philosophy Manifesto</span>
+                  </div>
+
                 </div>
               </div>
             </div>

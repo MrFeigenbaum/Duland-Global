@@ -305,7 +305,7 @@ export const AboutPage = ({ setCurrentView }) => {
       </section>
 
       {/* 3. OUR FOCUS */}
-      <section className="py-12 bg-[#fafcfb] border-t border-slate-200">
+      <section className="py-14 bg-white border-t border-slate-200">
         <div className="max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -319,24 +319,22 @@ export const AboutPage = ({ setCurrentView }) => {
               </div>
             </Reveal>
 
-            <div className="lg:col-span-9">
-              <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 grid grid-cols-2 sm:grid-cols-4 gap-5 shadow-xs items-stretch">
-                {t.about.focusAreas.map((area, idx) => {
-                  const IconComp = focusIcons[idx % focusIcons.length];
-                  return (
-                    <Reveal key={idx} delay={idx * 70} className="h-full">
-                      <div className="h-full flex flex-col items-center justify-center text-center p-2.5 group">
-                        <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#0b3b24] flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                          <IconComp className="w-6 h-6 stroke-[1.75]" />
-                        </div>
-                        <span className="text-xs sm:text-sm font-semibold text-slate-900 leading-snug">
-                          {area}
-                        </span>
+            <div className="lg:col-span-9 grid grid-cols-2 sm:grid-cols-4 gap-3 items-stretch">
+              {t.about.focusAreas.map((area, idx) => {
+                const IconComp = focusIcons[idx % focusIcons.length];
+                return (
+                  <Reveal key={idx} delay={idx * 60} className="h-full">
+                    <div className="h-full flex flex-col items-center justify-center text-center p-3 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-300 hover:-translate-y-0.5 transition-all duration-300 group">
+                      <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-[#0b3b24] mb-2.5 group-hover:scale-110 transition-transform">
+                        <IconComp className="w-5 h-5 stroke-[1.75]" />
                       </div>
-                    </Reveal>
-                  );
-                })}
-              </div>
+                      <span className="text-xs sm:text-sm font-semibold text-slate-900 leading-tight">
+                        {area}
+                      </span>
+                    </div>
+                  </Reveal>
+                );
+              })}
             </div>
 
           </div>

@@ -13,7 +13,8 @@ import {
   FileText,
   ChevronDown,
   ChevronUp,
-  PieChart
+  PieChart,
+  MapPin
 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import Reveal from './Reveal';
@@ -284,12 +285,69 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
 
             <div className={`grid transition-all duration-300 ease-out ${showFullStatement ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
               <div className="overflow-hidden">
-                <div className="p-6 bg-white border-t border-slate-200 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  <p className="p-3 rounded-lg bg-emerald-50/50 text-slate-800 font-medium">{t.investments.p1}</p>
-                  <p>{t.investments.p2}</p>
-                  <p>{t.investments.p3}</p>
-                  <p>{t.investments.p4}</p>
-                  <p className="font-medium text-slate-800">{t.investments.p5}</p>
+                <div className="p-6 sm:p-8 bg-white border-t border-slate-200 space-y-5">
+                  
+                  {/* Lead Mandate Banner */}
+                  <div className="p-5 sm:p-6 rounded-xl bg-gradient-to-r from-emerald-50/80 via-emerald-50/30 to-white border-l-4 border-[#22c55e] border-y border-r border-slate-200/80">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#0b3b24] block mb-2">
+                      {t.investments.strategyDocMeta?.leadLabel || 'Section I • Core Mandate'}
+                    </span>
+                    <p className="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
+                      {t.investments.p1}
+                    </p>
+                  </div>
+
+                  {/* 3 Equal-Height Structured Clause Cards */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+                    {[t.investments.p2, t.investments.p3, t.investments.p4].map((paragraph, idx) => {
+                      const clause = t.investments.strategyDocMeta?.clauses?.[idx];
+                      return (
+                        <div
+                          key={idx}
+                          className="p-5 rounded-xl bg-[#fafcfb] border border-slate-200/90 hover:border-emerald-300 hover:shadow-xs transition-all flex flex-col justify-between"
+                        >
+                          <div>
+                            <div className="flex items-center justify-between gap-2 mb-3">
+                              <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100">
+                                {clause?.label || `Section 0${idx + 2}`}
+                              </span>
+                              <span className="font-serif font-bold text-xl text-slate-300/75 select-none leading-none">
+                                {clause?.num || `0${idx + 2}`}
+                              </span>
+                            </div>
+                            {clause?.title && (
+                              <h4 className="font-serif text-sm sm:text-base font-bold text-slate-900 mb-2 leading-snug">
+                                {clause.title}
+                              </h4>
+                            )}
+                            <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                              {paragraph}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Executive Closing Charter */}
+                  <div className="p-5 sm:p-6 rounded-xl bg-gradient-to-r from-[#0b3b24] to-[#0f4d30] text-white border border-emerald-800 shadow-xs">
+                    <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-wider block mb-1.5">
+                      {t.investments.strategyDocMeta?.conclusionLabel || 'Section V • Strategic Objective'}
+                    </span>
+                    <p className="text-xs sm:text-sm text-emerald-50 font-light leading-relaxed">
+                      {t.investments.p5}
+                    </p>
+                  </div>
+
+                  {/* Subtle Corporate Document Footer */}
+                  <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500">
+                    <div className="flex items-center gap-2 font-medium">
+                      <MapPin className="w-4 h-4 text-[#0b3b24]" />
+                      <span>1065 Budapest, Révay köz 4., Hungary</span>
+                    </div>
+                    <span className="text-slate-400">Duland Global Kft. • Investment Strategy</span>
+                  </div>
+
                 </div>
               </div>
             </div>
