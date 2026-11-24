@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Building, 
   Building2, 
@@ -23,12 +23,69 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
   const { t } = useLanguage();
   const [showFullStatement, setShowFullStatement] = useState(false);
   const [barsAnimated, setBarsAnimated] = useState(false);
+  const [realAssetPct, setRealAssetPct] = useState(0);
+  const [financialPct, setFinancialPct] = useState(0);
+  const portfolioCardRef = useRef(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    let triggered = false;
+    let rafId = null;
+
+    const startAnimation = () => {
+      if (triggered) return;
+      triggered = true;
       setBarsAnimated(true);
-    }, 200);
-    return () => clearTimeout(timer);
+
+      const duration = 1000;
+      const startTime = performance.now();
+
+      const animateCounts = (now) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setRealAssetPct(Math.round(eased * 65));
+        setFinancialPct(Math.round(eased * 35));
+        if (progress < 1) {
+          rafId = requestAnimationFrame(animateCounts);
+        }
+      };
+
+      rafId = requestAnimationFrame(animateCounts);
+    };
+
+    const node = portfolioCardRef.current;
+    let observer = null;
+
+    if (node && typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            startAnimation();
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.2 }
+      );
+      observer.observe(node);
+    }
+
+    // Fallback in case the card is already visible on mount or IntersectionObserver is unavailable
+    const fallbackTimer = setTimeout(() => {
+      if (node) {
+        const rect = node.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          startAnimation();
+        }
+      } else {
+        startAnimation();
+      }
+    }, 250);
+
+    return () => {
+      if (observer) observer.disconnect();
+      clearTimeout(fallbackTimer);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const assetPortfolio = [
@@ -145,7 +202,10 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
             )}
 
             {/* Target Allocation Visual Balance Card - Dynamically Animated */}
-            <div className="lg:col-span-4 p-5 rounded-2xl bg-gradient-to-br from-[#0b3b24] to-[#0f4d30] text-white space-y-4 shadow-xs border border-emerald-800 flex flex-col justify-between hover:border-emerald-500 transition-colors">
+            <div 
+              ref={portfolioCardRef}
+              className="lg:col-span-4 p-5 rounded-2xl bg-gradient-to-br from-[#0b3b24] to-[#0f4d30] text-white space-y-4 shadow-xs border border-emerald-800 flex flex-col justify-between hover:border-emerald-500 transition-colors"
+            >
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xs font-bold text-emerald-300 uppercase tracking-wider">
@@ -158,14 +218,14 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
                   <div>
                     <div className="flex justify-between text-xs font-semibold mb-1">
                       <span className="text-emerald-100">Physical Real Assets</span>
-                      <span className="text-white font-mono">65% Target</span>
+                      <span className="text-white font-mono">{realAssetPct}% Target</span>
                     </div>
                     <div className="w-full bg-black/40 rounded-full h-2.5 overflow-hidden p-0.5 border border-white/10">
                       <div 
                         style={{ width: barsAnimated ? '65%' : '0%' }}
                         className="bg-[#22c55e] h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_12px_rgba(34,197,94,0.6)] relative overflow-hidden"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shimmer"></div>
                       </div>
                     </div>
                   </div>
@@ -173,14 +233,14 @@ export const InvestmentsPage = ({ setSelectedAsset, setCurrentView }) => {
                   <div>
                     <div className="flex justify-between text-xs font-semibold mb-1">
                       <span className="text-emerald-100">Financial Investments</span>
-                      <span className="text-white font-mono">35% Target</span>
+                      <span className="text-white font-mono">{financialPct}% Target</span>
                     </div>
                     <div className="w-full bg-black/40 rounded-full h-2.5 overflow-hidden p-0.5 border border-white/10">
                       <div 
                         style={{ width: barsAnimated ? '35%' : '0%' }}
                         className="bg-emerald-300 h-full rounded-full transition-all duration-1000 ease-out delay-200 relative overflow-hidden shadow-[0_0_8px_rgba(110,231,183,0.5)]"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" style={{ backgroundSize: '200% 100%' }}></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/35 to-transparent animate-shimmer"></div>
                       </div>
                     </div>
                   </div>

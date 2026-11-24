@@ -207,7 +207,7 @@ export const ApproachPage = ({ setCurrentView }) => {
                 >
                   <div className="w-full flex justify-between items-center mb-3">
                     <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100 shadow-2xs">
-                      Step 0{idx + 1}
+                      Step {idx + 1}
                     </span>
                     <span className="font-serif font-bold text-xl sm:text-2xl text-slate-300/75 select-none leading-none">
                       0{idx + 1}
