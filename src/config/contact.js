@@ -1,7 +1,6 @@
 export const CONTACT_CONFIG = {
-  recipientEmail: 'dumanaycanhu@gmail.com',
-  // Ready for future corporate addresses — add strings here when active:
-  // ccEmails: ['info@dulandglobal.com', 'contact@dulandglobal.com'],
+  recipientEmail: 'info@dulandglobal.com',
+  // Optional CC addresses — add strings here when needed:
   ccEmails: [],
   companyName: 'Duland Global Kft.',
   displayEmail: 'info@dulandglobal.com',
