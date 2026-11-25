@@ -152,15 +152,19 @@ export const ContactPage = () => {
       
       {/* 1. TOP BANNER */}
       <section className="relative w-full h-[260px] sm:h-[340px] lg:h-[380px] 2xl:h-[460px] min-[2100px]:h-[520px] overflow-hidden flex items-center">
-        <img 
-          src={MEDIA.contact.banner} 
-          alt="Contact Duland Global"
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-center animate-kenBurns"
-          onError={(e) => { e.target.src = MEDIA.contact.bannerFallback; }}
-        />
+        <picture className="absolute inset-0 w-full h-full">
+          <source srcSet={MEDIA.contact.banner8k} media="(min-width: 1920px)" type="image/webp" />
+          <source srcSet={MEDIA.contact.banner} type="image/webp" />
+          <img 
+            src={MEDIA.contact.banner} 
+            alt="Contact Duland Global"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            className="w-full h-full object-cover object-center animate-kenBurns"
+            onError={(e) => { e.target.src = MEDIA.contact.bannerFallback; }}
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 sm:via-40% to-transparent"></div>
         
         <div className="relative z-10 max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 w-full">

@@ -96,17 +96,21 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
       
       {/* 1. HERO SECTION (Grand, Cinematic & High-Res) */}
       <section className="relative w-full min-h-[460px] sm:min-h-[540px] lg:min-h-[600px] 2xl:min-h-[650px] overflow-hidden flex items-center">
-        {/* Cinematic 4K Panorama Background */}
+        {/* Cinematic 8K/4K Responsive Panorama Background */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <img 
-            src={MEDIA.hero.primary} 
-            alt="Duland Global Real Assets Portfolio" 
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-            className="w-full h-full object-cover object-center animate-kenBurns"
-            onError={(e) => { e.target.src = MEDIA.hero.fallback; }}
-          />
+          <picture className="w-full h-full block">
+            <source srcSet={MEDIA.hero.primary8k} media="(min-width: 1920px)" type="image/webp" />
+            <source srcSet={MEDIA.hero.primary} type="image/webp" />
+            <img 
+              src={MEDIA.hero.primary} 
+              alt="Duland Global Real Assets Portfolio" 
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              className="w-full h-full object-cover object-center animate-kenBurns"
+              onError={(e) => { e.target.src = MEDIA.hero.fallback; }}
+            />
+          </picture>
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 sm:via-40% to-black/15"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20"></div>
         </div>
