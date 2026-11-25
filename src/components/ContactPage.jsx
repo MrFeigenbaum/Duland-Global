@@ -10,12 +10,14 @@ import {
   TrendingUp, 
   ChevronDown,
   ShieldCheck,
-  AlertCircle
+  AlertCircle,
+  ExternalLink
 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import Reveal from './Reveal';
 import SITE_CONFIG from '../config/siteConfig';
 import MEDIA from '../config/media';
+import { submitToFormSubmit, submitViaStandardForm } from '../utils/formSubmit';
 
 const COOLDOWN_MS = SITE_CONFIG.contactCooldownMs;
 const COOLDOWN_KEY = SITE_CONFIG.contactCooldownKey;
@@ -43,11 +45,13 @@ export const ContactPage = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [fallbackFields, setFallbackFields] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (loading) return;
     setErrorMessage('');
+    setFallbackFields(null);
 
     // Silent honeypot trap against automated spam bots
     if (honeypot.trim() !== '') {
@@ -93,37 +97,28 @@ export const ContactPage = () => {
 
     setLoading(true);
 
+    const fields = {
+      name: cleanName,
+      company: cleanCompany,
+      email: cleanEmail,
+      phone: cleanPhone,
+      subject: cleanSubject,
+      message: cleanMessage,
+      _subject: `${SITE_CONFIG.brandName} Inquiry: ${cleanSubject} — ${cleanName}`,
+      _replyto: cleanEmail,
+    };
+
+    if (Array.isArray(SITE_CONFIG.ccEmails) && SITE_CONFIG.ccEmails.length > 0) {
+      fields._cc = SITE_CONFIG.ccEmails.join(',');
+    }
+
     try {
-      const payload = {
-        name: cleanName,
-        company: cleanCompany,
-        email: cleanEmail,
-        phone: cleanPhone,
-        subject: cleanSubject,
-        message: cleanMessage,
-        _subject: `${SITE_CONFIG.brandName} Inquiry: ${cleanSubject} — ${cleanName}`,
-        _replyto: cleanEmail,
-        _template: 'table',
-        _captcha: 'false',
-        _honey: '',
-      };
-
-      if (Array.isArray(SITE_CONFIG.ccEmails) && SITE_CONFIG.ccEmails.length > 0) {
-        payload._cc = SITE_CONFIG.ccEmails.join(',');
-      }
-
-      const res = await fetch(`${SITE_CONFIG.formSubmitBaseUrl}/${SITE_CONFIG.recipientEmail}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(payload),
+      const result = await submitToFormSubmit({
+        recipientEmail: SITE_CONFIG.recipientEmail,
+        fields,
       });
 
-      const data = await res.json().catch(() => ({}));
-
-      if (res.ok && data.success !== false && data.success !== 'false') {
+      if (result.ok) {
         try {
           sessionStorage.setItem(COOLDOWN_KEY, String(Date.now()));
         } catch {
@@ -131,15 +126,18 @@ export const ContactPage = () => {
         }
         setSubmitted(true);
       } else {
-        setErrorMessage(
-          data.message ||
-            t.contact.errors.sendFailed.replace('{email}', SITE_CONFIG.recipientEmail)
-        );
+        setFallbackFields(fields);
+        if (result.networkError) {
+          setErrorMessage(
+            t.contact.errors.networkError.replace('{email}', SITE_CONFIG.recipientEmail)
+          );
+        } else {
+          setErrorMessage(
+            result.message ||
+              t.contact.errors.sendFailed.replace('{email}', SITE_CONFIG.recipientEmail)
+          );
+        }
       }
-    } catch {
-      setErrorMessage(
-        t.contact.errors.networkError.replace('{email}', SITE_CONFIG.recipientEmail)
-      );
     } finally {
       setLoading(false);
     }
@@ -165,15 +163,15 @@ export const ContactPage = () => {
             onError={(e) => { e.target.src = MEDIA.contact.bannerFallback; }}
           />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 sm:via-40% to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/58 via-black/28 sm:via-45% to-transparent"></div>
         
         <div className="relative z-10 max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl text-white">
             <div className="border-l-4 sm:border-l-[5px] border-[#22c55e] pl-4 sm:pl-5 mb-2 animate-pageEnter">
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white banner-title-shadow">
                 {t.contact.title}
               </h1>
-              <p className="text-sm sm:text-base text-slate-100 mt-2 font-normal tracking-wide">
+              <p className="text-sm sm:text-base text-white mt-2 font-normal tracking-wide banner-subtitle-shadow">
                 {t.contact.subtitle}
               </p>
             </div>
@@ -229,13 +227,13 @@ export const ContactPage = () => {
                   {/* Hidden Bot Honeypot */}
                   <input
                     type="text"
-                    name="_honey"
+                    name="website_hp"
                     value={honeypot}
                     onChange={(e) => setHoneypot(e.target.value)}
                     tabIndex={-1}
-                    autoComplete="off"
+                    autoComplete="new-password"
                     aria-hidden="true"
-                    className="sr-only"
+                    style={{ display: 'none' }}
                   />
 
                   <div className="flex-1 flex flex-col gap-4">
@@ -326,9 +324,32 @@ export const ContactPage = () => {
 
                   {/* Inline Error Alert if FormSubmit fails or rate-limit triggers */}
                   {errorMessage && (
-                    <div role="alert" className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs sm:text-sm flex items-start gap-2.5 animate-fadeIn">
-                      <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
-                      <span>{errorMessage}</span>
+                    <div role="alert" className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs sm:text-sm space-y-2 animate-fadeIn">
+                      <div className="flex items-start gap-2.5">
+                        <AlertCircle className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                        <span>{errorMessage}</span>
+                      </div>
+                      {fallbackFields && (
+                        <div className="flex flex-wrap items-center gap-2.5 pl-6">
+                          <button
+                            type="button"
+                            onClick={() => submitViaStandardForm({
+                              recipientEmail: SITE_CONFIG.recipientEmail,
+                              fields: fallbackFields,
+                            })}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0b3b24] hover:bg-[#072617] text-white text-xs font-semibold transition-colors cursor-pointer"
+                          >
+                            <span>{t.contact.send} (FormSubmit)</span>
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </button>
+                          <a
+                            href={`mailto:${SITE_CONFIG.recipientEmail}?subject=${encodeURIComponent(fallbackFields._subject || '')}&body=${encodeURIComponent(fallbackFields.message || '')}`}
+                            className="text-xs font-semibold text-red-900 underline hover:text-red-700"
+                          >
+                            {SITE_CONFIG.recipientEmail}
+                          </a>
+                        </div>
+                      )}
                     </div>
                   )}
 
@@ -339,8 +360,17 @@ export const ContactPage = () => {
                       disabled={loading}
                       className="px-6 py-3 min-h-[46px] rounded-xl bg-[#0b3b24] hover:bg-[#072617] active:bg-[#041a0f] text-white text-sm font-semibold tracking-wide transition-all inline-flex items-center gap-2 cursor-pointer shadow-sm disabled:opacity-50"
                     >
-                      <span>{loading ? t.common.sending : t.contact.send}</span>
-                      <span className="font-bold">&gt;</span>
+                      {loading ? (
+                        <>
+                          <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                          <span>{t.common.sending}</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>{t.contact.send}</span>
+                          <span className="font-bold">&gt;</span>
+                        </>
+                      )}
                     </button>
                   </div>
 

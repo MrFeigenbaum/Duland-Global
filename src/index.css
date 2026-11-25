@@ -15,6 +15,28 @@
   }
 }
 
+/* High-legibility multi-layer banner text shadows for bright/light photography */
+.banner-title-shadow {
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.92),
+    0 3px 12px rgba(0, 0, 0, 0.80),
+    0 6px 26px rgba(0, 0, 0, 0.58);
+}
+
+.banner-subtitle-shadow {
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.95),
+    0 2px 10px rgba(0, 0, 0, 0.85),
+    0 4px 18px rgba(0, 0, 0, 0.65);
+}
+
+.banner-crumb-shadow {
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.98),
+    0 1px 6px rgba(0, 0, 0, 0.90),
+    0 2px 12px rgba(0, 0, 0, 0.72);
+}
+
 /* Custom 50% Translucent Emerald Frosted-Glass Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

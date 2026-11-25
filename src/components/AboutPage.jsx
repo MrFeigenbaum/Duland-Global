@@ -46,15 +46,15 @@ export const AboutPage = ({ setCurrentView }) => {
             onError={(e) => { e.target.src = MEDIA.about.bannerFallback; }}
           />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 sm:via-40% to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/58 via-black/28 sm:via-45% to-transparent"></div>
         
         <div className="relative z-10 max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl text-white">
             <div className="border-l-4 sm:border-l-[5px] border-[#22c55e] pl-4 sm:pl-5 mb-2 animate-pageEnter">
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white banner-title-shadow">
                 {t.about.title}
               </h1>
-              <p className="text-sm sm:text-base text-slate-100 mt-2 font-normal tracking-wide">
+              <p className="text-sm sm:text-base text-white mt-2 font-normal tracking-wide banner-subtitle-shadow">
                 {t.about.subtitle}
               </p>
             </div>

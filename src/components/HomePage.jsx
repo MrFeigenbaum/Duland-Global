@@ -111,27 +111,27 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
               onError={(e) => { e.target.src = MEDIA.hero.fallback; }}
             />
           </picture>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 sm:via-40% to-black/15"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/62 via-black/32 sm:via-45% to-black/10"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/15"></div>
         </div>
 
         <div className="relative z-10 max-w-[1280px] 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 sm:py-16">
           <div className="max-w-2xl text-white">
             
             {/* Subtle Institutional Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold tracking-wider text-emerald-200 mb-4 uppercase animate-fadeIn">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/35 backdrop-blur-md border border-white/25 text-xs font-semibold tracking-wider text-emerald-200 mb-4 uppercase animate-fadeIn banner-crumb-shadow">
               <span className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse"></span>
               <span>{t.hero.eyebrow}</span>
             </div>
 
             {/* Title with Vertical Lime Green Accent Bar - 100% of Entire Multi-Line Heading Height */}
-            <h1 className="border-l-4 sm:border-l-[6px] border-[#22c55e] pl-4 sm:pl-5 font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold leading-[1.15] text-white tracking-tight drop-shadow-md mb-3 animate-pageEnter">
+            <h1 className="border-l-4 sm:border-l-[6px] border-[#22c55e] pl-4 sm:pl-5 font-serif text-3xl sm:text-5xl lg:text-[54px] font-bold leading-[1.15] text-white tracking-tight banner-title-shadow mb-3 animate-pageEnter">
               {t.hero.titleLine1} <br />
               {t.hero.titleLine2} <br />
               {t.hero.titleLine3}
             </h1>
 
-            <p className="text-sm sm:text-base text-slate-100 mt-3 font-normal tracking-wide max-w-lg leading-relaxed drop-shadow-xs">
+            <p className="text-sm sm:text-base text-white mt-3 font-normal tracking-wide max-w-lg leading-relaxed banner-subtitle-shadow">
               {t.hero.subtitle}
             </p>
 
@@ -156,7 +156,7 @@ export const HomePage = ({ setCurrentView, setSelectedAsset }) => {
             </div>
 
             {/* Quick Asset Categories Row */}
-            <div className="mt-8 pt-5 border-t border-white/15 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-emerald-100/90 font-medium">
+            <div className="mt-8 pt-5 border-t border-white/20 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-white font-medium banner-crumb-shadow">
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]"></span>
                 {t.hero.tags.residential}
