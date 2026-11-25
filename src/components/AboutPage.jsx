@@ -32,7 +32,7 @@ export const AboutPage = ({ setCurrentView }) => {
     <div className="w-full bg-white text-slate-800">
       
       {/* 1. TOP BANNER */}
-      <section className="relative w-full h-[260px] sm:h-[340px] lg:h-[380px] 2xl:h-[420px] overflow-hidden flex items-center">
+      <section className="relative w-full h-[260px] sm:h-[340px] lg:h-[380px] 2xl:h-[460px] min-[2100px]:h-[520px] overflow-hidden flex items-center">
         <img 
           src={MEDIA.about.banner} 
           alt="About Duland Global"

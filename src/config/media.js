@@ -1,4 +1,4 @@
-export const MEDIA_VERSION = '20261125v2';
+export const MEDIA_VERSION = '20261125v3';
 const v = (path) => `${path}?v=${MEDIA_VERSION}`;
 
 export const MEDIA = {
