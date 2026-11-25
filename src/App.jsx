@@ -14,8 +14,32 @@ const ContactPage = lazy(() => import('./components/ContactPage'));
 const NotFoundPage = lazy(() => import('./components/NotFoundPage'));
 const AssetDetailModal = lazy(() => import('./components/AssetDetailModal'));
 
+function getViewFromPath(pathname) {
+  const { routes } = SITE_CONFIG;
+  const clean = (pathname || '/').toLowerCase().replace(/\/+$/, '') || '/';
+  if (clean === '/' || clean === '/home' || clean === '/index.html') return routes.home;
+  if (clean === '/about') return routes.about;
+  if (clean === '/investments') return routes.investments;
+  if (clean === '/approach') return routes.approach;
+  if (clean === '/contact') return routes.contact;
+  return routes.notFound;
+}
+
+function getPathFromView(view) {
+  const { routes } = SITE_CONFIG;
+  if (view === routes.about) return '/about';
+  if (view === routes.investments) return '/investments';
+  if (view === routes.approach) return '/approach';
+  if (view === routes.contact) return '/contact';
+  return '/';
+}
+
 function AppContent() {
-  const [currentView, setCurrentView] = useState(SITE_CONFIG.routes.home);
+  const [currentView, setCurrentView] = useState(() =>
+    typeof window !== 'undefined'
+      ? getViewFromPath(window.location.pathname)
+      : SITE_CONFIG.routes.home
+  );
   const [selectedAsset, setSelectedAsset] = useState(null);
   const [showIntro, setShowIntro] = useState(() => {
     try {
@@ -26,6 +50,15 @@ function AppContent() {
     }
   });
   const { lang, t } = useLanguage();
+
+  // Sync browser Back/Forward navigation
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentView(getViewFromPath(window.location.pathname));
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Prefetch secondary route chunks on idle so navigation is instantaneous
   useEffect(() => {
@@ -45,14 +78,21 @@ function AppContent() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Instant view switch with smooth scroll to top
+  // Instant view switch with clean URL history update & smooth scroll to top
   const handleViewChange = (newView) => {
     if (newView === currentView) return;
     setCurrentView(newView);
+    if (typeof window !== 'undefined' && newView !== SITE_CONFIG.routes.notFound) {
+      const targetPath = getPathFromView(newView);
+      const currentPath = window.location.pathname.toLowerCase().replace(/\/+$/, '') || '/';
+      if (currentPath !== targetPath) {
+        window.history.pushState({ view: newView }, '', targetPath);
+      }
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Sync window title with current view and language
+  // Sync window title & canonical link with current view and language
   useEffect(() => {
     const { brandName, routes } = SITE_CONFIG;
     const titles = {
@@ -64,6 +104,13 @@ function AppContent() {
       [routes.notFound]: t.common.notFoundTitle
     };
     document.title = titles[currentView] || brandName;
+
+    if (typeof document !== 'undefined' && currentView !== routes.notFound) {
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) {
+        canonical.setAttribute('href', `https://www.dulandglobal.com${getPathFromView(currentView)}`);
+      }
+    }
   }, [currentView, lang, t]);
 
   return (

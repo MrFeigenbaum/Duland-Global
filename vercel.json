@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/investments", "destination": "/index.html" },
+    { "source": "/approach", "destination": "/index.html" },
+    { "source": "/contact", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
